@@ -1,0 +1,44 @@
+
+plugins {
+    id 'scala'
+}
+
+dependencies {
+    // Use Scala 2.11 in our library project
+    implementation 'org.scala-lang:scala-library:2.11.8'
+    compileOnly 'org.apache.spark:spark-sql_2.11:2.2.0'
+
+    // Use Scalatest for testing our library
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.scalatest:scalatest_2.11:3.0.5',
+        'org.apache.spark:spark-sql_2.11:2.2.0'
+
+    // Need scala-xml at test runtime
+    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6'
+}
+
+repositories {
+    jcenter()
+    maven {
+        url 'https://repository.cloudera.com/artifactory/cloudera-repos/'
+    }
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
+        events "passed", "skipped", "failed"
+    }
+}
+
+task fatjar(type: Jar){
+    manifest {
+        attributes 'Main-Class' : 'org.oclc.hadoop.setup.Example1'
+    }
+
+    baseName = 'fatty'
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}

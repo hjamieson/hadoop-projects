@@ -1,0 +1,13 @@
+target/
+**/.DS_Store
+.idea/
+*.iml
+*.iws
+out/
+**/derby.log
+metastore_db/
+*.class
+.classpath
+.settings
+.project
+

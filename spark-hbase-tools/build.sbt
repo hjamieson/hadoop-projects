@@ -2,7 +2,7 @@ import sbt.Keys.version
 
 lazy val p1 = (project in file("."))
   .settings(
-    name := "table-reader",
+    name := "spark-hbase-tools",
     version := "0.1",
     scalaVersion := "2.11.8",
 

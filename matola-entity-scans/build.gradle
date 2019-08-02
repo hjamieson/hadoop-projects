@@ -40,7 +40,7 @@ repositories {
 }
 
 task fatJar(type: Jar) {
-    baseName = 'works-phat'
+    baseName = 'matola-phat'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }

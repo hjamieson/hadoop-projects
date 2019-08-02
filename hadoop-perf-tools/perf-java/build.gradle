@@ -8,22 +8,37 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
-    id 'java-library'
+    id 'java'
 }
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '0.1'
 
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven {
+        url = 'https://repository.cloudera.com/artifactory/cloudera-repos/'
+    }
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation 'org.apache.hbase:hbase-common:1.2.0-cdh5.15.1'
+    implementation 'org.apache.hbase:hbase-client:1.2.0-cdh5.15.1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    task copydev(type: Exec) {
+        dependsOn('build')
+        ext.dest = "jamiesoh@hddev1gw002dxm1.dev.oclc.org:~/Downloads/"
+        ext.src = jar.archiveFile.get()
+        println("archivename = ${src}")
+        commandLine('scp')
+        args( src, dest)
+    }
+
 }

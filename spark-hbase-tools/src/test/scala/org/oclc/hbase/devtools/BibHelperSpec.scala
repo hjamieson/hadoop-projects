@@ -1,5 +1,6 @@
-package hbase
+package org.oclc.hbase.devtools
 
+import org.oclc.hbase.devtools.utils.BibHelper
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.Source

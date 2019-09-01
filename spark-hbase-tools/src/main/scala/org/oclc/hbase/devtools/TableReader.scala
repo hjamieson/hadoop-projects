@@ -1,19 +1,25 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.client.{Result, Scan}
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
-import org.apache.hadoop.hbase.util.Bytes
+import org.apache.hadoop.hbase.protobuf.ProtobufUtil
+import org.apache.hadoop.hbase.util.{Base64, Bytes}
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration}
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.BibHelper
 
 import scala.collection.mutable
 
 /**
-  * scans a table+column that contains CDF and extracts certain fields.  The result is emitted as
-  * JSON to the output.
+  * scans a table in HBase.
   */
-object Bib2Json {
+object TableReader {
+
+  def convertScanToString(scan: Scan): String = {
+    val proto = ProtobufUtil.toScan(scan)
+    Base64.encodeBytes(proto.toByteArray())
+  }
 
   def main(args:Array[String]): Unit ={
 
@@ -30,14 +36,14 @@ object Bib2Json {
     scan.setStartRow(cli.startKey().getBytes())
     scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
-    hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
+    hBaseConf.set(TableInputFormat.SCAN, convertScanToString(scan))
 
     val hbaseRDD = sc.newAPIHadoopRDD(hBaseConf,
       classOf[TableInputFormat],
       classOf[ImmutableBytesWritable],
       classOf[Result])
 
-    val ddd = hbaseRDD.map((t: (ImmutableBytesWritable, Result)) => ResultAsRow(t._1, t._2))
+    val ddd = hbaseRDD.map((t: (ImmutableBytesWritable, Result)) => RowResult(t._1, t._2))
     val bibs = ddd.map(n => BibHelper(n.id, n.values()("document")))
 
     val details = bibs.map { bib =>
@@ -50,7 +56,7 @@ object Bib2Json {
 
 }
 
-case class ResultAsRow(key: ImmutableBytesWritable, result: Result) {
+case class RowResult(key: ImmutableBytesWritable, result: Result) {
 
   def id: String = Bytes.toString(key.get())
 

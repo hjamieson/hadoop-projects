@@ -1,4 +1,4 @@
-package hbase
+package org.oclc.hbase.devtools.utils
 
 import org.apache.hadoop.hbase.client.Scan
 import org.apache.hadoop.hbase.protobuf.ProtobufUtil

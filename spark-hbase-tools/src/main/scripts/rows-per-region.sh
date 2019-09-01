@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-CLAZZ=hbase.RowsPerRegion
+CLAZZ=org.oclc.hbase.tools.hbase.RowsPerRegion
 JAR=table-reader-assembly-0.1.jar
-LIBS=$(hbase mapredcp | tr ':' ',')
-export HADOOP_CONF_DIR=/etc/hbase/conf
+LIBS=$(org.oclc.hbase.tools.hbase mapredcp | tr ':' ',')
+export HADOOP_CONF_DIR=/etc/org.oclc.hbase.tools.hbase/conf
 export YARN_CONF_DIR=/etc/hadoop/conf
 
 spark2-submit --master yarn \

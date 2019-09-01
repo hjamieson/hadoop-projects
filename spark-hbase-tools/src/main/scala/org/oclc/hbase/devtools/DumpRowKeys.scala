@@ -1,19 +1,24 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
-import org.apache.hadoop.hbase.filter.KeyOnlyFilter
+import org.apache.hadoop.hbase.filter.{FirstKeyOnlyFilter, KeyOnlyFilter}
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
+import org.apache.hadoop.hbase.util.Bytes
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.HbaseHelper
 import org.rogach.scallop.ScallopConf
 
+import scala.util.Random
+
 /**
-  * Counts rows in each region of an HBase table.
+  * Creates a dump of all the row keys in a table.  This is useful for baslining
+  * processes.
   * args: table to scan
   * options: startKey, endKey
   */
-object RowsPerRegion {
+object DumpRowKeys {
 
 
   def main(args:Array[String]): Unit ={
@@ -25,9 +30,9 @@ object RowsPerRegion {
 
     // setup the scan
     val scan: Scan = new Scan()
-    scan.setCaching(100)
+    scan.setCaching(1000)   // this is critical
     scan.setCacheBlocks(false)
-    scan.setFilter(new KeyOnlyFilter())
+    scan.setFilter(new FirstKeyOnlyFilter())
     if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
     if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
@@ -38,17 +43,20 @@ object RowsPerRegion {
       classOf[ImmutableBytesWritable],
       classOf[Result])
 
-    val parts = hbaseRDD.mapPartitions(iter => {
-      Iterator(iter.size)
-    })
-
-    parts.repartition(1).saveAsTextFile(cli.outputDir())
+    val rowkeys = hbaseRDD.map(t => Bytes.toString(t._1.get()))
+    val rand = new Random()
+    rowkeys
+      .sample(false, .2)
+      .map(p => (p, rand.nextInt(1000000)))
+      .sortBy(s => s._2)
+      .map(_._1)
+      .saveAsTextFile(cli.outputDir())
 
   }
 
 }
 
-class RowsPerRegionCliOptions(args: Seq[String]) extends ScallopConf(args) {
+class DumpKeysCliOptions(args: Seq[String]) extends ScallopConf(args) {
 
   override def onError(e: Throwable): Unit = {
     e match {

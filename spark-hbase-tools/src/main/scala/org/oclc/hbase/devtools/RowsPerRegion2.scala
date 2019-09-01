@@ -1,10 +1,11 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.client._
 import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{HBaseConfiguration, HRegionLocation, TableName}
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.JsonMapper
 import org.rogach.scallop.ScallopConf
 import org.slf4j.LoggerFactory
 
@@ -15,12 +16,12 @@ import scala.collection.JavaConverters._
   * args: table to scan
   * options: startKey, endKey
   */
-object FirstNTest {
+object RowsPerRegion2 {
   val LOG = LoggerFactory.getLogger(this.getClass)
 
   def main(args: Array[String]): Unit = {
 
-    val cli = new FirstNTestCliOptions(args)
+    val cli = new RowsPerRegion2CliOptions(args)
     val sc = new SparkContext(new SparkConf().setAppName("Table Reader"))
     sc.setLogLevel("ERROR")
 
@@ -29,38 +30,23 @@ object FirstNTest {
     // collection region information
     val con = ConnectionFactory.createConnection(hBaseConf)
     val regions = con.getRegionLocator(tableName).getAllRegionLocations()
-    val regionData = for (r <- regions.asScala) yield RegionData(r)
+    val regionData = for (r <- regions.asScala) yield RegionData2(r)
 
-    regionData foreach println
-
-    // get the 1st N keys from each region
+    // count the rows in each region:
     regionData.foreach(r => {
-      r.keys = getNKeys(r, cli.family.getOrElse("data"), 3)
+      countRows(r)
     })
 
-    // generate timing data
-    val hTable = con.getTable(tableName)
-    val obs = regionData.flatMap(r => {
-      queryTest(r, con, hTable, cli.family.getOrElse("data"))
-    })
-
-    sc.parallelize(obs).map(JsonMapper.get.writeValueAsString(_)).saveAsTextFile(cli.outputDir())
     con.close()
-  }
 
-  def queryTest(rgn: RegionData, conn: Connection, hTable: Table, family: String): List[Observation] = {
-    rgn.keys.map { key =>
-      val get = new Get(key)
-      get.addFamily(Bytes.toBytes(family))
-      val time = System.currentTimeMillis()
-      val result = hTable.get(get)
-      val elapsed = System.currentTimeMillis() - time
-      Observation(rgn.name, key, time, elapsed)
-    }
+    if (cli.outputDir.isDefined)
+      sc.parallelize(regionData).map(JsonMapper.toJson(_)).saveAsTextFile(cli.outputDir())
+    else regionData foreach println
+
   }
 
 
-  def getNKeys(rgnData: RegionData, family: String, n: Int): List[Array[Byte]] = {
+  def countRows(rgnData: RegionData2, cacheSize: Int = 1000): Unit = {
     LOG.info("generating keys for {}", rgnData.name)
     val conn = ConnectionFactory.createConnection()
     try {
@@ -68,14 +54,19 @@ object FirstNTest {
       val scan = new Scan()
       scan.setStartRow(rgnData.start)
       scan.setStopRow(rgnData.end)
-      scan.setCaching(n)
-      scan.addFamily(Bytes.toBytes(family))
+      scan.setCaching(cacheSize)
       scan.setFilter(new FirstKeyOnlyFilter())
       val scanner = t.getScanner(scan)
-      val rows = scanner.next(n)
-      rows.map(r => r.getRow()).toList
+      var nxt = scanner.next(cacheSize)
+      var nbrRows = 0
+      while (nxt.size > 0) {
+        nbrRows = nbrRows + nxt.size
+        nxt = scanner.next(cacheSize)
+      }
+      scanner.close()
+      rgnData.numRows = nbrRows
     } catch {
-      case e: Exception => List()
+      case e: Exception => rgnData.numRows = -1
     } finally {
       conn.close
     }
@@ -83,33 +74,26 @@ object FirstNTest {
 
 }
 
-case class RegionData(start: Array[Byte], end: Array[Byte], name: String, var keys: List[Array[Byte]] = List()) {
-  override def toString: String = "%s\t%s\t%s".format(
+case class RegionData2(start: Array[Byte], end: Array[Byte], name: String, var numRows: Long = 0) {
+  override def toString: String = "%s\t%s\t%s\t%d".format(
     name,
     Bytes.toString(start),
-    Bytes.toString(end)
+    Bytes.toString(end),
+    numRows
   )
 
   def table: String = name.split(",")(0)
 }
 
-object RegionData {
-  def apply(hrl: HRegionLocation): RegionData = {
+object RegionData2 {
+  def apply(hrl: HRegionLocation): RegionData2 = {
     hrl.getRegionInfo.getStartKey
-    new RegionData(hrl.getRegionInfo.getStartKey, hrl.getRegionInfo.getEndKey, hrl.getRegionInfo.getRegionNameAsString)
+    new RegionData2(hrl.getRegionInfo.getStartKey, hrl.getRegionInfo.getEndKey, hrl.getRegionInfo.getRegionNameAsString)
   }
 }
 
-case class Observation(region: String, key: Array[Byte], time: Long, elapsed: Long) {
-  override def toString: String = {
-    "%s\t%s\t%d\t%d".format(region,
-      Bytes.toHex(key),
-      time,
-      elapsed)
-  }
-}
 
-class FirstNTestCliOptions(args: Seq[String]) extends ScallopConf(args) {
+class RowsPerRegion2CliOptions(args: Seq[String]) extends ScallopConf(args) {
 
   override def onError(e: Throwable): Unit = {
     e match {
@@ -120,7 +104,7 @@ class FirstNTestCliOptions(args: Seq[String]) extends ScallopConf(args) {
   val table = opt[String](descr = "the name of the table to scan", required = true)
   val startKey = opt[String](descr = "start row", short = 's', required = false)
   val stopKey = opt[String](descr = "stop row", short = 'e', required = false)
-  val outputDir = opt[String](descr = "output directory", short = 'o', required = true)
+  val outputDir = opt[String](descr = "output directory", short = 'o', required = false)
   val family = opt[String](descr = "column family", short = 'f', required = false)
   verify()
 }

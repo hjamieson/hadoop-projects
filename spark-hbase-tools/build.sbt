@@ -13,7 +13,8 @@ lazy val p1 = (project in file("."))
       "org.apache.spark" %% "spark-sql" % "2.2.0" % Provided,
       "org.apache.hbase" % "hbase-client" % "1.2.0-cdh5.12.1" % Provided,
       "org.apache.hbase" % "hbase-server" % "1.2.0-cdh5.12.1" % Provided,
-      "org.apache.hbase" % "hbase-common" % "1.2.0-cdh5.12.1" % Provided
+      "org.apache.hbase" % "hbase-common" % "1.2.0-cdh5.12.1" % Provided,
+      "com.fasterxml.jackson.module" % "jackson-module-scala_2.11" % "2.6.5" % Compile
     )
 
   )

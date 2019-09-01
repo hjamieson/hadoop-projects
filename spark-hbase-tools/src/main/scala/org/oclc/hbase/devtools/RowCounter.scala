@@ -1,39 +1,34 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
-import org.apache.hadoop.hbase.filter._
+import org.apache.hadoop.hbase.filter.KeyOnlyFilter
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.HbaseHelper
 import org.rogach.scallop.ScallopConf
 
 /**
-  * Counts rows in an HBase table with the given prefix.
-  * args: table, prefix, output
+  * Counts rows in an HBase table.
   */
-object RowPrefixCounter {
+object RowCounter {
 
 
   def main(args:Array[String]): Unit ={
 
-    val cli = new RpcCliOptions(args)
+    val cli = new RowCounterCliOptions(args)
     val sc = new SparkContext(new SparkConf().setAppName("Table Reader"))
 
     val hBaseConf = HBaseConfiguration.create()
-    hBaseConf.set("hbase.client.scanner.timeout.period","240000")
-    hBaseConf.set("hbase.rpc.timeout","240000")
 
     // setup the scan
     val scan: Scan = new Scan()
     scan.setCaching(100)
     scan.setCacheBlocks(false)
-
-    val filter = new FilterList()
-//    filter.addFilter(new KeyOnlyFilter())
-//    filter.addFilter(new FirstKeyOnlyFilter())
-    filter.addFilter(new RowFilter(CompareFilter.CompareOp.EQUAL, new BinaryPrefixComparator(cli.prefix().getBytes())))
-    scan.setFilter(filter)
+    scan.setFilter(new KeyOnlyFilter())
+    scan.setStartRow(cli.startKey().getBytes())
+    scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
     hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
 
@@ -42,9 +37,11 @@ object RowPrefixCounter {
       classOf[ImmutableBytesWritable],
       classOf[Result])
 
-    val matches = hbaseRDD.count()
+    val parts = hbaseRDD.mapPartitions(iter => {
+      Iterator(iter.size)
+    })
 
-    println(s"$matches found with prefix ${cli.prefix()}")
+    parts.saveAsTextFile(cli.outputDir())
 
   }
 
@@ -52,7 +49,7 @@ object RowPrefixCounter {
 
 }
 
-class RpcCliOptions(args: Seq[String]) extends ScallopConf(args) {
+class RowCounterCliOptions(args: Seq[String]) extends ScallopConf(args) {
 
   override def onError(e: Throwable): Unit = {
     e match {
@@ -61,9 +58,8 @@ class RpcCliOptions(args: Seq[String]) extends ScallopConf(args) {
   }
 
   val table = opt[String](descr = "the name of the table to scan", required = true)
-  val prefix = opt[String](descr = "row prefix", short = 'p', required = true)
+  val startKey = opt[String](descr = "start row", short = 's', required = true)
+  val stopKey = opt[String](descr = "stop row", short = 'e', required = true)
   val outputDir = opt[String](descr = "output directory", short='o', required = true)
   verify()
 }
-
-

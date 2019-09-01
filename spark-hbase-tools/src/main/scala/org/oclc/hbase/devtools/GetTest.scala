@@ -1,4 +1,4 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.client._
 import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter
@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{HBaseConfiguration, TableName}
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.HbaseHelper
 import org.rogach.scallop.ScallopConf
 
 import scala.util.Random

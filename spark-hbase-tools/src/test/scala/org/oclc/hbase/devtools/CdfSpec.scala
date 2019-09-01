@@ -1,4 +1,4 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.scalatest.{FlatSpec, Matchers}
 

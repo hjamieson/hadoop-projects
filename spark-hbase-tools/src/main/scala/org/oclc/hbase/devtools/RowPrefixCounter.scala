@@ -1,39 +1,40 @@
-package hbase
+package org.oclc.hbase.devtools
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
-import org.apache.hadoop.hbase.filter.{FirstKeyOnlyFilter, KeyOnlyFilter}
+import org.apache.hadoop.hbase.filter._
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
-import org.apache.hadoop.hbase.util.Bytes
 import org.apache.spark.{SparkConf, SparkContext}
+import org.oclc.hbase.devtools.utils.HbaseHelper
 import org.rogach.scallop.ScallopConf
 
-import scala.util.Random
-
 /**
-  * Creates a dump of all the row keys in a table.  This is useful for baslining
-  * processes.
-  * args: table to scan
-  * options: startKey, endKey
+  * Counts rows in an HBase table with the given prefix.
+  * args: table, prefix, output
   */
-object DumpRowKeys {
+object RowPrefixCounter {
 
 
   def main(args:Array[String]): Unit ={
 
-    val cli = new RowsPerRegionCliOptions(args)
+    val cli = new RpcCliOptions(args)
     val sc = new SparkContext(new SparkConf().setAppName("Table Reader"))
 
     val hBaseConf = HBaseConfiguration.create()
+    hBaseConf.set("org.oclc.hbase.tools.hbase.client.scanner.timeout.period","240000")
+    hBaseConf.set("org.oclc.hbase.tools.hbase.rpc.timeout","240000")
 
     // setup the scan
     val scan: Scan = new Scan()
-    scan.setCaching(1000)   // this is critical
+    scan.setCaching(100)
     scan.setCacheBlocks(false)
-    scan.setFilter(new FirstKeyOnlyFilter())
-    if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
-    if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
+
+    val filter = new FilterList()
+//    filter.addFilter(new KeyOnlyFilter())
+//    filter.addFilter(new FirstKeyOnlyFilter())
+    filter.addFilter(new RowFilter(CompareFilter.CompareOp.EQUAL, new BinaryPrefixComparator(cli.prefix().getBytes())))
+    scan.setFilter(filter)
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
     hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
 
@@ -42,20 +43,17 @@ object DumpRowKeys {
       classOf[ImmutableBytesWritable],
       classOf[Result])
 
-    val rowkeys = hbaseRDD.map(t => Bytes.toString(t._1.get()))
-    val rand = new Random()
-    rowkeys
-      .sample(false, .2)
-      .map(p => (p, rand.nextInt(1000000)))
-      .sortBy(s => s._2)
-      .map(_._1)
-      .saveAsTextFile(cli.outputDir())
+    val matches = hbaseRDD.count()
+
+    println(s"$matches found with prefix ${cli.prefix()}")
 
   }
 
+
+
 }
 
-class DumpKeysCliOptions(args: Seq[String]) extends ScallopConf(args) {
+class RpcCliOptions(args: Seq[String]) extends ScallopConf(args) {
 
   override def onError(e: Throwable): Unit = {
     e match {
@@ -64,9 +62,9 @@ class DumpKeysCliOptions(args: Seq[String]) extends ScallopConf(args) {
   }
 
   val table = opt[String](descr = "the name of the table to scan", required = true)
-  val startKey = opt[String](descr = "start row", short = 's', required = false)
-  val stopKey = opt[String](descr = "stop row", short = 'e', required = false)
+  val prefix = opt[String](descr = "row prefix", short = 'p', required = true)
   val outputDir = opt[String](descr = "output directory", short='o', required = true)
   verify()
 }
+
 

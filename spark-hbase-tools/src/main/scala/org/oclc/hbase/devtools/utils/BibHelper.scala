@@ -1,4 +1,4 @@
-package hbase
+package org.oclc.hbase.devtools.utils
 
 import scala.xml.XML
 

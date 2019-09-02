@@ -3,7 +3,7 @@ package org.oclc.hbase.devtools
 import org.rogach.scallop.ScallopConf
 import org.rogach.scallop.exceptions.ScallopException
 
-class CliOptions(args: Seq[String]) extends ScallopConf(args) {
+class TableStartStopOptions(args: Seq[String]) extends ScallopConf(args) {
 
   override def onError(e: Throwable): Unit = {
     e match {

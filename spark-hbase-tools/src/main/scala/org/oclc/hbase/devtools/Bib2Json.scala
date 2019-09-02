@@ -18,7 +18,7 @@ object Bib2Json {
 
   def main(args:Array[String]): Unit ={
 
-    val cli = new CliOptions(args)
+    val cli = new TableStartStopOptions(args)
     val sc = new SparkContext(new SparkConf().setAppName("Table Reader"))
 
     val hBaseConf = HBaseConfiguration.create()

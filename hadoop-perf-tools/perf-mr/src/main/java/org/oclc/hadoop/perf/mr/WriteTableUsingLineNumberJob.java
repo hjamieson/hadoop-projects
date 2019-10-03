@@ -16,14 +16,15 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.hadoop.util.Tool;
+import org.oclc.hadoop.perf.mr.mapper.LineNumberRowMapper;
 import org.oclc.hadoop.perf.mr.mapper.MD5RowMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class WriteTableJob extends Configured implements Tool {
-    public static final Logger LOG = LoggerFactory.getLogger(WriteTableJob.class);
+public class WriteTableUsingLineNumberJob extends Configured implements Tool {
+    public static final Logger LOG = LoggerFactory.getLogger(WriteTableUsingLineNumberJob.class);
     public static final String OPT_TABLE = "t";
     public static final String OPT_COLUMN = "c";
     public static final String OPT_FILE = "f";
@@ -32,7 +33,7 @@ public class WriteTableJob extends Configured implements Tool {
     public enum COUNTERS {LINES}
 
     public static void main(String[] args) throws Exception {
-        System.exit(new WriteTableJob().run(args));
+        System.exit(new WriteTableUsingLineNumberJob().run(args));
     }
 
     @Override
@@ -47,8 +48,8 @@ public class WriteTableJob extends Configured implements Tool {
         Job job = Job.getInstance(getConf(), JOBNAME);
         job.getConfiguration().set(TableOutputFormat.OUTPUT_TABLE, table.getNameWithNamespaceInclAsString());
         job.getConfiguration().set("conf.column", opts.getOptionValue(OPT_COLUMN));
-        job.setJarByClass(WriteTableJob.class);
-        job.setMapperClass(MD5RowMapper.class);
+        job.setJarByClass(WriteTableUsingLineNumberJob.class);
+        job.setMapperClass(LineNumberRowMapper.class);
         job.setInputFormatClass(TextInputFormat.class);
         TextInputFormat.addInputPath(job, new Path(opts.getOptionValue(OPT_FILE)));
         job.setOutputFormatClass(TableOutputFormat.class);

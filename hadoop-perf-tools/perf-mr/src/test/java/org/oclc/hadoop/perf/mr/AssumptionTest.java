@@ -4,6 +4,8 @@ package org.oclc.hadoop.perf.mr;
 import org.apache.hadoop.hbase.TableName;
 import org.junit.Test;
 
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,5 +39,32 @@ public class AssumptionTest {
         assertThat(m1.matches(), is(true));
         assertThat(m1.group(1), is("125"));
         assertThat(m1.group(2), is("M"));
+    }
+
+    @Test
+    public void testClassLoader(){
+        Class myClass = org.oclc.hadoop.perf.mr.inputformat.FakeInputFormat.class;
+        ClassLoader loader = myClass.getClassLoader();
+        String classFile = myClass.getName().replaceAll("\\.", "/") + ".class";
+        System.out.println(classFile);
+        try {
+            Enumeration<URL> resources = loader.getResources(classFile);
+            while (resources.hasMoreElements()){
+                URL url = resources.nextElement();
+                System.out.println(url);
+            }
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @Test
+    public void modulusTest(){
+        int max = 500;
+        for (int i = 0; i< max; i++){
+            if ( i % 100 == 0){
+                System.out.println(i);
+            }
+        }
     }
 }

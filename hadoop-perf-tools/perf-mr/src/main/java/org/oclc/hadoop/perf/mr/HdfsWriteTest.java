@@ -39,7 +39,7 @@ public class HdfsWriteTest extends Configured implements Tool {
     public static final String FIXED_SPLITS_NUMRECS = "fixed.splits.numrecs";
     public static final int RECORD_SIZE = 128;
 
-    public final String JOBNAME = "xxx";
+    public final String JOBNAME = "HDFS Write Test";
 
     public enum COUNTERS {LINES}
 
@@ -94,7 +94,7 @@ public class HdfsWriteTest extends Configured implements Tool {
         } catch (ParseException e) {
             System.err.println("ERROR: " + e.getMessage());
             HelpFormatter hf = new HelpFormatter();
-            hf.printHelp(jobname, options, true);
+            hf.printHelp(HdfsWriteTest.class.getName(), options, true);
             System.exit(1);
         }
         return opts;

@@ -49,9 +49,10 @@ public class HBaseWriteTest extends Configured implements Tool {
 
         CommandLine opts = processCmdline(gop.getRemainingArgs(), JOBNAME);
         TableName table = TableName.valueOf(opts.getOptionValue(OPT_TABLE));
+        TableName counter = TableName.valueOf(opts.getOptionValue(OPT_COUNTER_TABLE, table.getNameWithNamespaceInclAsString()));
 
         checkTableExists(table);
-        checkTableExists(TableName.valueOf(opts.getOptionValue(OPT_COUNTER_TABLE)));
+        checkTableExists(counter);
         getConf().setInt(FakeInputFormat.NUM_SPLITS, Integer.valueOf(opts.getOptionValue(OPT_SPLITS)));
 
         getConf().setInt(CounterKeyMapper.COUNTERKEYMAPPER_NUMROWS,
@@ -62,7 +63,7 @@ public class HBaseWriteTest extends Configured implements Tool {
         Job job = Job.getInstance(getConf(), JOBNAME);
         job.setJarByClass(HBaseWriteTest.class);
         job.getConfiguration().set(TableOutputFormat.OUTPUT_TABLE, table.getNameWithNamespaceInclAsString());
-        job.getConfiguration().set("sequence.table.name", opts.getOptionValue(OPT_COUNTER_TABLE));
+        job.getConfiguration().set("sequence.table.name", counter.getNameWithNamespaceInclAsString());
         job.setMapperClass(CounterKeyMapper.class);
         job.setInputFormatClass(FakeInputFormat.class);
         job.setMapOutputKeyClass(ImmutableBytesWritable.class);
@@ -99,7 +100,6 @@ public class HBaseWriteTest extends Configured implements Tool {
         tableOpt.setRequired(true);
         options.addOption(tableOpt);
         Option colOpt = new Option(OPT_COUNTER_TABLE, true, "sequence table");
-        colOpt.setRequired(true);
         colOpt.setArgName("sequence table name");
         options.addOption(colOpt);
         Option splitOption = new Option(OPT_SPLITS, true, "number of splits");
@@ -115,7 +115,7 @@ public class HBaseWriteTest extends Configured implements Tool {
         } catch (ParseException e) {
             System.err.println("ERROR: " + e.getMessage());
             HelpFormatter hf = new HelpFormatter();
-            hf.printHelp(jobname, options, true);
+            hf.printHelp(HBaseWriteTest.class.getName(), options, true);
             System.exit(1);
         }
         return opts;

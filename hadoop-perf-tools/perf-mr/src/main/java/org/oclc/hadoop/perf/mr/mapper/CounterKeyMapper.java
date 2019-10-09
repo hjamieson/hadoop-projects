@@ -21,10 +21,10 @@ public class CounterKeyMapper extends Mapper<Text, Text, ImmutableBytesWritable,
     ImmutableBytesWritable DUMMY = new ImmutableBytesWritable();
     byte[] CF = "d".getBytes();
     byte[] COL = "c1".getBytes();
-    byte[] COUNTER_ROW = "100".getBytes();
+    byte[] COUNTER_ROW = "sequence".getBytes();
     byte[] COUNTER_FAM = "counter".getBytes();
-    byte[] COUNTER_COL = "testing".getBytes();
-    private Table table;
+    byte[] COUNTER_COL = "next".getBytes();
+    private Table sequenceTable;
     private Connection con;
     private int maxRows;
 
@@ -33,23 +33,24 @@ public class CounterKeyMapper extends Mapper<Text, Text, ImmutableBytesWritable,
         CF = "d".getBytes();
         COL = "c1".getBytes();
         con = ConnectionFactory.createConnection(context.getConfiguration());
-        table = con.getTable(TableName.valueOf(context.getConfiguration().get("sequence.table.name")));
+        sequenceTable = con.getTable(TableName.valueOf(context.getConfiguration().get("sequence.table.name")));
         maxRows = context.getConfiguration().getInt(COUNTERKEYMAPPER_NUMROWS, 1);
     }
 
     @Override
     protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
         /*
-        we use the counter to get the next key
+        we use the counter to get the next key; we will ask for a block of values
+        so we are not incrementing for each put
          */
+        long lastKey = sequenceTable.incrementColumnValue(COUNTER_ROW, COUNTER_FAM, COUNTER_COL, maxRows);
         for (int i = 0; i < maxRows; i++) {
-            long nextKey = table.incrementColumnValue(COUNTER_ROW, COUNTER_FAM, COUNTER_COL, 1l);
-            Put put = new Put(Long.toString(nextKey).getBytes());
+            Put put = new Put(Long.toString(lastKey-maxRows + i).getBytes());
             put.addColumn(CF, COL, Utils.randomContent(Utils.CONTENT.RANDOMTEXT));
             context.write(DUMMY, put);
             if (i % 100 == 0) {
                 context.setStatus(String.format("%d written (%s)", i,
-                        StringUtils.formatPercent((double)i/(double)maxRows, 1)));
+                        StringUtils.formatPercent((double) i / (double) maxRows, 1)));
                 context.progress();
             }
         }
@@ -59,7 +60,7 @@ public class CounterKeyMapper extends Mapper<Text, Text, ImmutableBytesWritable,
 
     @Override
     protected void cleanup(Context context) throws IOException, InterruptedException {
-        table.close();
+        sequenceTable.close();
         con.close();
     }
 }

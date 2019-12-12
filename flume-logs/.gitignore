@@ -1,0 +1,7 @@
+apache-flume-1.9.0-bin/
+logs/
+.DS_Store
+out/
+.idea
+*.iml
+

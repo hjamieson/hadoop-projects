@@ -36,8 +36,8 @@ class JSONSerializer implements EventSerializer {
         Map<String, String> map = new HashMap<>();
         for (Map.Entry<String, String> header : event.getHeaders().entrySet()) {
             map.put(header.getKey(), header.getValue());
-            map.put("data", new String(event.getBody()));
         }
+        map.put("data", new String(event.getBody()));
         return gson.toJson(map);
     }
 

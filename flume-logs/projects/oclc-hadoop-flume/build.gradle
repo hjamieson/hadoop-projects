@@ -16,12 +16,15 @@ version = 0.1
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+//    jcenter()
+    maven {
+        url 'https://repository.cloudera.com/artifactory/cloudera-repos/'
+    }
+    mavenCentral()
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:27.0.1-jre'
-    implementation 'org.apache.flume:flume-ng-core:1.6.0'
+    implementation 'org.apache.flume:flume-ng-core:1.6.0-cdh5.16.2'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

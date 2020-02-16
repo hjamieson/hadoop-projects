@@ -10,3 +10,5 @@
     > ttl = 30sec
 * delete topic:  
     `kafka-topics --zookeeper hddev1mb004dxc1.dev.oclc.org:2181/kafka --delete --topic dbahadoop.log.collection`  
+* listen on topic:  
+    `kafka-console-consumer --bootstrap-server hddev1mb004dxc1.dev.oclc.org:9092 --topic dbahadoop.log.collection --from-beginning`

@@ -6,4 +6,7 @@ build/
 .gradle/
 out/
 **/.DS_Store
-
+.project
+.classpath
+.settings
+*.swp

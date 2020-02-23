@@ -3,11 +3,10 @@ package org.oclc.hbase.devtools
 import org.apache.hadoop.hbase.client.{Result, Scan}
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
-import org.apache.hadoop.hbase.protobuf.ProtobufUtil
-import org.apache.hadoop.hbase.util.{Base64, Bytes}
+import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.oclc.hbase.devtools.utils.BibHelper
+import org.oclc.hbase.devtools.utils.{BibHelper, HbaseHelper}
 
 import scala.collection.mutable
 
@@ -16,10 +15,6 @@ import scala.collection.mutable
   */
 object TableReader {
 
-  def convertScanToString(scan: Scan): String = {
-    val proto = ProtobufUtil.toScan(scan)
-    Base64.encodeBytes(proto.toByteArray())
-  }
 
   def main(args:Array[String]): Unit ={
 
@@ -36,7 +31,7 @@ object TableReader {
     scan.setStartRow(cli.startKey().getBytes())
     scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
-    hBaseConf.set(TableInputFormat.SCAN, convertScanToString(scan))
+    hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
 
     val hbaseRDD = sc.newAPIHadoopRDD(hBaseConf,
       classOf[TableInputFormat],

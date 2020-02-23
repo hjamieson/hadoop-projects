@@ -1,10 +1,10 @@
-package org.oclc.hbase.devtools.utils
+package org.oclc.hbase.spark.utils
 
 import org.apache.hadoop.hbase.client.Scan
 import org.apache.hadoop.hbase.protobuf.ProtobufUtil
 import org.apache.hadoop.hbase.util.Base64
 
-object HbaseHelper {
+object HBaseHelper {
 
   /**
     * converts an HBase Scan to a base64 string to be used with newAPIHadoopRDD.

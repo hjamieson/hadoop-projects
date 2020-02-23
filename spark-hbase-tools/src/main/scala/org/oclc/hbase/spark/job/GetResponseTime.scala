@@ -1,4 +1,4 @@
-package org.oclc.hbase.devtools
+package org.oclc.hbase.spark.job
 
 import org.apache.hadoop.hbase.client._
 import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter
@@ -7,7 +7,7 @@ import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{HBaseConfiguration, TableName}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.oclc.hbase.devtools.utils.HbaseHelper
+import org.oclc.hbase.spark.utils.HBaseHelper
 import org.rogach.scallop.ScallopConf
 
 import scala.util.Random
@@ -17,7 +17,7 @@ import scala.util.Random
   * args: table to scan
   * options: startKey, endKey
   */
-object GetTest {
+object GetResponseTime {
 
 
 
@@ -40,7 +40,7 @@ object GetTest {
     if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
     if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
-    hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
+    hBaseConf.set(TableInputFormat.SCAN, HBaseHelper.convertScanToString(scan))
 
     val hbaseRDD = sc.newAPIHadoopRDD(hBaseConf,
       classOf[TableInputFormat],

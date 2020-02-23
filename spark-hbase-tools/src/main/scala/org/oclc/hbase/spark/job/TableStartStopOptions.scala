@@ -1,7 +1,6 @@
-package org.oclc.hbase.devtools
+package org.oclc.hbase.spark.job
 
 import org.rogach.scallop.ScallopConf
-import org.rogach.scallop.exceptions.ScallopException
 
 class TableStartStopOptions(args: Seq[String]) extends ScallopConf(args) {
 

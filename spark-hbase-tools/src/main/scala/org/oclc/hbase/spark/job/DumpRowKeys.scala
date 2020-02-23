@@ -1,13 +1,13 @@
-package org.oclc.hbase.devtools
+package org.oclc.hbase.spark.job
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
-import org.apache.hadoop.hbase.filter.{FirstKeyOnlyFilter, KeyOnlyFilter}
+import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.spark.{SparkConf, SparkContext}
-import org.oclc.hbase.devtools.utils.HbaseHelper
+import org.oclc.hbase.spark.utils.HBaseHelper
 import org.rogach.scallop.ScallopConf
 
 import scala.util.Random
@@ -36,7 +36,7 @@ object DumpRowKeys {
     if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
     if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
-    hBaseConf.set(TableInputFormat.SCAN, HbaseHelper.convertScanToString(scan))
+    hBaseConf.set(TableInputFormat.SCAN, HBaseHelper.convertScanToString(scan))
 
     val hbaseRDD = sc.newAPIHadoopRDD(hBaseConf,
       classOf[TableInputFormat],

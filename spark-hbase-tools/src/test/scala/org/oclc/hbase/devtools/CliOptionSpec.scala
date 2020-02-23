@@ -1,5 +1,6 @@
 package org.oclc.hbase.devtools
 
+import org.oclc.hbase.spark.job.TableStartStopOptions
 import org.scalatest.{FlatSpec, Matchers}
 
 class CliOptionSpec extends FlatSpec with Matchers {

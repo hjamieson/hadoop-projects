@@ -1,4 +1,4 @@
-package org.oclc.hbase.devtools.utils
+package org.oclc.hbase.spark.job.serializer
 
 import scala.xml.XML
 

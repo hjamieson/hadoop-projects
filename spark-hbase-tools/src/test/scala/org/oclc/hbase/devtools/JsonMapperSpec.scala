@@ -1,6 +1,6 @@
 package org.oclc.hbase.devtools
 
-import org.oclc.hbase.devtools.utils.JsonMapper
+import org.oclc.hbase.spark.job.serializer.JsonMapper
 import org.scalatest.{FunSuite, Matchers}
 
 class JsonMapperSpec extends FunSuite with Matchers {

@@ -1,4 +1,4 @@
-package org.oclc.hbase.devtools.utils
+package org.oclc.hbase.spark.job.serializer
 
 import com.fasterxml.jackson.databind.{DeserializationFeature, ObjectMapper}
 import com.fasterxml.jackson.module.scala.DefaultScalaModule

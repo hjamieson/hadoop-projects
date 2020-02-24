@@ -2,7 +2,7 @@ package org.oclc.hbase.spark.job
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
-import org.apache.hadoop.hbase.filter.KeyOnlyFilter
+import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.spark.{SparkConf, SparkContext}
@@ -26,9 +26,9 @@ object RowCounter {
     val scan: Scan = new Scan()
     scan.setCaching(100)
     scan.setCacheBlocks(false)
-    scan.setFilter(new KeyOnlyFilter())
-    scan.setStartRow(cli.startKey().getBytes())
-    scan.setStopRow(cli.stopKey().getBytes())
+    scan.setFilter(new FirstKeyOnlyFilter())
+    if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
+    if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE,cli.table())
     hBaseConf.set(TableInputFormat.SCAN, HBaseHelper.convertScanToString(scan))
 
@@ -39,7 +39,7 @@ object RowCounter {
 
     val parts = hbaseRDD.mapPartitions(iter => {
       Iterator(iter.size)
-    })
+    }).repartition(1)
 
     parts.saveAsTextFile(cli.outputDir())
 
@@ -58,8 +58,8 @@ class RowCounterCliOptions(args: Seq[String]) extends ScallopConf(args) {
   }
 
   val table = opt[String](descr = "the name of the table to scan", required = true)
-  val startKey = opt[String](descr = "start row", short = 's', required = true)
-  val stopKey = opt[String](descr = "stop row", short = 'e', required = true)
+  val startKey = opt[String](descr = "start row", short = 's', required = false)
+  val stopKey = opt[String](descr = "stop row", short = 'e', required = false)
   val outputDir = opt[String](descr = "output directory", short='o', required = true)
   verify()
 }

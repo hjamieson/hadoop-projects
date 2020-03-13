@@ -39,29 +39,29 @@ object Bib2Json {
       classOf[ImmutableBytesWritable],
       classOf[Result])
 
-    val ddd = hbaseRDD.map((t: (ImmutableBytesWritable, Result)) => ResultAsRow(t._1, t._2))
-    val bibs = ddd.map(n => BibHelper(n.id, n.values()("document")))
-
-    val details = bibs.map { bib =>
-      s"${bib.key}|${bib.title.getOrElse("none")}|${bib.author.getOrElse("none")}|${bib.publicationDate.getOrElse("")}"
-    }
-    details.saveAsTextFile(cli.outputDir())
+    hbaseRDD.map(RowAsBean(_))
+      .map(n => BibHelper(n.id, n.values()("document")))
+      .map { bib =>
+        s"${bib.key}|${bib.title.getOrElse("none")}|${bib.author.getOrElse("none")}|${bib.publicationDate.getOrElse("")}"
+      }
+      .saveAsTextFile(cli.outputDir())
 
   }
 
 
 }
 
-case class ResultAsRow(key: ImmutableBytesWritable, result: Result) {
+case class RowAsBean(tup: (ImmutableBytesWritable, Result)) {
 
-  def id: String = Bytes.toString(key.get())
+  def id: String = Bytes.toString(tup._1.get())
 
   def values(): mutable.Map[String, String] = {
-    val m = mutable.Map[String,String]()
+    val m = mutable.Map[String, String]()
     // add the rowkey:
     m += "rowkey" -> id
 
-    while (result.advance()){
+    val result = tup._2
+    while (result.advance()) {
       val cell = result.current()
       m += (Bytes.toString(CellUtil.cloneQualifier(cell)) -> Bytes.toString(CellUtil.cloneValue(cell)))
     }

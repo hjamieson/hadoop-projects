@@ -1,8 +1,0 @@
-.DS_Store
-.gradle/
-out/
-target/
-build/
-.idea/
-*.iml
-spark-warehouse/

@@ -49,7 +49,9 @@ object TableReader {
 
   }
 
-
+  def convertRowToJson(row:(ImmutableBytesWritable, Result)): String = {
+    RowResult(row._1, row._2).toString
+  }
 }
 
 case class RowResult(key: ImmutableBytesWritable, result: Result) {

@@ -12,7 +12,7 @@ case class BibHelper(key: String, cdf: String) {
   }
 
   def author: Option[String] = {
-    val seq = root \ "v100"
+    val seq = root \ "v100" \ "sa" \ "d"
     if (seq.isEmpty) None
     else Some(seq.text)
   }
@@ -24,5 +24,13 @@ case class BibHelper(key: String, cdf: String) {
   }
 
   def documentSize: Int = cdf.length
+
+  def dump(): Map[String, String] = {
+    Map[String, String](
+      "ocn" -> key,
+      "title" -> title.getOrElse("na"),
+      "author" -> author.getOrElse("na"),
+      "publicationDate" -> publicationDate.getOrElse("na"))
+  }
 
 }

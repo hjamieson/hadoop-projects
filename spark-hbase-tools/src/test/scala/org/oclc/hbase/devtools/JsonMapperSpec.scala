@@ -22,4 +22,16 @@ class JsonMapperSpec extends FunSuite with Matchers {
     assert(result.age == 16)
 
   }
+
+  test("we can output a standard MAP"){
+    val map = scala.collection.mutable.Map[String,String]()
+    map("field1") = "value1"
+    map("field2") = "value2"
+    map("field3") = "value3"
+    val json = JsonMapper.toJson(map)
+    println(json)
+    assert(json.contains("field2"))
+    assert(json.contains("value2"))
+
+  }
 }

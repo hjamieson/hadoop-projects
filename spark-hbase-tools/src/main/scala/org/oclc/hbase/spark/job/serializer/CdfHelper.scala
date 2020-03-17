@@ -2,7 +2,7 @@ package org.oclc.hbase.spark.job.serializer
 
 import scala.xml.XML
 
-case class BibHelper(key: String, cdf: String) {
+case class CdfHelper(key: String, cdf: String) {
   val root = XML.loadString(cdf)
 
   def title: Option[String] = {

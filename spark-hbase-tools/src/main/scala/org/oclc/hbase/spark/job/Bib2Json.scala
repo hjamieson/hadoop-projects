@@ -6,7 +6,7 @@ import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.oclc.hbase.spark.job.serializer.{BibHelper, JsonMapper}
+import org.oclc.hbase.spark.job.serializer.{CdfHelper, JsonMapper}
 import org.oclc.hbase.spark.utils.HBaseHelper
 
 import scala.collection.mutable
@@ -40,7 +40,7 @@ object Bib2Json {
       classOf[Result])
 
     hbaseRDD.map(RowAsBean(_))
-      .map(n => BibHelper(n.id, n.values()("document")))
+      .map(n => CdfHelper(n.id, n.values()("document")))
       .map(b => JsonMapper.toJson(b.dump()))
       .saveAsTextFile(cli.outputDir())
 

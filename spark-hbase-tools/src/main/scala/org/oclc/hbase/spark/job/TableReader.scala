@@ -6,7 +6,7 @@ import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.oclc.hbase.spark.job.serializer.BibHelper
+import org.oclc.hbase.spark.job.serializer.CdfHelper
 import org.oclc.hbase.spark.utils.HBaseHelper
 
 import scala.collection.mutable
@@ -40,7 +40,7 @@ object TableReader {
       classOf[Result])
 
     val ddd = hbaseRDD.map(RowResult(_))
-      .map(n => BibHelper(n.id, n.values()("document")))
+      .map(n => CdfHelper(n.id, n.values()("document")))
       .map { bib =>
         s"${bib.key}|${bib.title.getOrElse("none")}|${bib.author.getOrElse("none")}|${bib.publicationDate.getOrElse("")}"
       }

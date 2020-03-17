@@ -31,6 +31,5 @@ public class SimpleScan {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

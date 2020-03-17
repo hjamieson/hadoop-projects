@@ -1,17 +1,17 @@
 package org.oclc.hbase.devtools
 
-import org.oclc.hbase.spark.job.serializer.BibHelper
+import org.oclc.hbase.spark.job.serializer.CdfHelper
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.io.Source
 
-class BibHelperSpec extends FlatSpec with Matchers {
+class CdfHelperSpec extends FlatSpec with Matchers {
   val cdf1 = Source.fromURL(getClass.getResource("/sample1.cdf")).getLines().mkString
   val cdf2 = Source.fromURL(getClass.getResource("/sample2.cdf")).getLines().mkString
   val cdf3 = Source.fromURL(getClass.getResource("/davinci.cdf")).getLines().mkString
-  val bib1 = BibHelper("10", cdf1)
-  val bib2 = BibHelper("20", cdf2)
-  val bib3 = BibHelper("30", cdf3)
+  val bib1 = CdfHelper("10", cdf1)
+  val bib2 = CdfHelper("20", cdf2)
+  val bib3 = CdfHelper("30", cdf3)
 
   "sample1" should "return a title if found" in {
     assert(bib1.title.get == "The Rand McNally book of favorite pastimes /illustrated by Dorothy Grider.")

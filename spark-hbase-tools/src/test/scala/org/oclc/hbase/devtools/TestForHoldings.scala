@@ -19,8 +19,8 @@ object TestForHoldings extends App {
     while (result.advance()) {
       val cel = result.current()
       val qualifier = CellUtil.cloneQualifier(cel)
-      if (qualifier.startsWith(Bytes.toBytes("hold:"))) println(Bytes.toString(qualifier))
-//      println(Bytes.toString(qualifier))
+//      if (qualifier.startsWith(Bytes.toBytes("hold:"))) println(Bytes.toString(qualifier))
+      println(Bytes.toString(qualifier))
     }
   }
   worldcat.close()

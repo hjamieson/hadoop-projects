@@ -2,6 +2,8 @@ package org.oclc.hbase.spark.job
 
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration}
 import org.apache.hadoop.hbase.client.{Result, Scan}
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
@@ -27,6 +29,9 @@ object HoldingsScan {
     scan.setCaching(100)
     scan.setCacheBlocks(false)
     scan.addFamily("data".getBytes())
+    val onlyXWC = new SingleColumnValueFilter(Bytes.toBytes("data"), Bytes.toBytes("dataSource"), CompareOp.EQUAL, Bytes.toBytes("xwc"))
+    onlyXWC.setFilterIfMissing(true)
+    scan.setFilter(onlyXWC)
     if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
     if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
     hBaseConf.set(TableInputFormat.INPUT_TABLE, WORLDCAT)
@@ -58,9 +63,15 @@ object HoldingsScan {
     resp.toMap
   }
 
-  case class Holdings(ocn: String, count: Int)
+  case class Holdings(ocn: String, col: String, count: Int)
+
   def countAllHoldings(row: Map[String, String]): Holdings = {
+    if (!row.isDefinedAt("dataSource")) {
+      println(s"*** no dataSource at row ${row("rowkey")}")
+      println(s"***${row.keys}***")
+    }
     Holdings(row("rowkey"),
+      row.getOrElse("dataSource","NaN"),
       row.filterKeys(_.startsWith("hold:")).size)
   }
 }

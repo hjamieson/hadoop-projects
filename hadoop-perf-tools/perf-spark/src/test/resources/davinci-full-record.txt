@@ -1,0 +1,428 @@
+jamiesoh@hddev1gw002dxm1:~$ cat get.txt
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.0-cdh5.16.2, rUnknown, Mon Jun  3 03:50:03 PDT 2019
+
+get 'Worldcat','1'
+COLUMN  CELL
+ data:conspectusAudience timestamp=1584461900949, value=J
+ data:conspectusCategory timestamp=1584461900949, value=34932000
+ data:conspectusDivision timestamp=1584461900949, value=34000000
+ data:conspectusSubject timestamp=1584461900949, value=34932100
+ data:createDate timestamp=1584461900949, value=19690526 00:00:00.000
+ data:ctl:IdentARN|10170077 timestamp=1480472388546, value={"members":[{"XPATH":"v655[4]/sa[1]","CDATE":"20161129 21:19:48.048","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>10170077<\x5C/Link>","CHKSUM":"163040ca"}]}
+ data:ctl:IdentARN|2015051 timestamp=1395322862818, value={"members":[{"XPATH":"v650[1]/sa[1]","CDATE":"20140320 09:41:02.475","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2015051<\x5C/Link>","CHKSUM":"10cb78d8"}]}
+ data:ctl:IdentARN|2062584 timestamp=1395322862818, value={"members":[{"XPATH":"v650[2]/sa[1]","CDATE":"20140320 09:41:02.734","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2062584<\x5C/Link>","CHKSUM":"8535df6b"}]}
+ data:ctl:IdentARN|2071970 timestamp=1395322862818, value={"members":[{"XPATH":"v650[4]/sa[1]","CDATE":"20140320 09:41:01.287","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2071970<\x5C/Link>","CHKSUM":"13220087"}]}
+ data:ctl:IdentARN|2082886 timestamp=1395322862818, value={"members":[{"XPATH":"v650[3]/sa[1]","CDATE":"20140320 09:41:00.940","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2082886<\x5C/Link>","CHKSUM":"eb0e59b6"}]}
+ data:ctl:IdentARN|2144643 timestamp=1424824876663, value={"members":[{"XPATH":"v650[6]/sa[1]","CDATE":"20150224 19:41:16.297","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2144643<\x5C/Link>","CHKSUM":"f9b6128a"}]}
+ data:ctl:IdentARN|2161943 timestamp=1395322862818, value={"members":[{"XPATH":"v650[5]/sa[1]","CDATE":"20140320 09:41:01.210","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>2161943<\x5C/Link>","CHKSUM":"55ae55cd"}]}
+ data:ctl:IdentARN|4907799 timestamp=1480472388546, value={"members":[{"XPATH":"v650[7]/sa[1]","CDATE":"20161129 21:19:48.051","ACTION":"ADDLINK","DATA":"<Link source='IdentARN' status='controlled'>4907799<\x5C/Link>","CHKSUM":"36b97e13"}]}
+ data:ctl:IdentFAST|1140328 timestamp=1462523472438, value={"members":[{"XPATH":"v650[14]/sa[1]","CDATE":"20160506 04:31:11.633","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>1140328<\x5C/Link>","CHKSUM":"1300d26b"}]}
+ data:ctl:IdentFAST|1411637 timestamp=1480472388546, value={"members":[{"XPATH":"v655[2]/sa[1]","CDATE":"20161129 21:19:48.073","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>1411637<\x5C/Link>","CHKSUM":"ab7431a8"}]}
+ data:ctl:IdentFAST|1423787 timestamp=1480472388546, value={"members":[{"XPATH":"v655[1]/sa[1]","CDATE":"20161129 21:19:48.083","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>1423787<\x5C/Link>","CHKSUM":"f47e5f48"}]}
+ data:ctl:IdentFAST|1726740 timestamp=1480472388546, value={"members":[{"XPATH":"v655[3]/sa[1]","CDATE":"20161129 21:19:48.081","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>1726740<\x5C/Link>","CHKSUM":"736f2c2e"}]}
+ data:ctl:IdentFAST|808105 timestamp=1462523472438, value={"members":[{"XPATH":"v650[9]/sa[1]","CDATE":"20160506 04:31:11.660","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>808105<\x5C/Link>","CHKSUM":"da7bbfa6"}]}
+ data:ctl:IdentFAST|826049 timestamp=1462523472438, value={"members":[{"XPATH":"v650[10]/sa[1]","CDATE":"20160506 04:31:11.656","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>826049<\x5C/Link>","CHKSUM":"d6db3f11"}]}
+ data:ctl:IdentFAST|828812 timestamp=1462523472438, value={"members":[{"XPATH":"v650[11]/sa[1]","CDATE":"20160506 04:31:11.673","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>828812<\x5C/Link>","CHKSUM":"27d0a807"}]}
+ data:ctl:IdentFAST|856632 timestamp=1462523472438, value={"members":[{"XPATH":"v650[12]/sa[1]","CDATE":"20160506 04:31:11.666","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>856632<\x5C/Link>","CHKSUM":"44519540"}]}
+ data:ctl:IdentFAST|960561 timestamp=1462523472438, value={"members":[{"XPATH":"v650[13]/sa[1]","CDATE":"20160506 04:31:11.641","ACTION":"ADDLINK","DATA":"<Link source='IdentFAST' status='controlled'>960561<\x5C/Link>","CHKSUM":"dba04fd0"}]}
+ data:ctl:IdentLCCN|gf2014026542 timestamp=1480472388546, value={"members":[{"XPATH":"v655[4]/sa[1]","CDATE":"20161129 21:19:48.071","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>gf2014026542<\x5C/Link>","CHKSUM":"163040ca"}]}
+ data:ctl:IdentLCCN|n50020676 timestamp=1480472388546, value={"members":[{"XPATH":"v700[2]/sa[1]","CDATE":"20161129 21:19:48.070","ACTION":"RESEARCH","DATA":"<Link source='IdentLCCN' status='controlled'>n50020676<\x5C/Link>","CHKSUM":"23b84af9"}]}
+ data:ctl:IdentLCCN|n50031046 timestamp=1480472388546, value={"members":[{"XPATH":"v700[1]/sa[1]","CDATE":"20161129 21:19:48.090","ACTION":"RESEARCH","DATA":"<Link source='IdentLCCN' status='controlled'>n50031046<\x5C/Link>","CHKSUM":"cbf3b4e4"},{"XPATH":"v700[3]/sa[1]","CDATE":"20161129 21:19:48.090","ACTION":"RESEARCH","DATA":"<Link source='IdentLCCN' status='controlled'>n50031046<\x5C/Link>","CHKSUM":"7231b639"}]}
+ data:ctl:IdentLCCN|no2012023517 timestamp=1430836527597, value={"members":[{"XPATH":"v700[4]/sa[1]","CDATE":"20150505 10:35:27.161","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>no2012023517<\x5C/Link>","CHKSUM":"b41464c3"},{"XPATH":"v700[4]/sd[1]","CDATE":"20150505 10:35:27.162","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>no2012023517<\x5C/Link>","CHKSUM":"b41464c3"}]}
+ data:ctl:IdentLCCN|sh85004709 timestamp=1395322862818, value={"members":[{"XPATH":"v650[1]/sa[1]","CDATE":"20140320 09:41:01.397","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85004709<\x5C/Link>","CHKSUM":"10cb78d8"}]}
+ data:ctl:IdentLCCN|sh85011284 timestamp=1395322862818, value={"members":[{"XPATH":"v650[2]/sa[1]","CDATE":"20140320 09:40:59.949","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85011284<\x5C/Link>","CHKSUM":"8535df6b"}]}
+ data:ctl:IdentLCCN|sh85012383 timestamp=1395322862818, value={"members":[{"XPATH":"v650[4]/sa[1]","CDATE":"20140320 09:40:59.542","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85012383<\x5C/Link>","CHKSUM":"13220087"}]}
+ data:ctl:IdentLCCN|sh85023780 timestamp=1424824876663, value={"members":[{"XPATH":"v650[6]/sa[1]","CDATE":"20150224 19:41:16.261","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85023780<\x5C/Link>","CHKSUM":"f9b6128a"}]}
+ data:ctl:IdentLCCN|sh85062144 timestamp=1395322862818, value={"members":[{"XPATH":"v650[3]/sa[1]","CDATE":"20140320 09:41:02.567","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85062144<\x5C/Link>","CHKSUM":"eb0e59b6"}]}
+ data:ctl:IdentLCCN|sh85131207 timestamp=1395322862818, value={"members":[{"XPATH":"v650[5]/sa[1]","CDATE":"20140320 09:41:00.491","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sh85131207<\x5C/Link>","CHKSUM":"55ae55cd"}]}
+ data:ctl:IdentLCCN|sj98000354 timestamp=1480472388546, value={"members":[{"XPATH":"v650[7]/sa[1]","CDATE":"20161129 21:19:48.078","ACTION":"ADDLINK","DATA":"<Link source='IdentLCCN' status='controlled'>sj98000354<\x5C/Link>","CHKSUM":"36b97e13"}]}
+ data:ctl:IdentVIAF|10409662 timestamp=1462523472438, value={"members":[{"XPATH":"v700[2]/sa[1]","CDATE":"20160506 04:31:11.639","ACTION":"RESEARCH","DATA":"<Link source='IdentVIAF' status='controlled'>10409662<\x5C/Link>","CHKSUM":"23b84af9"}]}
+ data:ctl:IdentVIAF|16014850 timestamp=1462523472438, value={"members":[{"XPATH":"v700[1]/sa[1]","CDATE":"20160506 04:31:11.636","ACTION":"RESEARCH","DATA":"<Link source='IdentVIAF' status='controlled'>16014850<\x5C/Link>","CHKSUM":"cbf3b4e4"},{"XPATH":"v700[3]/sa[1]","CDATE":"20160506 04:31:11.637","ACTION":"RESEARCH","DATA":"<Link source='IdentVIAF' status='controlled'>16014850<\x5C/Link>","CHKSUM":"7231b639"}]}
+ data:ctl:IdentVIAF|232068214 timestamp=1462523472438, value={"members":[{"XPATH":"v700[4]/sd[1]","CDATE":"20160506 04:31:11.668","ACTION":"RESEARCH","DATA":"<Link source='IdentVIAF' status='controlled'>232068214<\x5C/Link>","CHKSUM":"b41464c3"},{"XPATH":"v700[4]/sa[1]","CDATE":"20160506 04:31:11.669","ACTION":"RESEARCH","DATA":"<Link source='IdentVIAF' status='controlled'>232068214<\x5C/Link>","CHKSUM":"b41464c3"}]}
+ data:dataSource timestamp=1584461900949, value=xwc
+ data:date1 timestamp=1584461900949, value=1963
+ data:dhold:10188 timestamp=1365779072765, value={"md":[{"CDATE":"20130412 11:02:02.093"},{"CPID":"setholdfri apr 12 11"},{"UDATE":"20130412 11:04:32.764"},{"UPID":"delholdfri apr 12 11"}]}
+ data:dhold:1079 timestamp=1423601433982, value={"md":[{"CDATE":"20140303 11:05:37.904"},{"CPID":"cnx_sethold_mon mar 03 11"},{"UDATE":"20150210 15:50:33.981"},{"UPID":"cnx_delhold_tue feb 10 15"}]}
+ data:dhold:10810 timestamp=1448362167509, value={"md":[{"CDATE":"20080410 15:38:45.000"},{"CPID":"NA"},{"UDATE":"20151124 05:49:27.509"},{"UPID":"ihbdcon_10810_20150827"}]}
+ data:dhold:10830 timestamp=1480516989608, value={"md":[{"CDATE":"20161130 09:42:52.580"},{"CPID":"cnx_sethold_wed nov 30 09"},{"UDATE":"20161130 09:43:09.608"},{"UPID":"cnx_delhold_wed nov 30 09"}]}
+ data:dhold:10977 timestamp=1340132656843, value={"md":[{"CDATE":"20120619 14:57:13.321"},{"CPID":"setholdtue jun 19 14"},{"UDATE":"20120619 15:04:16.843"},{"UPID":"delholdtue jun 19 15_cascade_del_1094158749"}]}
+ data:dhold:1101 timestamp=1476143521274, value={"md":[{"CDATE":"20160509 12:35:50.103"},{"CPID":"cnx_sethold_mon may 09 12"},{"UDATE":"20161010 19:52:01.275"},{"UPID":"cnx_delhold_mon oct 10 19"}]}
+ data:dhold:1138 timestamp=1337257857505, value={"md":[{"CDATE":"20120517 08:30:04.183"},{"CPID":"SetHoldThu May 17 07"},{"UDATE":"20120517 08:30:57.505"},{"UPID":"DelHoldThu May 17 07"}]}
+ data:dhold:11906 timestamp=1345152881630, value={"md":[{"CDATE":"20040826 02:09:09.000"},{"CPID":"NA"},{"UDATE":"20120816 17:34:41.630"},{"UPID":"delholdthu aug 16 17_cascade_del_247691308"}]}
+ data:dhold:1200 timestamp=1335914344046, value={"md":[{"CDATE":"20081117 17:50:09.000"},{"CPID":"NA"},{"UDATE":"20120501 19:19:04.045"},{"UPID":"DelHoldTue May 01 19"}]}
+ data:dhold:12613 timestamp=1405020098114, value={"md":[{"CDATE":"20050930 13:57:41.000"},{"CPID":"NA"},{"UDATE":"20140710 15:21:38.112"},{"UPID":"mdc-621596"}]}
+ data:dhold:1265 timestamp=1428425121318, value={"md":[{"CDATE":"20080505 23:59:04.000"},{"CPID":"NA"},{"UDATE":"20150407 12:45:21.319"},{"UPID":"cnx_delhold_tue apr 07 12"}]}
+ data:dhold:1372 timestamp=1455704699417, value={"md":[{"CDATE":"20150814 21:27:55.145"},{"CPID":"cnx_sethold_fri aug 14 21"},{"UDATE":"20160217 05:24:59.416"},{"UPID":"ihbdcon_1372_20151101"}]}
+ data:dhold:13765 timestamp=1336401365997, value={"md":[{"CDATE":"20110411 10:27:31.000"},{"CPID":"NA"},{"UDATE":"20120507 10:36:05.999"},{"UPID":"DelHoldMon May 07 10"}]}
+ data:dhold:1391 timestamp=1414745179672, value={"md":[{"CDATE":"20111112 18:50:27.000"},{"CPID":"NA"},{"UDATE":"20141031 04:46:19.671"},{"UPID":"ihbdcon_1391_20140321"}]}
+ data:dhold:141 timestamp=1411499993891, value={"md":[{"CDATE":"20140215 05:35:54.714"},{"CPID":"mdc-583845"},{"UDATE":"20140923 15:19:53.889"},{"UPID":"wms-2d522eec-82e1-4596-b819-8fcff1279a17"}]}
+ data:dhold:14496 timestamp=1405018058050, value={"md":[{"CDATE":"20050930 14:01:51.000"},{"CPID":"NA"},{"UDATE":"20140710 14:47:38.048"},{"UPID":"mdc-621603"}]}
+ data:dhold:1517 timestamp=1476527777582, value={"md":[{"CDATE":"20120327 09:39:30.000"},{"CPID":"NA"},{"UDATE":"20161015 06:36:17.582"},{"UPID":"ihbdcon_1517_20161231"}]}
+ data:dhold:1521 timestamp=1376331596314, value={"md":[{"CDATE":"20040826 02:08:59.000"},{"CPID":"NA"},{"UDATE":"20130812 14:19:56.312"},{"UPID":"delholdmon aug 12 14"}]}
+ data:dhold:1558 timestamp=1437425706756, value={"md":[{"CDATE":"20150720 16:28:16.572"},{"CPID":"cnx_sethold_mon jul 20 16"},{"UDATE":"20150720 16:55:06.755"},{"UPID":"cnx_delhold_mon jul 20 16"}]}
+ data:dhold:15584 timestamp=1368813375415, value={"md":[{"CDATE":"20060314 22:25:52.000"},{"CPID":"NA"},{"UDATE":"20130517 13:56:15.415"},{"UPID":"ihbdcon-c20131373"}]}
+ data:dhold:1582 timestamp=1579730332021, value={"md":[{"CDATE":"20150908 14:05:15.624"},{"CPID":"cnx_sethold_tue sep 08 14"},{"UDATE":"20200122 16:58:52.020"},{"UPID":"019a53a5-ad3a-4d32-baa1-7101d99a0303"}]}
+ data:dhold:15867 timestamp=1336400991420, value={"md":[{"CDATE":"20110411 10:21:40.000"},{"CPID":"NA"},{"UDATE":"20120507 10:29:51.422"},{"UPID":"DelHoldMon May 07 10"}]}
+ data:dhold:160 timestamp=1475002860611, value={"md":[{"CDATE":"20160927 14:17:41.541"},{"CPID":"cnx_sethold_tue sep 27 14"},{"UDATE":"20160927 15:01:00.608"},{"UPID":"cnx_delhold_tue sep 27 15"}]}
+ data:dhold:1621 timestamp=1439814771233, value={"md":[{"CDATE":"20150817 08:30:46.658"},{"CPID":"cnx_sethold_mon aug 17 08"},{"UDATE":"20150817 08:32:51.233"},{"UPID":"cnx_delhold_mon aug 17 08"}]}
+ data:dhold:1624 timestamp=1336078308558, value={"md":[{"CDATE":"20120503 16:51:35.871"},{"CPID":"SetHoldThu May 03 16"},{"UDATE":"20120503 16:51:48.558"},{"UPID":"DelHoldThu May 03 16"}]}
+ data:dhold:1655 timestamp=1444316525583, value={"md":[{"CDATE":"20120611 08:29:54.024"},{"CPID":"setholdmon jun 11 08"},{"UDATE":"20151008 11:02:05.581"},{"UPID":"cnx_delhold_thu oct 08 11"}]}
+ data:dhold:16561 timestamp=1413318087904, value={"md":[{"CDATE":"20131217 12:48:32.373"},{"CPID":"cnx_sethold_tue dec 17 12"},{"UDATE":"20141014 16:21:27.902"},{"UPID":"cnx_delhold_tue oct 14 16"}]}
+ data:dhold:17389 timestamp=1336400953024, value={"md":[{"CDATE":"20110411 10:15:08.000"},{"CPID":"NA"},{"UDATE":"20120507 10:29:13.026"},{"UPID":"DelHoldMon May 07 10"}]}
+ data:dhold:1870 timestamp=1382385493365, value={"md":[{"CDATE":"20130625 16:07:18.571"},{"CPID":"setholdtue jun 25 16"},{"UDATE":"20131021 15:58:13.363"},{"UPID":"cnx_delhold_mon oct 21 15"}]}
+ data:dhold:1876 timestamp=1335384937437, value={"md":[{"CDATE":"20090617 11:38:31.000"},{"CPID":"NA"},{"UDATE":"20120425 16:15:37.438"},{"UPID":"DelHoldWed Apr 25 15"}]}
+ data:dhold:1908 timestamp=1433860126041, value={"md":[{"CDATE":"20150608 17:04:11.935"},{"CPID":"cnx_browser_cnxs07.prod.oclc.org-51978-iaodsw9h-qy"},{"UDATE":"20150609 10:28:46.040"},{"UPID":"cnx_delhold_tue jun 09 10"}]}
+ data:dhold:20027 timestamp=1394612872273, value={"md":[{"CDATE":"20130705 13:00:50.801"},{"CPID":"setholdfri jul 05 13"},{"UDATE":"20140312 04:27:52.274"},{"UPID":"ihbdcon_20027_20140302"}]}
+ data:dhold:2003 timestamp=1379351209131, value={"md":[{"CDATE":"20111110 18:01:39.000"},{"CPID":"NA"},{"UDATE":"20130916 13:06:49.130"},{"UPID":"delholdmon sep 16 13"}]}
+ data:dhold:2088 timestamp=1392390603527, value={"md":[{"CDATE":"20140214 10:06:01.020"},{"CPID":"cnx_sethold_fri feb 14 10"},{"UDATE":"20140214 10:10:03.526"},{"UPID":"cnx_delhold_fri feb 14 10"}]}
+ data:dhold:2109 timestamp=1383582830672, value={"md":[{"CDATE":"20131104 11:26:20.111"},{"CPID":"cnx_sethold_mon nov 04 11"},{"UDATE":"20131104 11:33:50.671"},{"UPID":"cnx_delhold_mon nov 04 11"}]}
+ data:dhold:21114 timestamp=1404981552168, value={"md":[{"CDATE":"20140710 04:37:28.306"},{"CPID":"cnx_sethold_thu jul 10 04"},{"UDATE":"20140710 04:39:12.170"},{"UPID":"cnx_delhold_thu jul 10 04"}]}
+ data:dhold:2132 timestamp=1386867143958, value={"md":[{"CDATE":"20130809 14:11:19.400"},{"CPID":"setholdfri aug 09 14"},{"UDATE":"20131212 11:52:23.956"},{"UPID":"cnx_delhold_thu dec 12 11"}]}
+ data:dhold:2187 timestamp=1340380567878, value={"md":[{"CDATE":"20040826 02:09:02.000"},{"CPID":"NA"},{"UDATE":"20120622 11:56:07.877"},{"UPID":"delholdfri jun 22 11"}]}
+ data:dhold:223 timestamp=1347284880710, value={"md":[{"CDATE":"20040826 02:08:48.000"},{"CPID":"NA"},{"UDATE":"20120910 09:48:00.710"},{"UPID":"delholdmon sep 10 09"}]}
+ data:dhold:2257 timestamp=1440697358086, value={"md":[{"CDATE":"20140508 17:42:40.284"},{"CPID":"cnx_sethold_thu may 08 17"},{"UDATE":"20150827 13:42:38.085"},{"UPID":"cnx_delhold_thu aug 27 13"}]}
+ data:dhold:2317 timestamp=1406648997141, value={"md":[{"CDATE":"20040826 02:09:02.000"},{"CPID":"NA"},{"UDATE":"20140729 11:49:57.141"},{"UPID":"cnx_delhold_tue jul 29 11"}]}
+ data:dhold:23325 timestamp=1414173530382, value={"md":[{"CDATE":"20141024 13:58:29.266"},{"CPID":"cnx_sethold_fri oct 24 13"},{"UDATE":"20141024 13:58:50.383"},{"UPID":"cnx_delhold_fri oct 24 13"}]}
+ data:dhold:2336 timestamp=1403341650713, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20140621 05:07:30.712"},{"UPID":"ihbdcon_2336_20131210"}]}
+ data:dhold:276 timestamp=1423165936885, value={"md":[{"CDATE":"20150202 14:10:32.564"},{"CPID":"recmanagerbl"},{"UDATE":"20150205 14:52:16.884"},{"UPID":"recmanagerbl"}]}
+ data:dhold:29395 timestamp=1472532017662, value={"md":[{"CDATE":"20140717 02:23:58.749"},{"CPID":"cnx_sethold_thu jul 17 02"},{"UDATE":"20160830 00:40:17.662"},{"UPID":"cnx_delhold_tue aug 30 00"}]}
+ data:dhold:3012 timestamp=1396038308425, value={"md":[{"CDATE":"20130301 12:47:02.960"},{"CPID":"setholdfri mar 01 12"},{"UDATE":"20140328 16:25:08.426"},{"UPID":"cnx_delhold_fri mar 28 16"}]}
+ data:dhold:3042 timestamp=1388741282376, value={"md":[{"CDATE":"20040826 02:09:04.000"},{"CPID":"NA"},{"UDATE":"20140103 04:28:02.376"},{"UPID":"ihbdcon_3042_20130930"}]}
+ data:dhold:30942 timestamp=1466602870433, value={"md":[{"CDATE":"20140725 14:01:53.032"},{"CPID":"cnx_sethold_fri jul 25 14"},{"UDATE":"20160622 09:41:10.432"},{"UPID":"cnx_delhold_wed jun 22 09"}]}
+ data:dhold:30984 timestamp=1463595571051, value={"md":[{"CDATE":"20160518 14:08:57.373"},{"CPID":"cnx_sethold_wed may 18 14"},{"UDATE":"20160518 14:19:31.051"},{"UPID":"cnx_delhold_wed may 18 14"}]}
+ data:dhold:31020 timestamp=1435935080231, value={"md":[{"CDATE":"20150703 10:50:36.321"},{"CPID":"recmanagerbl"},{"UDATE":"20150703 10:51:20.231"},{"UPID":"recmanagerbl"}]}
+ data:dhold:3199 timestamp=1459443140498, value={"md":[{"CDATE":"20121030 09:10:37.859"},{"CPID":"setholdtue oct 30 09"},{"UDATE":"20160331 12:52:20.498"},{"UPID":"cnx_delhold_thu mar 31 12"}]}
+ data:dhold:335 timestamp=1362501012403, value={"md":[{"CDATE":"20130110 16:03:39.000"},{"CPID":"mdc-490991"},{"UDATE":"20130305 11:30:12.403"},{"UPID":"ihbdcon-c20130640"}]}
+ data:dhold:3557 timestamp=1381507115191, value={"md":[{"CDATE":"20130603 12:28:51.547"},{"CPID":"setholdmon jun 03 12"},{"UDATE":"20131011 11:58:35.190"},{"UPID":"cnx_delhold_fri oct 11 11"}]}
+ data:dhold:3593 timestamp=1445359761987, value={"md":[{"CDATE":"20130702 10:46:38.123"},{"CPID":"setholdtue jul 02 10"},{"UDATE":"20151020 12:49:21.987"},{"UPID":"cnx_delhold_tue oct 20 12"}]}
+ data:dhold:3619 timestamp=1469655566779, value={"md":[{"CDATE":"20160627 18:00:28.651"},{"CPID":"cnx_sethold_mon jun 27 18"},{"UDATE":"20160727 17:39:26.778"},{"UPID":"cnx_delhold_wed jul 27 17"}]}
+ data:dhold:382 timestamp=1426691402193, value={"md":[{"CDATE":"20090122 04:27:39.000"},{"CPID":"NA"},{"UDATE":"20150318 11:10:02.192"},{"UPID":"cnx_delhold_wed mar 18 11"}]}
+ data:dhold:3941 timestamp=1461600098362, value={"md":[{"CDATE":"20160425 12:01:27.462"},{"CPID":"cnx_sethold_mon apr 25 12"},{"UDATE":"20160425 12:01:38.361"},{"UPID":"cnx_delhold_mon apr 25 12"}]}
+ data:dhold:39605 timestamp=1383228345473, value={"md":[{"CDATE":"20131031 10:05:33.930"},{"CPID":"cnx_sethold_thu oct 31 10"},{"UDATE":"20131031 10:05:45.472"},{"UPID":"cnx_delhold_thu oct 31 10"}]}
+ data:dhold:4331 timestamp=1372712945304, value={"md":[{"CDATE":"20130701 17:07:36.825"},{"CPID":"setholdmon jul 01 17"},{"UDATE":"20130701 17:09:05.302"},{"UPID":"delholdmon jul 01 17"}]}
+ data:dhold:452 timestamp=1335297119869, value={"md":[{"CDATE":"20040826 02:08:52.000"},{"CPID":"NA"},{"UDATE":"20120424 15:51:59.870"},{"UPID":"DelHoldTue Apr 24 15"}]}
+ data:dhold:453 timestamp=1352332971937, value={"md":[{"CDATE":"20040826 02:08:53.000"},{"CPID":"NA"},{"UDATE":"20121107 19:02:51.936"},{"UPID":"delholdwed nov 07 19"}]}
+ data:dhold:4713 timestamp=1439914393476, value={"md":[{"CDATE":"20150818 11:15:50.743"},{"CPID":"cnx_sethold_tue aug 18 11"},{"UDATE":"20150818 12:13:13.478"},{"UPID":"cnx_delhold_tue aug 18 12"}]}
+ data:dhold:47657 timestamp=1416590087816, value={"md":[{"CDATE":"20141121 12:14:42.312"},{"CPID":"cnx_sethold_fri nov 21 12"},{"UDATE":"20141121 12:14:47.816"},{"UPID":"cnx_delhold_fri nov 21 12"}]}
+ data:dhold:490 timestamp=1452028813705, value={"md":[{"CDATE":"20140103 09:30:59.622"},{"CPID":"mdc-572574"},{"UDATE":"20160105 16:20:13.704"},{"UPID":"cnx_delhold_tue jan 05 16"}]}
+ data:dhold:505 timestamp=1379511367013, value={"md":[{"CDATE":"20130917 12:34:34.219"},{"CPID":"setholdtue sep 17 12"},{"UDATE":"20130918 09:36:07.013"},{"UPID":"delholdwed sep 18 09"}]}
+ data:dhold:5101 timestamp=1423242000672, value={"md":[{"CDATE":"20150206 11:59:54.933"},{"CPID":"cnx_sethold_fri feb 06 11"},{"UDATE":"20150206 12:00:00.672"},{"UPID":"cnx_delhold_fri feb 06 12"}]}
+ data:dhold:51223 timestamp=1447358113376, value={"md":[{"CDATE":"20151030 07:09:49.107"},{"CPID":"lhringest_747617"},{"UDATE":"20151112 14:55:13.375"},{"UPID":"lhringest_750745"}]}
+ data:dhold:521 timestamp=1402069011582, value={"md":[{"CDATE":"20100226 09:07:11.000"},{"CPID":"NA"},{"UDATE":"20140606 11:36:51.583"},{"UPID":"cnx_delhold_fri jun 06 11"}]}
+ data:dhold:54036 timestamp=1426877987877, value={"md":[{"CDATE":"20130217 13:49:00.605"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:47.877"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54037 timestamp=1361631554556, value={"md":[{"CDATE":"20130217 13:49:00.631"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20130223 09:59:14.555"},{"UPID":"delholdsat feb 23 09"}]}
+ data:dhold:54038 timestamp=1426877988043, value={"md":[{"CDATE":"20130217 13:49:00.656"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.043"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54039 timestamp=1426877988082, value={"md":[{"CDATE":"20130217 13:49:00.680"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.082"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54040 timestamp=1426877988108, value={"md":[{"CDATE":"20130217 13:49:00.706"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.109"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54041 timestamp=1426877988132, value={"md":[{"CDATE":"20130217 13:49:00.727"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.133"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54042 timestamp=1426877988407, value={"md":[{"CDATE":"20130217 13:49:00.819"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.408"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54043 timestamp=1361631555048, value={"md":[{"CDATE":"20130217 13:49:00.843"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20130223 09:59:15.047"},{"UPID":"delholdsat feb 23 09"}]}
+ data:dhold:54044 timestamp=1426877988162, value={"md":[{"CDATE":"20130217 13:49:00.749"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20150320 14:59:48.162"},{"UPID":"cnx_delhold_fri mar 20 14"}]}
+ data:dhold:54045 timestamp=1361631554994, value={"md":[{"CDATE":"20130217 13:49:00.775"},{"CPID":"setholdsun feb 17 13"},{"UDATE":"20130223 09:59:14.994"},{"UPID":"delholdsat feb 23 09"}]}
+ data:dhold:57281 timestamp=1407512299728, value={"md":[{"CDATE":"20130925 06:48:49.558"},{"CPID":"mdc-548622"},{"UDATE":"20140808 11:38:19.727"},{"UPID":"ihbdcon_57281_20141231"}]}
+ data:dhold:574 timestamp=1370007715310, value={"md":[{"CDATE":"20130531 09:41:49.434"},{"CPID":"kbwc"},{"UDATE":"20130531 09:41:55.309"},{"UPID":"kbwc"}]}
+ data:dhold:589 timestamp=1458344121005, value={"md":[{"CDATE":"20141009 22:06:32.970"},{"CPID":"cnx_sethold_thu oct 09 22"},{"UDATE":"20160318 19:35:21.003"},{"UPID":"cnx_delhold_fri mar 18 19"}]}
+ data:dhold:59413 timestamp=1370441565915, value={"md":[{"CDATE":"20130605 10:11:06.354"},{"CPID":"setholdwed jun 05 10"},{"UDATE":"20130605 10:12:45.916"},{"UPID":"delholdwed jun 05 10"}]}
+ data:dhold:60235 timestamp=1435935070965, value={"md":[{"CDATE":"20150703 10:48:15.901"},{"CPID":"recmanagerbl"},{"UDATE":"20150703 10:51:10.965"},{"UPID":"recmanagerbl"}]}
+ data:dhold:6054 timestamp=1407513809320, value={"md":[{"CDATE":"20140808 12:03:18.260"},{"CPID":"cnx_sethold_fri aug 08 12"},{"UDATE":"20140808 12:03:29.319"},{"UPID":"cnx_delhold_fri aug 08 12"}]}
+ data:dhold:6148 timestamp=1458339998541, value={"md":[{"CDATE":"20160318 18:24:30.317"},{"CPID":"cnx_sethold_fri mar 18 18"},{"UDATE":"20160318 18:26:38.539"},{"UPID":"cnx_delhold_fri mar 18 18"}]}
+ data:dhold:61504 timestamp=1436440225925, value={"md":[{"CDATE":"20150709 07:09:38.845"},{"CPID":"recmanagerbl"},{"UDATE":"20150709 07:10:25.926"},{"UPID":"recmanagerbl"}]}
+ data:dhold:6152 timestamp=1401283152878, value={"md":[{"CDATE":"20140528 09:19:06.236"},{"CPID":"cnx_sethold_wed may 28 09"},{"UDATE":"20140528 09:19:12.879"},{"UPID":"cnx_delhold_wed may 28 09"}]}
+ data:dhold:61614 timestamp=1362068119730, value={"md":[{"CDATE":"20130228 11:14:33.954"},{"CPID":"batch"},{"UDATE":"20130228 11:15:19.730"},{"UPID":"delholdthu feb 28 11_cascade_del_1350619909"}]}
+ data:dhold:62020 timestamp=1564178341016, value={"md":[{"CDATE":"20190725 21:23:13.645"},{"UDATE":"20190726 17:59:01.012"}]}
+ data:dhold:6330 timestamp=1448912289942, value={"md":[{"CDATE":"20121129 15:39:29.000"},{"CPID":"mdc-482647"},{"UDATE":"20151130 14:38:09.941"},{"UPID":"wms-8e94f5cb-7bd5-4366-8776-d1a2bf6b2bfa"}]}
+ data:dhold:63310 timestamp=1570043529126, value={"md":[{"CDATE":"20180817 02:26:21.611"},{"CPID":"collectionmanager"},{"UDATE":"20191002 15:12:09.125"},{"UPID":"collectionmanager"}]}
+ data:dhold:635 timestamp=1464431906589, value={"md":[{"CDATE":"20090310 11:45:46.000"},{"CPID":"NA"},{"UDATE":"20160528 06:38:26.589"},{"UPID":"ihbdcon_635_20160311"}]}
+ data:dhold:66181 timestamp=1470303080444, value={"md":[{"CDATE":"20151028 13:42:44.784"},{"CPID":"collectionmanager"},{"UDATE":"20160804 05:31:20.444"},{"UPID":"collectionmanager"}]}
+ data:dhold:690 timestamp=1445020419432, value={"md":[{"CDATE":"20130131 14:30:31.829"},{"CPID":"setholdthu jan 31 14"},{"UDATE":"20151016 14:33:39.432"},{"UPID":"cnx_delhold_fri oct 16 14"}]}
+ data:dhold:692 timestamp=1473349441336, value={"md":[{"CDATE":"20160105 14:49:15.543"},{"CPID":"cnx_sethold_tue jan 05 14"},{"UDATE":"20160908 11:44:01.336"},{"UPID":"cnx_delhold_thu sep 08 11"}]}
+ data:dhold:6951 timestamp=1480517046986, value={"md":[{"CDATE":"20161130 09:43:58.642"},{"CPID":"cnx_sethold_wed nov 30 09"},{"UDATE":"20161130 09:44:06.985"},{"UPID":"cnx_delhold_wed nov 30 09"}]}
+ data:dhold:696 timestamp=1431516047274, value={"md":[{"CDATE":"20061002 11:24:29.000"},{"CPID":"NA"},{"UDATE":"20150513 07:20:47.273"},{"UPID":"ihbdcon_696_20151231"}]}
+ data:dhold:8164 timestamp=1366920632578, value={"md":[{"CDATE":"20130425 16:07:24.787"},{"CPID":"setholdthu apr 25 16"},{"UDATE":"20130425 16:10:32.577"},{"UPID":"delholdthu apr 25 16"}]}
+ data:dhold:840 timestamp=1466115856819, value={"md":[{"CDATE":"20120507 12:05:53.371"},{"CPID":"SetHoldMon May 07 12"},{"UDATE":"20160616 18:24:16.817"},{"UPID":"cnx_delhold_thu jun 16 18"}]}
+ data:dhold:8520 timestamp=1390967683602, value={"md":[{"CDATE":"20140128 21:54:50.315"},{"CPID":"cnx_sethold_tue jan 28 21"},{"UDATE":"20140128 22:54:43.603"},{"UPID":"cnx_delhold_tue jan 28 22"}]}
+ data:dhold:8587 timestamp=1390310809923, value={"md":[{"CDATE":"20110318 06:36:03.000"},{"CPID":"NA"},{"UDATE":"20140121 08:26:49.924"},{"UPID":"mdc-577403"}]}
+ data:dhold:8925 timestamp=1373485862739, value={"md":[{"CDATE":"20111117 16:34:47.000"},{"CPID":"NA"},{"UDATE":"20130710 15:51:02.737"},{"UPID":"delholdwed jul 10 15"}]}
+ data:dhold:9018 timestamp=1423157690424, value={"md":[{"CDATE":"20150205 12:20:15.726"},{"CPID":"wms-05feb196-5c61-418a-82e3-d776836e1128"},{"UDATE":"20150205 12:34:50.424"},{"UPID":"lhrservice"}]}
+ data:dhold:9545 timestamp=1435935074762, value={"md":[{"CDATE":"20150703 10:50:00.802"},{"CPID":"recmanagerbl"},{"UDATE":"20150703 10:51:14.759"},{"UPID":"recmanagerbl"}]}
+ data:document timestamp=1584461900949, value=<CDFRec><a>cam  7c </a><c001>1</c001><c008>690526s1963    ilua   j      000 j eng  </c008><v010 i1=" " i2=" "><sa><d>   63011276 </d></sa></v010><v040 i1=" " i2=" "><sa><d>DLC</d></sa><sb><d>eng</d></sb><sc><d>DLC</d></sc><sd><d>IUL</d></sd><sd><d>BTCTA</d></sd><sd><d>BMU</d></sd><sd><d>AAA</d></sd><sd><d>BNM</d></sd><sd><d>CUS</d></sd><sd><d>REC</d></sd><sd><d>WAU</d></sd><sd><d>OCC</d></sd><sd><d>OCWMS</d></sd><sd><d>RBN</d></sd><sd><d>OCL</d></sd><sd><d>OCWMS</d></sd><sd><d>OCL</d></sd><sd><d>CUS</d></sd><sd><d>OCLCQ</d></sd><sd><d>OCWMS</d></sd><sd><d>OCL</d></sd><sd><d>OCWMS</d></sd><sd><d>OCL</d></sd><sd><d>OCLCF</d></sd><sd><d>OCL</d></sd><sd><d>TS249</d></sd><sd><d>CRU</d></sd><sd><d>OCLCQ</d></sd><sd><d>OCLCO</d></sd><sd><d>TS247</d></sd><sd><d>OCWMS</d></sd><sd><d>TS279</d></sd><sd><d>OCWMS</d></sd></v040><v016 i1="7" i2=" "><sa><d>bimoBNE19931205873</d></sa><s2><d>SpMaBN</d></s2></v016><v019 i1=" " i2=" "><sa><d>6567842</d></sa><sa><d>9987701</d></sa><sa><d>53095235</d></sa><sa><d>433981287</d></sa></v019><v029 i1="1" i2=" "><sa><d>OCL</d></sa><sc><d>/p16243coll3</d></sc><st><d>CNTNT</d></st></v029><v042 i1=" " i2=" "><sa><d>lcac</d></sa></v042><v050 i1="0" i2="0"><sa><d>PZ5</d></sa><sb><d>.R1924</d></sb></v050><v080 i1=" " i2=" "><sa><d>821.111(73)-34"19"(082.2)</d></sa></v080><v082 i1="0" i2="0"><sa><d>934</d></sa></v082><v245 i1="0" i2="4"><sa><d>The Rand McNally book of favourite pastimes /</d></sa><sc><d>illustrated by Dorothy Grider.</d></sc></v245><v246 i1="3" i2="0"><sa><d>Favorite pastimes</d></sa></v246><v260 i1=" " i2=" "><sa><d>Chicago :</d></sa><sb><d>Rand McNally,</d></sb><sc><d>[1963]</d></sc></v260><v300 i1=" " i2=" "><sa><d>110 pages :</d></sa><sb><d>color illustrations ;</d></sb><sc><d>33 cm</d></sc></v300><v336 i1=" " i2=" "><sa><d>text</d></sa><sb><d>txt</d></sb><s2><d>rdacontent</d></s2></v336><v337 i1=" " i2=" "><sa><d>unmediated</d></sa><sb><d>n</d></sb><s2><d>rdamedia</d></s2></v337><v338 i1=" " i2=" "><sa><d>volume</d></sa><sb><d>nc</d></sb><s2><d>rdacarrier</d></s2></v338><v500 i1=" " i2=" "><sa><d>TEST. WMS Circ says Please don't change the title</d></sa></v500><v505 i1="0" i2="0"><st><d>Little ballerina /</d></st><sr><d>by D. Grider --</d></sr><st><d>Little horseman /</d></st><sr><d>by M. Watts --</d></sr><st><d>Little majorette /</d></st><sr><d>by D. Grider --</d></sr><st><d>Little swimmers /</d></st><sr><d>by V. Hunter.</d></sr></v505><v520 i1=" " i2=" "><sa><d>Boys and girls in these four stories work hard to master ballet dancing, riding, baton twirling, and swimming.</d></sa></v520><v650 i1=" " i2="0"><sa><d>Amusements</d><Authority><Link TS="19961122 11:04:58.700Z 02015051 c 3" source="CorcAuthDB" status="controlled">2015051</Link></Authority></sa><sv><d>Juvenile fiction.</d><Authority><Link TS="20140909 13:06:09.324Z 04945032 c 6" source="CorcAuthDB" status="controlled">4945032</Link></Authority></sv></v650><v650 i1=" " i2="0"><sa><d>Ballet dancing</d><Authority><Link TS="19860211 00:00:00.000Z 02062584 n 3" source="CorcAuthDB" status="controlled">2062584</Link></Authority></sa><sv><d>Juvenile fiction.</d><Authority><Link TS="20140909 13:06:09.324Z 04945032 c 6" source="CorcAuthDB" status="controlled">4945032</Link></Authority></sv></v650><v650 i1=" " i2="0"><sa><d>Horsemanship</d><Authority><Link TS="19881116 15:11:13.800Z 02082886 c 3" source="CorcAuthDB" status="controlled">2082886</Link></Authority></sa><sv><d>Juvenile fiction.</d><Authority><Link TS="20140909 13:06:09.324Z 04945032 c 6" source="CorcAuthDB" status="controlled">4945032</Link></Authority></sv></v650><v650 i1=" " i2="0"><sa><d>Baton twirling</d><Authority><Link TS="20050713 13:25:29.891Z 02071970 c 6" source="CorcAuthDB" status="controlled">2071970</Link></Authority></sa><sv><d>Juvenile fiction.</d><Authority><Link TS="20140909 13:06:09.324Z 04945032 c 6" source="CorcAuthDB" status="controlled">4945032</Link></Authority></sv></v650><v650 i1=" " i2="0"><sa><d>Swimming</d><Authority><Link TS="20010802 15:06:05.000Z 02161943 c 3" source="CorcAuthDB" status="controlled">2161943</Link></Authority></sa><sv><d>Juvenile fiction.</d><Authority><Link TS="20140909 13:06:09.324Z 04945032 c 6" source="CorcAuthDB" status="controlled">4945032</Link></Authority></sv></v650><v650 i1=" " i2="0"><sa><d>Children's stories.</d><Authority><Link TS="20050913 13:10:37.379Z 02144643 c 6" source="CorcAuthDB" status="controlled">2144643</Link></Authority></sa></v650><v650 i1=" " i2="1"><sa><d>Short stories.</d></sa></v650><v650 i1=" " i2="7"><sa><d>Cuentos norteamericanos</d></sa><sy><d>S. XX.</d></sy><s2><d>embne</d></s2></v650><v650 i1=" " i2="7"><sa><d>Amusements.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst00808105</d></s0></v650><v650 i1=" " i2="7"><sa><d>Ballet dancing.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst00826049</d></s0></v650><v650 i1=" " i2="7"><sa><d>Baton twirling.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst00828812</d></s0></v650><v650 i1=" " i2="7"><sa><d>Children's stories.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst00856632</d></s0></v650><v650 i1=" " i2="7"><sa><d>Horsemanship.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst00960561</d></s0></v650><v650 i1=" " i2="7"><sa><d>Swimming.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst01140328</d></s0></v650><v655 i1=" " i2="7"><sa><d>Fiction.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst01423787</d></s0></v655><v655 i1=" " i2="7"><sa><d>Juvenile works.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst01411637</d></s0></v655><v655 i1=" " i2="7"><sa><d>Short stories.</d></sa><s2><d>fast</d></s2><s0><d>(OCoLC)fst01726740</d></s0></v655><v655 i1=" " i2="7"><sa><d>Short stories.</d><Authority><Link TS="20150519 13:08:17.246Z 10170077 n 6" source="CorcAuthDB" status="controlled">10170077</Link></Authority></sa><s2><d>lcgft</d></s2></v655><v700 i1="1" i2=" "><sa><d>Grider, Dorothy.</d><Authority><Link source="CorcAuthDB" status="controlled">66410</Link></Authority></sa><st><d>Little ballerina.</d></st></v700><v700 i1="1" i2=" "><sa><d>Watts, Mabel.</d><Authority><Link source="CorcAuthDB" status="controlled">56103</Link></Authority></sa><st><d>Little horseman.</d></st></v700><v700 i1="1" i2=" "><sa><d>Grider, Dorothy.</d><Authority><Link source="CorcAuthDB" status="controlled">66410</Link></Authority></sa><st><d>Little majorette.</d></st></v700><v700 i1="1" i2=" "><sa><d>Hunter, Virginia,</d><Authority><Link TS="20120219 15:33:00.240Z 09118610 n 6" source="CorcAuthDB" status="controlled">9118610</Link></Authority></sa><sd><d>1921-2011.</d><Authority><Link TS="20120219 15:33:00.240Z 09118610 n 6" source="CorcAuthDB" status="controlled">9118610</Link></Authority></sd><st><d>Little swimmers.</d></st></v700><v776 i1="0" i2="8"><si><d>Online version:</d></si><st><d>Rand McNally book of favorite pastimes.</d></st><sd><d>Chicago : Rand McNally, [1963]</d></sd><sw><d>(OCoLC)908228833</d></sw></v776><v856 i1="4" i2="1"><su><d>http://worldcat.org/oclc/1/viewonline</d></su><s3><d>View Online</d></s3></v856><v938 i1=" " i2=" "><sa><d>Baker and Taylor</d></sa><sb><d>BTCP</d></sb><sn><d>63011276</d></sn></v938><Admin><CreateDate>19690526</CreateDate><ReplacedDate>20200317</ReplacedDate><ReplacedTime>121820.9</ReplacedTime><CreatedBy>DLC</CreatedBy><LastModifiedBy>Add500</LastModifiedBy><LastModifiedByID>batchCollBl</LastModifiedByID><CORCInfo><URLNotif><Institution>OCLCQ</Institution><Institution>CUS</Institution><Institution>REC</Institution><Institution>OCL</Institution></URLNotif></CORCInfo><OCLCDef><MT form="pri">bks</MT><MT form="fsdspl">b</MT><MT form="fsdspl">w</MT><MT form="sec">url</MT><MT form="sec">bks</MT><MT form="gen">fic</MT><MT form="gen">jau</MT><MT form="gen">url</MT><MT form="fsill">g</MT><StdRT>Book</StdRT><StdRT2>PrintBook</StdRT2><StdCT/><MT form="pri2">bks</MT><MT form="fsdspl2">b</MT><MT form="sec2">bks</MT><MT form="fsill2">b</MT></OCLCDef></Admin><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized><Authorized>1</Authorized></CDFRec>
+ data:frbrHoldingsFormat timestamp=1584461900949, value=bks
+ data:hold:1 timestamp=1558453416845, value={"md":[{"CDATE":"20140616 15:48:52.364"},{"CPID":"kbwc"},{"UDATE":"20190521 11:43:36.844"},{"UPID":"cnx_sethold_tue may 21 11"}]}
+ data:hold:100 timestamp=1359050684971, value={"md":[{"CDATE":"20120318 17:53:50.000"},{"CPID":"NA"},{"UDATE":"20120318 19:23:09.000"},{"UPID":"NA"}]}
+ data:hold:10106 timestamp=1523554872993, value={"md":[{"CDATE":"20160711 15:01:47.631"},{"CPID":"cnx_sethold_mon jul 11 15"},{"UDATE":"20180412 13:41:12.994"},{"UPID":"wcp"}]}
+ data:hold:10271 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:09.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:09.000"},{"UPID":"NA"}]}
+ data:hold:10302 timestamp=1359050684971, value={"md":[{"CDATE":"20060814 15:34:07.000"},{"CPID":"NA"},{"UDATE":"20060814 15:34:07.000"},{"UPID":"NA"}]}
+ data:hold:10372 timestamp=1359050684971, value={"md":[{"CDATE":"20120410 15:36:51.000"},{"CPID":"NA"},{"UDATE":"20120516 09:15:17.000"},{"UPID":"NA"}]}
+ data:hold:105 timestamp=1476816831686, value={"md":[{"CDATE":"20150803 11:14:19.054"},{"CPID":"cnx_sethold_mon aug 03 11"},{"UDATE":"20161018 14:53:51.685"},{"UPID":"cnx_sethold_tue oct 18 14"}]}
+ data:hold:108 timestamp=1359050684971, value={"md":[{"CDATE":"20121113 13:26:40.000"},{"CPID":"setholdtue nov 13 13"},{"UDATE":"20121113 13:26:40.000"},{"UPID":"setholdtue nov 13 13"}]}
+ data:hold:1100 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:57.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:57.000"},{"UPID":"NA"}]}
+ data:hold:11004 timestamp=1359050684971, value={"md":[{"CDATE":"20060216 16:15:11.000"},{"CPID":"NA"},{"UDATE":"20060216 16:15:11.000"},{"UPID":"NA"}]}
+ data:hold:11105 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:09.000"},{"CPID":"NA"},{"UDATE":"20100722 01:05:22.000"},{"UPID":"NA"}]}
+ data:hold:114 timestamp=1359050684971, value={"md":[{"CDATE":"20090904 09:32:42.000"},{"CPID":"NA"},{"UDATE":"20090904 09:32:57.000"},{"UPID":"NA"}]}
+ data:hold:1158 timestamp=1437626152716, value={"md":[{"CDATE":"20130204 14:58:18.448"},{"CPID":"setholdmon feb 04 14"},{"UDATE":"20150723 00:35:52.716"},{"UPID":"cnx_sethold_thu jul 23 00"}]}
+ data:hold:116 timestamp=1359050684971, value={"md":[{"CDATE":"20050825 11:11:46.000"},{"CPID":"NA"},{"UDATE":"20070730 20:12:08.000"},{"UPID":"NA"}]}
+ data:hold:1175 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:58.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:58.000"},{"UPID":"NA"}]}
+ data:hold:11830 timestamp=1359050684971, value={"md":[{"CDATE":"20100216 14:25:28.000"},{"CPID":"NA"},{"UDATE":"20111212 13:44:47.000"},{"UPID":"NA"}]}
+ data:hold:1186 timestamp=1581438335766, value={"md":[{"CDATE":"20120925 12:16:25.000"},{"CPID":"wms-b97112dd-bfcd-4094-a4e8-9ffc50ee639b"},{"UDATE":"20200211 11:25:35.754"},{"UPID":"wcirunlggc_firefly"}]}
+ data:hold:1189 timestamp=1523554872062, value={"md":[{"CDATE":"20040826 02:08:58.000"},{"CPID":"NA"},{"UDATE":"20180412 13:41:12.063"},{"UPID":"wcp"}]}
+ data:hold:119 timestamp=1500665849751, value={"md":[{"CDATE":"20170721 15:37:29.750"},{"CPID":"lhringest_test.1"},{"UDATE":"20170721 15:37:29.750"},{"UPID":"lhringest_test.1"}]}
+ data:hold:11946 timestamp=1359050684971, value={"md":[{"CDATE":"20070428 07:43:47.000"},{"CPID":"NA"},{"UDATE":"20070428 08:53:47.000"},{"UPID":"NA"}]}
+ data:hold:12150 timestamp=1520561710834, value={"md":[{"CDATE":"20180308 21:15:10.831"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:10.831"},{"UPID":"wcp"}]}
+ data:hold:1220 timestamp=1520561717983, value={"md":[{"CDATE":"20080221 03:54:15.000"},{"CPID":"NA"},{"UDATE":"20180308 21:15:17.982"},{"UPID":"wcp"}]}
+ data:hold:123 timestamp=1523554872280, value={"md":[{"CDATE":"20040826 02:08:47.000"},{"CPID":"NA"},{"UDATE":"20180412 13:41:12.282"},{"UPID":"wcp"}]}
+ data:hold:1260 timestamp=1359050684971, value={"md":[{"CDATE":"20080505 23:17:49.000"},{"CPID":"NA"},{"UDATE":"20080506 08:23:27.000"},{"UPID":"NA"}]}
+ data:hold:12600 timestamp=1404922962775, value={"md":[{"CDATE":"20140709 12:22:42.772"},{"CPID":"mdc-621221"},{"UDATE":"20140709 12:22:42.772"},{"UPID":"mdc-621221"}]}
+ data:hold:12834 timestamp=1359050684971, value={"md":[{"CDATE":"20121005 14:45:33.000"},{"CPID":"setholdfri oct 05 14"},{"UDATE":"20121005 14:45:33.000"},{"UPID":"setholdfri oct 05 14"}]}
+ data:hold:1286 timestamp=1434373279020, value={"md":[{"CDATE":"20150615 09:01:19.021"},{"CPID":"cnx_sethold_mon jun 15 09"},{"UDATE":"20150615 09:01:19.021"},{"UPID":"cnx_sethold_mon jun 15 09"}]}
+ data:hold:1322 timestamp=1359050684971, value={"md":[{"CDATE":"20100222 03:11:38.000"},{"CPID":"NA"},{"UDATE":"20100311 18:46:42.000"},{"UPID":"NA"}]}
+ data:hold:13451 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:10.000"},{"UPID":"NA"}]}
+ data:hold:1362 timestamp=1359050684971, value={"md":[{"CDATE":"20050711 13:49:27.000"},{"CPID":"NA"},{"UDATE":"20050711 13:49:27.000"},{"UPID":"NA"}]}
+ data:hold:14002 timestamp=1359050684971, value={"md":[{"CDATE":"20070418 16:57:26.000"},{"CPID":"NA"},{"UDATE":"20070428 09:32:45.000"},{"UPID":"NA"}]}
+ data:hold:14028 timestamp=1359050684971, value={"md":[{"CDATE":"20100212 16:17:36.000"},{"CPID":"NA"},{"UDATE":"20100212 16:17:36.000"},{"UPID":"NA"}]}
+ data:hold:14128 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20070428 08:34:46.000"},{"UPID":"NA"}]}
+ data:hold:1419 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:58.000"},{"CPID":"NA"},{"UDATE":"20080308 17:09:02.000"},{"UPID":"NA"}]}
+ data:hold:14516 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:10.000"},{"UPID":"NA"}]}
+ data:hold:1488 timestamp=1470960336667, value={"md":[{"CDATE":"20160811 20:05:36.665"},{"CPID":"cnx_sethold_thu aug 11 20"},{"UDATE":"20160811 20:05:36.665"},{"UPID":"cnx_sethold_thu aug 11 20"}]}
+ data:hold:1493 timestamp=1520561711196, value={"md":[{"CDATE":"20180308 21:15:11.171"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.171"},{"UPID":"wcp"}]}
+ data:hold:1500 timestamp=1446497126431, value={"md":[{"CDATE":"20151102 15:45:26.431"},{"CPID":"cnx_sethold_mon nov 02 15"},{"UDATE":"20151102 15:45:26.431"},{"UPID":"cnx_sethold_mon nov 02 15"}]}
+ data:hold:1501 timestamp=1523554871950, value={"md":[{"CDATE":"20180412 13:41:11.951"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:11.951"},{"UPID":"wcp"}]}
+ data:hold:15243 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:10.000"},{"UPID":"NA"}]}
+ data:hold:15388 timestamp=1390622408236, value={"md":[{"CDATE":"20060306 02:52:09.000"},{"CPID":"NA"},{"UDATE":"20140124 23:00:08.235"},{"UPID":"mdc-578674"}]}
+ data:hold:15457 timestamp=1359050684971, value={"md":[{"CDATE":"20070508 09:35:03.000"},{"CPID":"NA"},{"UDATE":"20070508 09:35:03.000"},{"UPID":"NA"}]}
+ data:hold:15589 timestamp=1523554872243, value={"md":[{"CDATE":"20180412 13:41:12.244"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:12.244"},{"UPID":"wcp"}]}
+ data:hold:15709 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:10.000"},{"UPID":"NA"}]}
+ data:hold:158 timestamp=1359050684971, value={"md":[{"CDATE":"20070930 07:12:38.000"},{"CPID":"NA"},{"UDATE":"20071001 11:44:19.000"},{"UPID":"NA"}]}
+ data:hold:1583 timestamp=1359050684971, value={"md":[{"CDATE":"20100813 06:40:16.000"},{"CPID":"NA"},{"UDATE":"20100813 06:40:30.000"},{"UPID":"NA"}]}
+ data:hold:15950 timestamp=1359050684971, value={"md":[{"CDATE":"20051004 13:35:49.000"},{"CPID":"NA"},{"UDATE":"20051004 13:35:49.000"},{"UPID":"NA"}]}
+ data:hold:1604 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:59.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:59.000"},{"UPID":"NA"}]}
+ data:hold:16409 timestamp=1419018272641, value={"md":[{"CDATE":"20141219 14:44:32.641"},{"CPID":"mdc-665772"},{"UDATE":"20141219 14:44:32.641"},{"UPID":"mdc-665772"}]}
+ data:hold:1658 timestamp=1359050684971, value={"md":[{"CDATE":"20071105 13:46:50.000"},{"CPID":"NA"},{"UDATE":"20071105 13:46:50.000"},{"UPID":"NA"}]}
+ data:hold:17027 timestamp=1359050684971, value={"md":[{"CDATE":"20121119 16:52:22.000"},{"CPID":"setholdmon nov 19 16"},{"UDATE":"20130104 15:46:12.000"},{"UPID":"setholdfri jan 04 15"}]}
+ data:hold:1739 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:00.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:00.000"},{"UPID":"NA"}]}
+ data:hold:175 timestamp=1520561710514, value={"md":[{"CDATE":"20180308 21:15:10.512"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:10.512"},{"UPID":"wcp"}]}
+ data:hold:1752 timestamp=1520561712681, value={"md":[{"CDATE":"20180308 21:15:12.610"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:12.610"},{"UPID":"wcp"}]}
+ data:hold:1791 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:00.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:00.000"},{"UPID":"NA"}]}
+ data:hold:17922 timestamp=1359050684971, value={"md":[{"CDATE":"20110304 15:19:24.000"},{"CPID":"NA"},{"UDATE":"20110304 15:19:24.000"},{"UPID":"NA"}]}
+ data:hold:17970 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:10.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:10.000"},{"UPID":"NA"}]}
+ data:hold:1812 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:00.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:00.000"},{"UPID":"NA"}]}
+ data:hold:1832 timestamp=1431454191861, value={"md":[{"CDATE":"20140626 11:45:21.065"},{"CPID":"cnx_sethold_thu jun 26 11"},{"UDATE":"20150512 14:09:51.860"},{"UPID":"mdc-704956"}]}
+ data:hold:1851 timestamp=1390950130888, value={"md":[{"CDATE":"20140128 18:02:10.884"},{"CPID":"mdc-579432"},{"UDATE":"20140128 18:02:10.884"},{"UPID":"mdc-579432"}]}
+ data:hold:1853 timestamp=1359050684971, value={"md":[{"CDATE":"20050916 16:08:08.000"},{"CPID":"NA"},{"UDATE":"20050916 16:08:08.000"},{"UPID":"NA"}]}
+ data:hold:1854 timestamp=1359050684971, value={"md":[{"CDATE":"20080312 12:30:54.000"},{"CPID":"NA"},{"UDATE":"20080312 12:30:54.000"},{"UPID":"NA"}]}
+ data:hold:1863 timestamp=1359050684971, value={"md":[{"CDATE":"20060714 14:26:21.000"},{"CPID":"NA"},{"UDATE":"20060714 14:26:21.000"},{"UPID":"NA"}]}
+ data:hold:1866 timestamp=1580396812447, value={"md":[{"CDATE":"20190826 15:52:05.192"},{"CPID":"connex-update-1566849125128"},{"UDATE":"20200130 10:06:52.446"},{"UPID":"connex-update-1580396812380"}]}
+ data:hold:1918 timestamp=1359050684971, value={"md":[{"CDATE":"20100830 12:31:36.000"},{"CPID":"NA"},{"UDATE":"20100830 12:31:36.000"},{"UPID":"NA"}]}
+ data:hold:1947 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 18:50:26.000"},{"UPID":"NA"}]}
+ data:hold:1960 timestamp=1440470252298, value={"md":[{"CDATE":"20150824 22:37:32.298"},{"CPID":"mdc-730579"},{"UDATE":"20150824 22:37:32.298"},{"UPID":"mdc-730579"}]}
+ data:hold:1963 timestamp=1523554873464, value={"md":[{"CDATE":"20180412 13:41:13.465"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:13.465"},{"UPID":"wcp"}]}
+ data:hold:199 timestamp=1471562482468, value={"md":[{"CDATE":"20140327 09:11:29.381"},{"CPID":"cnx_sethold_thu mar 27 09"},{"UDATE":"20160818 19:21:22.466"},{"UPID":"cnx_sethold_thu aug 18 19"}]}
+ data:hold:2 timestamp=1442609185491, value={"md":[{"CDATE":"20131203 11:36:23.267"},{"CPID":"cnx_sethold_tue dec 03 11"},{"UDATE":"20150918 16:46:25.492"},{"UPID":"cnx_sethold_fri sep 18 16"}]}
+ data:hold:200 timestamp=1520561711410, value={"md":[{"CDATE":"20180308 21:15:11.408"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.408"},{"UPID":"wcp"}]}
+ data:hold:20096 timestamp=1456896477183, value={"md":[{"CDATE":"20160302 00:27:57.182"},{"CPID":"cnx_sethold_wed mar 02 00"},{"UDATE":"20160302 00:27:57.182"},{"UPID":"cnx_sethold_wed mar 02 00"}]}
+ data:hold:203 timestamp=1359050684971, value={"md":[{"CDATE":"20050624 14:51:52.000"},{"CPID":"NA"},{"UDATE":"20050624 14:51:52.000"},{"UPID":"NA"}]}
+ data:hold:20467 timestamp=1359050684971, value={"md":[{"CDATE":"20070428 07:43:47.000"},{"CPID":"NA"},{"UDATE":"20070428 09:32:45.000"},{"UPID":"NA"}]}
+ data:hold:205 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:47.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:47.000"},{"UPID":"NA"}]}
+ data:hold:2071 timestamp=1520561711379, value={"md":[{"CDATE":"20180308 21:15:11.377"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.377"},{"UPID":"wcp"}]}
+ data:hold:2081 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 18:50:26.000"},{"UPID":"NA"}]}
+ data:hold:209 timestamp=1359050684971, value={"md":[{"CDATE":"20101108 16:01:06.000"},{"CPID":"NA"},{"UDATE":"20101108 16:01:06.000"},{"UPID":"NA"}]}
+ data:hold:2095 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:01.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:01.000"},{"UPID":"NA"}]}
+ data:hold:2117 timestamp=1520561717148, value={"md":[{"CDATE":"20180308 21:15:17.121"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:17.121"},{"UPID":"wcp"}]}
+ data:hold:21186 timestamp=1580396812663, value={"md":[{"CDATE":"20190826 15:52:04.852"},{"CPID":"connex-update-1566849124798"},{"UDATE":"20200130 10:06:52.663"},{"UPID":"connex-update-1580396812602"}]}
+ data:hold:21312 timestamp=1359050684971, value={"md":[{"CDATE":"20050907 09:32:35.000"},{"CPID":"NA"},{"UDATE":"20050907 09:32:35.000"},{"UPID":"NA"}]}
+ data:hold:21431 timestamp=1359050684971, value={"md":[{"CDATE":"20110420 01:10:10.000"},{"CPID":"NA"},{"UDATE":"20110420 01:10:10.000"},{"UPID":"NA"}]}
+ data:hold:2148 timestamp=1449782391295, value={"md":[{"CDATE":"20151210 16:19:51.294"},{"CPID":"cnx_sethold_thu dec 10 16"},{"UDATE":"20151210 16:19:51.294"},{"UPID":"cnx_sethold_thu dec 10 16"}]}
+ data:hold:2155 timestamp=1359050684971, value={"md":[{"CDATE":"20090416 13:36:44.000"},{"CPID":"NA"},{"UDATE":"20090416 13:36:44.000"},{"UPID":"NA"}]}
+ data:hold:2156 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:02.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:02.000"},{"UPID":"NA"}]}
+ data:hold:21681 timestamp=1557240028589, value={"md":[{"CDATE":"20040826 02:09:11.000"},{"CPID":"NA"},{"UDATE":"20190507 10:40:28.587"},{"UPID":"10.25.53.161"}]}
+ data:hold:22608 timestamp=1520561711263, value={"md":[{"CDATE":"20180308 21:15:11.261"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.261"},{"UPID":"wcp"}]}
+ data:hold:2288 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:02.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:02.000"},{"UPID":"NA"}]}
+ data:hold:233 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:49.000"},{"CPID":"NA"},{"UDATE":"20121119 16:53:40.000"},{"UPID":"mdc-481274"}]}
+ data:hold:2340 timestamp=1520561709504, value={"md":[{"CDATE":"20180308 21:15:09.408"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:09.408"},{"UPID":"wcp"}]}
+ data:hold:2387 timestamp=1359050684971, value={"md":[{"CDATE":"20080507 11:43:14.000"},{"CPID":"NA"},{"UDATE":"20080507 11:43:14.000"},{"UPID":"NA"}]}
+ data:hold:23984 timestamp=1359050684971, value={"md":[{"CDATE":"20081014 17:38:19.000"},{"CPID":"NA"},{"UDATE":"20081021 19:34:17.000"},{"UPID":"NA"}]}
+ data:hold:24068 timestamp=1520561710724, value={"md":[{"CDATE":"20140324 13:58:35.714"},{"CPID":"cnx_sethold_mon mar 24 13"},{"UDATE":"20180308 21:15:10.723"},{"UPID":"wcp"}]}
+ data:hold:2410 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:03.000"},{"UPID":"NA"}]}
+ data:hold:2451 timestamp=1359050684971, value={"md":[{"CDATE":"20080611 17:55:35.000"},{"CPID":"NA"},{"UDATE":"20080611 17:55:35.000"},{"UPID":"NA"}]}
+ data:hold:25308 timestamp=1359050684971, value={"md":[{"CDATE":"20070428 08:34:46.000"},{"CPID":"NA"},{"UDATE":"20070428 09:32:45.000"},{"UPID":"NA"}]}
+ data:hold:25309 timestamp=1359050684971, value={"md":[{"CDATE":"20070428 08:53:47.000"},{"CPID":"NA"},{"UDATE":"20070428 09:00:41.000"},{"UPID":"NA"}]}
+ data:hold:2533 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 18:50:26.000"},{"UPID":"NA"}]}
+ data:hold:256 timestamp=1509741923875, value={"md":[{"CDATE":"20170206 17:20:39.225"},{"CPID":"collectionmanager"},{"UDATE":"20171103 16:45:23.702"},{"UPID":"collectionmanager"}]}
+ data:hold:26017 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:11.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:11.000"},{"UPID":"NA"}]}
+ data:hold:266 timestamp=1359050684971, value={"md":[{"CDATE":"20100322 16:03:15.000"},{"CPID":"NA"},{"UDATE":"20100323 05:17:42.000"},{"UPID":"NA"}]}
+ data:hold:2688 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20070124 14:31:04.000"},{"UPID":"NA"}]}
+ data:hold:2713 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:03.000"},{"UPID":"NA"}]}
+ data:hold:27299 timestamp=1452053895102, value={"md":[{"CDATE":"20160105 23:18:15.103"},{"CPID":"ecs"},{"UDATE":"20160105 23:18:15.103"},{"UPID":"ecs"}]}
+ data:hold:2730 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:03.000"},{"UPID":"NA"}]}
+ data:hold:2779 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:03.000"},{"UPID":"NA"}]}
+ data:hold:28282 timestamp=1359050684971, value={"md":[{"CDATE":"20080729 10:39:49.000"},{"CPID":"NA"},{"UDATE":"20080729 10:39:49.000"},{"UPID":"NA"}]}
+ data:hold:28651 timestamp=1424982249372, value={"md":[{"CDATE":"20150226 15:24:09.372"},{"CPID":"cnx_sethold_thu feb 26 15"},{"UDATE":"20150226 15:24:09.372"},{"UPID":"cnx_sethold_thu feb 26 15"}]}
+ data:hold:290 timestamp=1523554872158, value={"md":[{"CDATE":"20120926 13:19:15.847"},{"CPID":"setholdwed sep 26 13"},{"UDATE":"20180412 13:41:12.160"},{"UPID":"wcp"}]}
+ data:hold:2904 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:03.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:03.000"},{"UPID":"NA"}]}
+ data:hold:29296 timestamp=1359050684971, value={"md":[{"CDATE":"20060627 15:22:27.000"},{"CPID":"NA"},{"UDATE":"20090305 18:44:58.000"},{"UPID":"NA"}]}
+ data:hold:29435 timestamp=1359050684971, value={"md":[{"CDATE":"20071207 18:42:29.000"},{"CPID":"NA"},{"UDATE":"20071207 18:42:29.000"},{"UPID":"NA"}]}
+ data:hold:295 timestamp=1359050684971, value={"md":[{"CDATE":"20100817 13:43:54.000"},{"CPID":"NA"},{"UDATE":"20100817 13:43:54.000"},{"UPID":"NA"}]}
+ data:hold:29724 timestamp=1359050684971, value={"md":[{"CDATE":"20101018 09:15:28.000"},{"CPID":"NA"},{"UDATE":"20110110 11:22:27.000"},{"UPID":"NA"}]}
+ data:hold:29729 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:11.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:11.000"},{"UPID":"NA"}]}
+ data:hold:298 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:49.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:49.000"},{"UPID":"NA"}]}
+ data:hold:29904 timestamp=1539368507993, value={"md":[{"CDATE":"20181012 14:21:47.921"},{"CPID":"recmanagerbl"},{"UDATE":"20181012 14:21:47.921"},{"UPID":"recmanagerbl"}]}
+ data:hold:29913 timestamp=1553613266012, value={"md":[{"CDATE":"20190326 11:14:26.012"},{"CPID":"recmanagerbl"},{"UDATE":"20190326 11:14:26.012"},{"UPID":"recmanagerbl"}]}
+ data:hold:30132 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:30162 timestamp=1359050684971, value={"md":[{"CDATE":"20120606 16:32:41.000"},{"CPID":"setholdwed jun 06 16"},{"UDATE":"20120606 16:32:41.000"},{"UPID":"setholdwed jun 06 16"}]}
+ data:hold:30213 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:30448 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:30955 timestamp=1359050684971, value={"md":[{"CDATE":"20100702 10:17:06.000"},{"CPID":"NA"},{"UDATE":"20100702 10:17:06.000"},{"UPID":"NA"}]}
+ data:hold:31011 timestamp=1520561717005, value={"md":[{"CDATE":"20180308 21:15:16.974"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:16.974"},{"UPID":"wcp"}]}
+ data:hold:311 timestamp=1520561710924, value={"md":[{"CDATE":"20180308 21:15:10.922"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:10.922"},{"UPID":"wcp"}]}
+ data:hold:31377 timestamp=1520561710687, value={"md":[{"CDATE":"20180308 21:15:10.685"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:10.685"},{"UPID":"wcp"}]}
+ data:hold:31926 timestamp=1359050684971, value={"md":[{"CDATE":"20090305 11:50:28.000"},{"CPID":"NA"},{"UDATE":"20090305 11:50:28.000"},{"UPID":"NA"}]}
+ data:hold:32254 timestamp=1359050684971, value={"md":[{"CDATE":"20120717 20:51:19.000"},{"CPID":"mdc-457022"},{"UDATE":"20120717 20:51:19.000"},{"UPID":"mdc-457022"}]}
+ data:hold:32730 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:3324 timestamp=1359050684971, value={"md":[{"CDATE":"20090331 10:03:12.000"},{"CPID":"NA"},{"UDATE":"20090407 12:06:04.000"},{"UPID":"NA"}]}
+ data:hold:346 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:50.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:50.000"},{"UPID":"NA"}]}
+ data:hold:359 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:50.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:50.000"},{"UPID":"NA"}]}
+ data:hold:3615 timestamp=1359050684971, value={"md":[{"CDATE":"20100701 08:38:18.000"},{"CPID":"NA"},{"UDATE":"20100701 08:38:18.000"},{"UPID":"NA"}]}
+ data:hold:3648 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:04.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:04.000"},{"UPID":"NA"}]}
+ data:hold:3656 timestamp=1359050684971, value={"md":[{"CDATE":"20080902 11:34:45.000"},{"CPID":"NA"},{"UDATE":"20080902 11:34:45.000"},{"UPID":"NA"}]}
+ data:hold:36613 timestamp=1523554873529, value={"md":[{"CDATE":"20120402 22:21:08.000"},{"CPID":"NA"},{"UDATE":"20180412 13:41:13.461"},{"UPID":"wcp"}]}
+ data:hold:36677 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:36679 timestamp=1359050684971, value={"md":[{"CDATE":"20051221 14:47:41.000"},{"CPID":"NA"},{"UDATE":"20051221 15:03:55.000"},{"UPID":"NA"}]}
+ data:hold:3668 timestamp=1391556309042, value={"md":[{"CDATE":"20140204 18:25:09.040"},{"CPID":"cnx_sethold_tue feb 04 18"},{"UDATE":"20140204 18:25:09.040"},{"UPID":"cnx_sethold_tue feb 04 18"}]}
+ data:hold:372 timestamp=1444227204089, value={"md":[{"CDATE":"20151007 10:13:24.089"},{"CPID":"cnx_sethold_wed oct 07 10"},{"UDATE":"20151007 10:13:24.089"},{"UPID":"cnx_sethold_wed oct 07 10"}]}
+ data:hold:378 timestamp=1520561717575, value={"md":[{"CDATE":"20040826 02:08:51.000"},{"CPID":"NA"},{"UDATE":"20180308 21:15:17.574"},{"UPID":"wcp"}]}
+ data:hold:3798 timestamp=1359050684971, value={"md":[{"CDATE":"20060616 10:17:56.000"},{"CPID":"NA"},{"UDATE":"20060616 10:17:56.000"},{"UPID":"NA"}]}
+ data:hold:3803 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:04.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:04.000"},{"UPID":"NA"}]}
+ data:hold:3924 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:04.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:04.000"},{"UPID":"NA"}]}
+ data:hold:39609 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:12.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:12.000"},{"UPID":"NA"}]}
+ data:hold:410 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:52.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:52.000"},{"UPID":"NA"}]}
+ data:hold:4228 timestamp=1414076708763, value={"md":[{"CDATE":"20141023 11:05:08.764"},{"CPID":"cnx_sethold_thu oct 23 11"},{"UDATE":"20141023 11:05:08.764"},{"UPID":"cnx_sethold_thu oct 23 11"}]}
+ data:hold:4273 timestamp=1359050684971, value={"md":[{"CDATE":"20070410 20:07:11.000"},{"CPID":"NA"},{"UDATE":"20070410 20:07:11.000"},{"UPID":"NA"}]}
+ data:hold:4341 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:05.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:05.000"},{"UPID":"NA"}]}
+ data:hold:442 timestamp=1523554872384, value={"md":[{"CDATE":"20180412 13:41:12.385"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:12.385"},{"UPID":"wcp"}]}
+ data:hold:446 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:52.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:52.000"},{"UPID":"NA"}]}
+ data:hold:45239 timestamp=1359050684971, value={"md":[{"CDATE":"20070908 11:10:27.000"},{"CPID":"NA"},{"UDATE":"20070908 11:10:27.000"},{"UPID":"NA"}]}
+ data:hold:45931 timestamp=1359050684971, value={"md":[{"CDATE":"20061207 19:01:02.000"},{"CPID":"NA"},{"UDATE":"20061207 19:01:02.000"},{"UPID":"NA"}]}
+ data:hold:463 timestamp=1520561717618, value={"md":[{"CDATE":"20180308 21:15:17.617"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:17.617"},{"UPID":"wcp"}]}
+ data:hold:466 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:54.000"},{"CPID":"NA"},{"UDATE":"20091211 09:25:32.000"},{"UPID":"NA"}]}
+ data:hold:4772 timestamp=1413898653601, value={"md":[{"CDATE":"20141021 09:37:33.601"},{"CPID":"cnx_sethold_tue oct 21 09"},{"UDATE":"20141021 09:37:33.601"},{"UPID":"cnx_sethold_tue oct 21 09"}]}
+ data:hold:480 timestamp=1399406312213, value={"md":[{"CDATE":"20140506 15:58:32.209"},{"CPID":"cnx_sethold_tue may 06 15"},{"UDATE":"20140506 15:58:32.209"},{"UPID":"cnx_sethold_tue may 06 15"}]}
+ data:hold:4834 timestamp=1359050684971, value={"md":[{"CDATE":"20041017 04:13:55.000"},{"CPID":"NA"},{"UDATE":"20041017 04:13:55.000"},{"UPID":"NA"}]}
+ data:hold:4856 timestamp=1523554873518, value={"md":[{"CDATE":"20180412 13:41:13.519"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:13.519"},{"UPID":"wcp"}]}
+ data:hold:487 timestamp=1359050684971, value={"md":[{"CDATE":"20090717 11:45:48.000"},{"CPID":"NA"},{"UDATE":"20090717 11:45:48.000"},{"UPID":"NA"}]}
+ data:hold:492 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:54.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:54.000"},{"UPID":"NA"}]}
+ data:hold:5002 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:05.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:05.000"},{"UPID":"NA"}]}
+ data:hold:5030 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:05.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:05.000"},{"UPID":"NA"}]}
+ data:hold:50845 timestamp=1359050684971, value={"md":[{"CDATE":"20070428 09:00:41.000"},{"CPID":"NA"},{"UDATE":"20070428 09:00:41.000"},{"UPID":"NA"}]}
+ data:hold:51 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:46.000"},{"CPID":"NA"},{"UDATE":"20100530 07:18:43.000"},{"UPID":"NA"}]}
+ data:hold:510 timestamp=1520561717295, value={"md":[{"CDATE":"20180308 21:15:17.293"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:17.293"},{"UPID":"wcp"}]}
+ data:hold:5103 timestamp=1359050684971, value={"md":[{"CDATE":"20050408 19:38:08.000"},{"CPID":"NA"},{"UDATE":"20050408 19:38:08.000"},{"UPID":"NA"}]}
+ data:hold:519 timestamp=1438114624780, value={"md":[{"CDATE":"20150417 04:14:13.941"},{"CPID":"mdc-697785"},{"UDATE":"20150728 16:17:04.779"},{"UPID":"lhringest"}]}
+ data:hold:529 timestamp=1373446082440, value={"md":[{"CDATE":"20130710 04:48:02.438"},{"CPID":"mdc-531715"},{"UDATE":"20130710 04:48:02.438"},{"UPID":"mdc-531715"}]}
+ data:hold:5370 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 15:55:07.000"},{"CPID":"NA"},{"UDATE":"20071002 15:55:07.000"},{"UPID":"NA"}]}
+ data:hold:5375 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 19:47:11.000"},{"UPID":"NA"}]}
+ data:hold:5394 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 15:55:08.000"},{"CPID":"NA"},{"UDATE":"20071002 17:00:19.000"},{"UPID":"NA"}]}
+ data:hold:5405 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 17:00:19.000"},{"UPID":"NA"}]}
+ data:hold:5407 timestamp=1359050684971, value={"md":[{"CDATE":"20061222 05:34:33.000"},{"CPID":"NA"},{"UDATE":"20061222 11:58:58.000"},{"UPID":"NA"}]}
+ data:hold:5419 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 15:55:08.000"},{"CPID":"NA"},{"UDATE":"20071002 18:50:26.000"},{"UPID":"NA"}]}
+ data:hold:5445 timestamp=1359050684971, value={"md":[{"CDATE":"20071002 17:00:19.000"},{"CPID":"NA"},{"UDATE":"20071002 17:00:19.000"},{"UPID":"NA"}]}
+ data:hold:554 timestamp=1523554870207, value={"md":[{"CDATE":"20180412 13:41:10.124"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:10.124"},{"UPID":"wcp"}]}
+ data:hold:55701 timestamp=1359050684971, value={"md":[{"CDATE":"20081113 15:48:19.000"},{"CPID":"NA"},{"UDATE":"20081113 15:48:19.000"},{"UPID":"NA"}]}
+ data:hold:56167 timestamp=1430214974737, value={"md":[{"CDATE":"20150428 05:56:14.736"},{"CPID":"mdc-701078"},{"UDATE":"20150428 05:56:14.736"},{"UPID":"mdc-701078"}]}
+ data:hold:56664 timestamp=1359050684971, value={"md":[{"CDATE":"20100214 11:13:02.000"},{"CPID":"NA"},{"UDATE":"20100214 11:13:02.000"},{"UPID":"NA"}]}
+ data:hold:5775 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:07.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:07.000"},{"UPID":"NA"}]}
+ data:hold:5819 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:07.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:07.000"},{"UPID":"NA"}]}
+ data:hold:583 timestamp=1520561709980, value={"md":[{"CDATE":"20180308 21:15:09.888"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:09.888"},{"UPID":"wcp"}]}
+ data:hold:5873 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:07.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:07.000"},{"UPID":"NA"}]}
+ data:hold:59357 timestamp=1584350634127, value={"md":[{"CDATE":"20140501 09:24:30.732"},{"CPID":"lhrservice"},{"UDATE":"20200316 05:23:54.127"},{"UPID":"recmanagerblmovelhr-shr_prt"},{"TYPE":"SHR_PRT"}]}
+ data:hold:6030 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:07.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:07.000"},{"UPID":"NA"}]}
+ data:hold:606 timestamp=1359050684971, value={"md":[{"CDATE":"20080411 20:11:39.000"},{"CPID":"NA"},{"UDATE":"20080411 20:11:39.000"},{"UPID":"NA"}]}
+ data:hold:60730 timestamp=1543932915270, value={"md":[{"CDATE":"20181204 09:15:15.264"},{"CPID":"cnx_sethold_tue dec 04 09"},{"UDATE":"20181204 09:15:15.264"},{"UPID":"cnx_sethold_tue dec 04 09"}]}
+ data:hold:60845 timestamp=1359050684971, value={"md":[{"CDATE":"20121024 06:16:09.000"},{"CPID":"setholdwed oct 24 06"},{"UDATE":"20121024 06:16:09.000"},{"UPID":"setholdwed oct 24 06"}]}
+ data:hold:61588 timestamp=1475487939472, value={"md":[{"CDATE":"20130124 09:29:34.000"},{"CPID":"xclient_1359037774831"},{"UDATE":"20161003 05:45:39.470"},{"UPID":"collectionmanager"}]}
+ data:hold:624 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:55.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:55.000"},{"UPID":"NA"}]}
+ data:hold:631 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:56.000"},{"CPID":"NA"},{"UDATE":"20100112 12:39:55.000"},{"UPID":"NA"}]}
+ data:hold:63144 timestamp=1388297770722, value={"md":[{"CDATE":"20120308 15:20:12.000"},{"CPID":"NA"},{"UDATE":"20131229 01:16:10.722"},{"UPID":"recmanagerbl"}]}
+ data:hold:63145 timestamp=1360003411917, value={"md":[{"CDATE":"20130123 17:20:46.000"},{"CPID":"xclient_1358979645990"},{"UDATE":"20130204 13:43:31.916"},{"UPID":"oracle2ffsync"}]}
+ data:hold:63148 timestamp=1359050684971, value={"md":[{"CDATE":"20111122 18:28:15.000"},{"CPID":"NA"},{"UDATE":"20111122 18:28:15.000"},{"UPID":"NA"}]}
+ data:hold:63153 timestamp=1359050684971, value={"md":[{"CDATE":"20120229 13:36:05.000"},{"CPID":"NA"},{"UDATE":"20120229 13:36:05.000"},{"UPID":"NA"}]}
+ data:hold:63156 timestamp=1359050684971, value={"md":[{"CDATE":"20120707 14:10:08.000"},{"CPID":"xclient_1341684608026"},{"UDATE":"20120707 14:10:08.000"},{"UPID":"xclient_1341684608026"}]}
+ data:hold:63174 timestamp=1493653685891, value={"md":[{"CDATE":"20111207 07:35:33.000"},{"CPID":"NA"},{"UDATE":"20170501 11:48:05.888"},{"UPID":"recmanagerbl"}]}
+ data:hold:63176 timestamp=1581498850903, value={"md":[{"CDATE":"20151029 10:22:40.856"},{"CPID":"collectionmanager"},{"UDATE":"20200212 04:14:10.308"},{"UPID":"recmanagerbulklbd"}]}
+ data:hold:63180 timestamp=1359050684971, value={"md":[{"CDATE":"20120308 10:27:27.000"},{"CPID":"NA"},{"UDATE":"20120308 10:27:27.000"},{"UPID":"NA"}]}
+ data:hold:63181 timestamp=1360003411987, value={"md":[{"CDATE":"20130123 17:38:31.000"},{"CPID":"oracle2ffsync"},{"UDATE":"20130204 13:43:31.987"},{"UPID":"oracle2ffsync"}]}
+ data:hold:63182 timestamp=1360003412056, value={"md":[{"CDATE":"20130123 16:08:24.000"},{"CPID":"xclient_1358975304815"},{"UDATE":"20130204 13:43:32.056"},{"UPID":"oracle2ffsync"}]}
+ data:hold:63183 timestamp=1360003412117, value={"md":[{"CDATE":"20130123 16:35:02.000"},{"CPID":"xclient_1358976902781"},{"UDATE":"20130204 13:43:32.116"},{"UPID":"oracle2ffsync"}]}
+ data:hold:63184 timestamp=1447951298164, value={"md":[{"CDATE":"20111208 20:26:29.000"},{"CPID":"NA"},{"UDATE":"20151119 11:41:38.163"},{"UPID":"recmanagerbl"}]}
+ data:hold:63185 timestamp=1359050684971, value={"md":[{"CDATE":"20120403 09:56:40.000"},{"CPID":"NA"},{"UDATE":"20120403 09:56:40.000"},{"UPID":"NA"}]}
+ data:hold:63186 timestamp=1549496079326, value={"md":[{"CDATE":"20120403 10:17:57.000"},{"CPID":"NA"},{"UDATE":"20190206 18:34:39.310"},{"UPID":"192.168.215.7"}]}
+ data:hold:63187 timestamp=1493841586215, value={"md":[{"CDATE":"20130123 17:34:52.000"},{"CPID":"xclient_1358980491979"},{"UDATE":"20170503 15:59:46.208"},{"UPID":"recmanagerbl"}]}
+ data:hold:63188 timestamp=1359050684971, value={"md":[{"CDATE":"20111208 00:47:31.000"},{"CPID":"NA"},{"UDATE":"20111208 00:47:31.000"},{"UPID":"NA"}]}
+ data:hold:63189 timestamp=1551300158259, value={"md":[{"CDATE":"20190227 15:42:38.258"},{"CPID":"recmanagerbl"},{"UDATE":"20190227 15:42:38.258"},{"UPID":"recmanagerbl"}]}
+ data:hold:63191 timestamp=1359050684971, value={"md":[{"CDATE":"20111206 19:37:13.000"},{"CPID":"NA"},{"UDATE":"20111206 19:37:13.000"},{"UPID":"NA"}]}
+ data:hold:63307 timestamp=1477097489289, value={"md":[{"CDATE":"20120307 17:50:29.000"},{"CPID":"NA"},{"UDATE":"20161021 20:51:29.288"},{"UPID":"collectionmanager"}]}
+ data:hold:63308 timestamp=1496888814744, value={"md":[{"CDATE":"20161021 20:51:29.297"},{"CPID":"collectionmanager"},{"UDATE":"20170607 22:26:54.743"},{"UPID":"collectionmanager"}]}
+ data:hold:63309 timestamp=1496888814754, value={"md":[{"CDATE":"20161021 20:51:29.314"},{"CPID":"collectionmanager"},{"UDATE":"20170607 22:26:54.754"},{"UPID":"collectionmanager"}]}
+ data:hold:63313 timestamp=1359050684971, value={"md":[{"CDATE":"20120307 16:16:24.000"},{"CPID":"NA"},{"UDATE":"20120307 16:16:24.000"},{"UPID":"NA"}]}
+ data:hold:63314 timestamp=1359050684971, value={"md":[{"CDATE":"20120308 14:40:03.000"},{"CPID":"NA"},{"UDATE":"20120308 14:40:03.000"},{"UPID":"NA"}]}
+ data:hold:63315 timestamp=1359050684971, value={"md":[{"CDATE":"20120312 16:42:52.000"},{"CPID":"NA"},{"UDATE":"20120312 16:42:52.000"},{"UPID":"NA"}]}
+ data:hold:63316 timestamp=1564696469336, value={"md":[{"CDATE":"20120308 15:05:34.000"},{"CPID":"NA"},{"UDATE":"20190801 17:54:29.333"},{"UPID":"wms-colmgtws01dxm1.dev.oclc.org-72576ad2-d1f6-43c6-a7f9-1817aebe5c95-shr_prt"}]}
+ data:hold:63416 timestamp=1395243742064, value={"md":[{"CDATE":"20111122 23:48:45.000"},{"CPID":"NA"},{"UDATE":"20140319 11:42:22.061"},{"UPID":"wms-de6f9ba7-789d-4c7d-86b3-221d55fe3cb2"}]}
+ data:hold:641 timestamp=1359050684971, value={"md":[{"CDATE":"20090216 16:44:51.000"},{"CPID":"NA"},{"UDATE":"20090216 16:44:51.000"},{"UPID":"NA"}]}
+ data:hold:6590 timestamp=1359050684971, value={"md":[{"CDATE":"20100420 00:45:12.000"},{"CPID":"NA"},{"UDATE":"20100420 00:45:12.000"},{"UPID":"NA"}]}
+ data:hold:66695 timestamp=1371659141830, value={"md":[{"CDATE":"20130514 06:23:00.747"},{"CPID":"oracle2ffsync"},{"UDATE":"20130619 12:25:41.829"},{"UPID":"mdc-526882"}]}
+ data:hold:66696 timestamp=1371658888920, value={"md":[{"CDATE":"20130619 12:21:28.918"},{"CPID":"mdc-526884"},{"UDATE":"20130619 12:21:28.918"},{"UPID":"mdc-526884"}]}
+ data:hold:66697 timestamp=1371658871672, value={"md":[{"CDATE":"20130619 12:21:11.671"},{"CPID":"mdc-526883"},{"UDATE":"20130619 12:21:11.671"},{"UPID":"mdc-526883"}]}
+ data:hold:66698 timestamp=1371658871599, value={"md":[{"CDATE":"20130619 12:21:11.598"},{"CPID":"mdc-526885"},{"UDATE":"20130619 12:21:11.598"},{"UPID":"mdc-526885"}]}
+ data:hold:66699 timestamp=1371676837144, value={"md":[{"CDATE":"20130619 17:20:37.145"},{"CPID":"mdc-526886"},{"UDATE":"20130619 17:20:37.145"},{"UPID":"mdc-526886"}]}
+ data:hold:6702 timestamp=1377040493499, value={"md":[{"CDATE":"20130820 19:14:53.498"},{"CPID":"setholdtue aug 20 19"},{"UDATE":"20130820 19:14:53.498"},{"UPID":"setholdtue aug 20 19"}]}
+ data:hold:67073 timestamp=1371663524227, value={"md":[{"CDATE":"20130619 13:38:44.227"},{"CPID":"mdc-526913"},{"UDATE":"20130619 13:38:44.227"},{"UPID":"mdc-526913"}]}
+ data:hold:6710 timestamp=1403524817410, value={"md":[{"CDATE":"20140623 08:00:17.410"},{"CPID":"cnx_sethold_mon jun 23 08"},{"UDATE":"20140623 08:00:17.410"},{"UPID":"cnx_sethold_mon jun 23 08"}]}
+ data:hold:6804 timestamp=1359050684971, value={"md":[{"CDATE":"20100212 23:05:06.000"},{"CPID":"NA"},{"UDATE":"20100212 23:05:06.000"},{"UPID":"NA"}]}
+ data:hold:6938 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:07.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:07.000"},{"UPID":"NA"}]}
+ data:hold:6946 timestamp=1510088923938, value={"md":[{"CDATE":"20150208 02:25:21.990"},{"CPID":"cnx_sethold_sun feb 08 02"},{"UDATE":"20171107 16:08:43.932"},{"UPID":"cnx_sethold_tue nov 07 16"}]}
+ data:hold:6947 timestamp=1571846816628, value={"md":[{"CDATE":"20140521 11:48:01.499"},{"CPID":"cnx_sethold_wed may 21 11"},{"UDATE":"20191023 12:06:56.572"},{"UPID":"recmanagerbl"}]}
+ data:hold:6949 timestamp=1359050684971, value={"md":[{"CDATE":"20110901 13:58:26.000"},{"CPID":"NA"},{"UDATE":"20110901 13:58:26.000"},{"UPID":"NA"}]}
+ data:hold:6969 timestamp=1520561710887, value={"md":[{"CDATE":"20180308 21:15:10.885"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:10.885"},{"UPID":"wcp"}]}
+ data:hold:7006 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:70735 timestamp=1543934363538, value={"md":[{"CDATE":"20181204 09:39:23.533"},{"CPID":"recmanagerbl"},{"UDATE":"20181204 09:39:23.533"},{"UPID":"recmanagerbl"}]}
+ data:hold:70737 timestamp=1468264325022, value={"md":[{"CDATE":"20160711 15:12:05.022"},{"CPID":"recmanagerbl"},{"UDATE":"20160711 15:12:05.022"},{"UPID":"recmanagerbl"}]}
+ data:hold:70738 timestamp=1494521408794, value={"md":[{"CDATE":"20170511 12:50:08.789"},{"CPID":"recmanagerbl"},{"UDATE":"20170511 12:50:08.789"},{"UPID":"recmanagerbl"}]}
+ data:hold:7105 timestamp=1419018272621, value={"md":[{"CDATE":"20141219 14:44:32.619"},{"CPID":"mdc-665772"},{"UDATE":"20141219 14:44:32.619"},{"UPID":"mdc-665772"}]}
+ data:hold:7115 timestamp=1427315054903, value={"md":[{"CDATE":"20150325 16:24:14.902"},{"CPID":"connex-update-1427315054887"},{"UDATE":"20150325 16:24:14.902"},{"UPID":"connex-update-1427315054887"}]}
+ data:hold:7128 timestamp=1359050684971, value={"md":[{"CDATE":"20100223 12:47:45.000"},{"CPID":"NA"},{"UDATE":"20100223 12:47:52.000"},{"UPID":"NA"}]}
+ data:hold:72494 timestamp=1462954431181, value={"md":[{"CDATE":"20160511 04:13:51.180"},{"CPID":"lhringest_795100"},{"UDATE":"20160511 04:13:51.180"},{"UPID":"lhringest_795100"}]}
+ data:hold:7331 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:758 timestamp=1423849088890, value={"md":[{"CDATE":"20150213 12:38:08.890"},{"CPID":"cnx_sethold_fri feb 13 12"},{"UDATE":"20150213 12:38:08.890"},{"UPID":"cnx_sethold_fri feb 13 12"}]}
+ data:hold:7600 timestamp=1520561711062, value={"md":[{"CDATE":"20180308 21:15:11.060"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.060"},{"UPID":"wcp"}]}
+ data:hold:781 timestamp=1523554871868, value={"md":[{"CDATE":"20180412 13:41:11.869"},{"CPID":"wcp"},{"UDATE":"20180412 13:41:11.869"},{"UPID":"wcp"}]}
+ data:hold:782 timestamp=1359050684971, value={"md":[{"CDATE":"20111013 03:02:17.000"},{"CPID":"NA"},{"UDATE":"20111013 03:02:17.000"},{"UPID":"NA"}]}
+ data:hold:794 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:56.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:56.000"},{"UPID":"NA"}]}
+ data:hold:796 timestamp=1520561711445, value={"md":[{"CDATE":"20140814 09:59:45.241"},{"CPID":"cnx_sethold_thu aug 14 09"},{"UDATE":"20180308 21:15:11.443"},{"UPID":"wcp"}]}
+ data:hold:8059 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:821 timestamp=1359050684971, value={"md":[{"CDATE":"20060222 01:23:16.000"},{"CPID":"NA"},{"UDATE":"20060222 01:23:16.000"},{"UPID":"NA"}]}
+ data:hold:831 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:08:57.000"},{"CPID":"NA"},{"UDATE":"20040826 02:08:57.000"},{"UPID":"NA"}]}
+ data:hold:8589 timestamp=1520561711534, value={"md":[{"CDATE":"20180308 21:15:11.533"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.533"},{"UPID":"wcp"}]}
+ data:hold:9 timestamp=1523554871028, value={"md":[{"CDATE":"20040826 02:08:45.000"},{"CPID":"NA"},{"UDATE":"20180412 13:41:11.029"},{"UPID":"wcp"}]}
+ data:hold:90 timestamp=1520561711498, value={"md":[{"CDATE":"20180308 21:15:11.496"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.496"},{"UPID":"wcp"}]}
+ data:hold:9401 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:954 timestamp=1520561711748, value={"md":[{"CDATE":"20180308 21:15:11.746"},{"CPID":"wcp"},{"UDATE":"20180308 21:15:11.746"},{"UPID":"wcp"}]}
+ data:hold:9718 timestamp=1359050684971, value={"md":[{"CDATE":"20050816 19:10:51.000"},{"CPID":"NA"},{"UDATE":"20050816 19:10:51.000"},{"UPID":"NA"}]}
+ data:hold:9784 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:9864 timestamp=1359050684971, value={"md":[{"CDATE":"20090415 19:56:27.000"},{"CPID":"NA"},{"UDATE":"20091004 16:17:58.000"},{"UPID":"NA"}]}
+ data:hold:9889 timestamp=1359050684971, value={"md":[{"CDATE":"20040826 02:09:08.000"},{"CPID":"NA"},{"UDATE":"20040826 02:09:08.000"},{"UPID":"NA"}]}
+ data:hold:9975 timestamp=1359050684971, value={"md":[{"CDATE":"20100309 12:37:06.000"},{"CPID":"NA"},{"UDATE":"20100309 12:37:06.000"},{"UPID":"NA"}]}
+ data:ingestIndexing timestamp=1584461900949, value=
+ data:language timestamp=1584461900949, value=eng
+ data:lastModifiedDate timestamp=1584461900949, value=20200317 12:18:20.009
+ data:manifestationId timestamp=1584461900949, value=15049329
+ data:physFormat timestamp=1584461900949, value=
+ data:priFormat timestamp=1584461900949, value=bks
+ data:privateHolds timestamp=1584461900949, value=
+ data:providerPrimaryKey timestamp=1584461900949, value=
+ data:publisher timestamp=1584461900949, value=rand mcnally
+ data:reproductionId timestamp=1584461900949, value=2859686201
+ data:unitCount timestamp=1584461900949, value=110
+ data:workId timestamp=1584461900949, value=849349
+419 row(s) in 0.3350 seconds
+

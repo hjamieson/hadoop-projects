@@ -1,0 +1,55 @@
+
+
+plugins {
+    // Apply the scala plugin to add support for Scala
+    id 'scala'
+    id 'nebula.provided-base' version '3.0.3' // if you want provided-base
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven{
+        url "https://artifact-m1.shr.oclc.org/artifactory/internal"
+    }
+    maven {
+        url "http://releases.dev.oclc.org/archiva/repository/releases"
+    }
+}
+
+ext {
+    scalaVersion = "2.11.12"
+    sparkVersion = "2.4.4"
+    hbaseVersion = "1.2.0-cdh5.16.1"
+    scallopVersion = "3.1.3"
+}
+
+dependencies {
+    // Use Scala 2.11 in our library project
+
+    provided "org.scala-lang:scala-library:${scalaVersion}"
+    provided "com.fasterxml.jackson.module:jackson-module-scala_2.11:2.6.5"
+    implementation "org.rogach:scallop_2.11:${scallopVersion}"
+    provided "org.apache.spark:spark-sql_2.11:${sparkVersion}"
+    provided "org.apache.hbase:hbase-common:${hbaseVersion}"
+    provided "org.apache.hbase:hbase-client:${hbaseVersion}"
+    provided "org.apache.hbase:hbase-server:${hbaseVersion}"
+
+    // Use Scalatest for testing our library
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.scalatest:scalatest_2.11:3.0.5"
+
+    // Need scala-xml at test runtime
+    testRuntimeOnly 'org.scala-lang.modules:scala-xml_2.11:1.1.1'
+}
+
+version = '0.1-beta'
+
+task fatJar(type: Jar) {
+    baseName = project.name
+    classifier = "fat"
+    from {
+        configurations.default.collect { it.isDirectory() ? it : zipTree(it)}
+    }
+    with jar
+}

@@ -5,19 +5,21 @@ ThisBuild / organization := "org.oclc"
 ThisBuild / organizationName := "OCLC.org"
 
 lazy val root = (project in file("."))
-    .settings(
-        libraryDependencies ++= Seq(
-             "org.scalatest" %% "scalatest" % "3.1.2" % Test,
-             "org.apache.spark" %% "spark-sql" % "2.4.4" % Compile
-        )
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.1.2" % Test,
+      "org.apache.spark" %% "spark-sql" % "2.4.4" % Compile
     )
-    .aggregate(bibutils)
+  )
+  .aggregate(bibutils)
 
 lazy val bibutils = project
-    .settings(
-        version := "1_a",
-        libraryDependencies ++= Seq(
-             "org.scalatest" %% "scalatest" % "3.1.2" % Test
-        )
+  .settings(
+    version := "1_a",
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.1.2" % Test,
+      "org.scala-lang.modules" %% "scala-xml" % "1.3.0" % Compile
 
     )
+
+  )

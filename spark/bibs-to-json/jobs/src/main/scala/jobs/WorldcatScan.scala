@@ -13,7 +13,7 @@ import org.apache.spark.sql.{SaveMode, SparkSession}
 object WorldcatScan extends App {
 
   val spark = SparkSession.builder()
-    .appName("Worldcat Scan")
+    .appName("Worldcat Datalake Extract")
     .getOrCreate()
 
   val sc = spark.sparkContext
@@ -24,9 +24,9 @@ object WorldcatScan extends App {
 
   // setup the scan
   val scan: Scan = new Scan()
-  scan.setCaching(100)
+  scan.setCaching(500)
   scan.setCacheBlocks(false)
-  scan.addColumn(Bytes.toBytes("data"), Bytes.toBytes("document"))
+  scan.addFamily(Bytes.toBytes("data"))
   scan.setStartRow(cli.startKey().getBytes())
   scan.setStopRow(cli.stopKey().getBytes())
   hBaseConf.set(TableInputFormat.INPUT_TABLE, cli.table())
@@ -48,12 +48,56 @@ object WorldcatScan extends App {
     classOf[TableInputFormat],
     classOf[ImmutableBytesWritable],
     classOf[Result])
-    .map(row => HBaseHelper.rowToFields(row))
+    .map(row => ScanHelper.rowToFields(row))
     .toDF
 
   tableDF.write
     .mode(SaveMode.Overwrite)
+    .option("compression","snappy")
     .parquet(cli.outputDir())
+
+}
+
+object ScanHelper {
+
+  case class FieldsFromRow(
+                            rowkey: String,
+                            document: Option[String],
+                            dataSource: Option[String],
+                            createDate: Option[String],
+                            language: Option[String],
+                            physFormat: Option[String],
+                            priFormat: Option[String],
+                            publisher: Option[String],
+                            workId: Option[String]
+                          )
+
+  val DATA = Bytes.toBytes("data")
+  val DOCUMENT = Bytes.toBytes("document")
+
+  def rowToFields(t: (ImmutableBytesWritable, Result)): FieldsFromRow = {
+    val rowkey = Bytes.toString(t._1.get())
+    val result = t._2
+
+    val doc = Option(result.getValue(DATA, DOCUMENT))
+    val dataSource = Option(result.getValue(DATA, "dataSource".getBytes()))
+    val createDate = Option(result.getValue(DATA, "createDate".getBytes()))
+    val language = Option(result.getValue(DATA, "language".getBytes()))
+    val physFormat = Option(result.getValue(DATA, "physFormat".getBytes()))
+    val priFormat = Option(result.getValue(DATA, "priFormat".getBytes()))
+    val publisher = Option(result.getValue(DATA, "publisher".getBytes()))
+    val workId = Option(result.getValue(DATA, "workId".getBytes()))
+    FieldsFromRow(rowkey,
+      doc.flatMap(d => Some(new String(d))),
+      dataSource.flatMap(d => Some(new String(d))),
+      createDate.flatMap(d => Some(new String(d))),
+      language.flatMap(d => Some(new String(d))),
+      physFormat.flatMap(d => Some(new String(d))),
+      priFormat.flatMap(d => Some(new String(d))),
+      publisher.flatMap(d => Some(new String(d))),
+      workId.flatMap(d => Some(new String(d)))
+    )
+  }
 
 }
 

@@ -53,7 +53,7 @@ object WorldcatScan extends App {
 
   tableDF.write
     .mode(SaveMode.Overwrite)
-    .option("compression","snappy")
+    .option("compression", "snappy")
     .parquet(cli.outputDir())
 
 }
@@ -72,30 +72,19 @@ object ScanHelper {
                             workId: Option[String]
                           )
 
-  val DATA = Bytes.toBytes("data")
-  val DOCUMENT = Bytes.toBytes("document")
 
   def rowToFields(t: (ImmutableBytesWritable, Result)): FieldsFromRow = {
-    val rowkey = Bytes.toString(t._1.get())
     val result = t._2
 
-    val doc = Option(result.getValue(DATA, DOCUMENT))
-    val dataSource = Option(result.getValue(DATA, "dataSource".getBytes()))
-    val createDate = Option(result.getValue(DATA, "createDate".getBytes()))
-    val language = Option(result.getValue(DATA, "language".getBytes()))
-    val physFormat = Option(result.getValue(DATA, "physFormat".getBytes()))
-    val priFormat = Option(result.getValue(DATA, "priFormat".getBytes()))
-    val publisher = Option(result.getValue(DATA, "publisher".getBytes()))
-    val workId = Option(result.getValue(DATA, "workId".getBytes()))
-    FieldsFromRow(rowkey,
-      doc.flatMap(d => Some(new String(d))),
-      dataSource.flatMap(d => Some(new String(d))),
-      createDate.flatMap(d => Some(new String(d))),
-      language.flatMap(d => Some(new String(d))),
-      physFormat.flatMap(d => Some(new String(d))),
-      priFormat.flatMap(d => Some(new String(d))),
-      publisher.flatMap(d => Some(new String(d))),
-      workId.flatMap(d => Some(new String(d)))
+    FieldsFromRow(Bytes.toString(t._1.get()),
+      HBaseHelper.getSafeStringOption(result, "data", "document"),
+      HBaseHelper.getSafeStringOption(result, "data", "dataSource"),
+      HBaseHelper.getSafeStringOption(result, "data", "createDate"),
+      HBaseHelper.getSafeStringOption(result, "data", "language"),
+      HBaseHelper.getSafeStringOption(result, "data", "physFormat"),
+      HBaseHelper.getSafeStringOption(result, "data", "priFormat"),
+      HBaseHelper.getSafeStringOption(result, "data", "publisher"),
+      HBaseHelper.getSafeStringOption(result, "data", "workId")
     )
   }
 

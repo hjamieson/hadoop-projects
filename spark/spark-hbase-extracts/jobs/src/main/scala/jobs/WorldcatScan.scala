@@ -2,6 +2,8 @@ package jobs
 
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Result, Scan}
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp
+import org.apache.hadoop.hbase.filter.{FilterList, SingleColumnValueExcludeFilter, SingleColumnValueFilter}
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
@@ -29,6 +31,10 @@ object WorldcatScan extends App {
   scan.addFamily(Bytes.toBytes("data"))
   scan.setStartRow(cli.startKey().getBytes())
   scan.setStopRow(cli.stopKey().getBytes())
+  private val filterXWC = new SingleColumnValueFilter("data".getBytes(), "dataSource".getBytes(), CompareOp.NOT_EQUAL, "xwc".getBytes())
+  private val filterNull = new SingleColumnValueFilter("data".getBytes(), "dataSource".getBytes(), CompareOp.NOT_EQUAL, "".getBytes())
+  filterNull.setFilterIfMissing(true)
+  scan.setFilter(new FilterList(filterNull, filterXWC))
   hBaseConf.set(TableInputFormat.INPUT_TABLE, cli.table())
   hBaseConf.set(TableInputFormat.SCAN, HBaseHelper.convertScanToString(scan))
 

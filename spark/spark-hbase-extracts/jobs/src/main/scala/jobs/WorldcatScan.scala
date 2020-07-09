@@ -15,7 +15,7 @@ import org.apache.spark.sql.{SaveMode, SparkSession}
 object WorldcatScan extends App {
 
   val spark = SparkSession.builder()
-    .appName("Worldcat Datalake Extract")
+    .appName("Worldcat Datalake Extract No XWC")
     .getOrCreate()
 
   val sc = spark.sparkContext
@@ -29,13 +29,13 @@ object WorldcatScan extends App {
   scan.setCaching(500)
   scan.setCacheBlocks(false)
   scan.addFamily(Bytes.toBytes("data"))
-  scan.setStartRow(cli.startKey().getBytes())
-  scan.setStopRow(cli.stopKey().getBytes())
+  if (cli.startKey.isDefined) scan.setStartRow(cli.startKey().getBytes())
+  if (cli.stopKey.isDefined) scan.setStopRow(cli.stopKey().getBytes())
   private val filterXWC = new SingleColumnValueFilter("data".getBytes(), "dataSource".getBytes(), CompareOp.NOT_EQUAL, "xwc".getBytes())
   private val filterNull = new SingleColumnValueFilter("data".getBytes(), "dataSource".getBytes(), CompareOp.NOT_EQUAL, "".getBytes())
   filterNull.setFilterIfMissing(true)
   scan.setFilter(new FilterList(filterNull, filterXWC))
-  hBaseConf.set(TableInputFormat.INPUT_TABLE, cli.table())
+  hBaseConf.set(TableInputFormat.INPUT_TABLE, cli.table.getOrElse("Worldcat"))
   hBaseConf.set(TableInputFormat.SCAN, HBaseHelper.convertScanToString(scan))
 
   /*

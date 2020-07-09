@@ -1,4 +1,4 @@
-ThisBuild / name := "bibs2json"
+ThisBuild / name := "datalake-extracts"
 ThisBuild / version := "0.1"
 ThisBuild / scalaVersion := "2.11.8"
 ThisBuild / organization := "org.oclc"
@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
     )
   )
-  .aggregate(bibutils)
+  .aggregate(bibutils, jobs)
 
 lazy val bibutils = project
   .settings(
@@ -35,5 +35,6 @@ lazy val jobs = project
     ),
     resolvers += "OCLC Artifactory" at "https://artifact-m1.shr.oclc.org/artifactory/internal/",
 
-    assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
+    assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
+    assemblyJarName in assembly := s"hbase-datalake-extracts-${version.value}.jar"
   )

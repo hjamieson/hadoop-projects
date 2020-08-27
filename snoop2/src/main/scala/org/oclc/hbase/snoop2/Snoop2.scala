@@ -3,7 +3,9 @@ package org.oclc.hbase.snoop2
 import java.util.Collections
 
 import org.apache.hadoop.hbase.client.{ConnectionFactory, Table}
-import org.oclc.hbase.snoop2.impl.{HBaseOps, HBaseTableInfo, Observation, ObservationList, SafeList}
+import org.oclc.hbase.snoop2.Snoop2.args
+import org.oclc.hbase.snoop2.impl.JsonUtil.toJson
+import org.oclc.hbase.snoop2.impl.{HBaseOps, HBaseTableInfo, JsonUtil, Observation, ObservationList, SafeList}
 import org.slf4j.{Logger, LoggerFactory}
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -22,10 +24,17 @@ object Snoop2 extends App {
     obs
   }
 
+  /*
+  args: 0 = table name
+        1 = json|text
+   */
+
+  private val strTable = if (args.length > 0) args(0) else "Worldcat"
+  private val jsonOutput = if (args.length > 1 && args(1).toLowerCase == "json") true else false
+
   val logger = LoggerFactory.getLogger(this.getClass.getName)
-  val observations = new ObservationList
+  val observations = new ObservationList(strTable)
   implicit val conn = ConnectionFactory.createConnection()
-  private val strTable = "Worldcat"
   val hbaseTableInfo = HBaseTableInfo(strTable)
   val table = conn.getTable(hbaseTableInfo.tableName)
 
@@ -41,7 +50,8 @@ object Snoop2 extends App {
   while (true) {
     val work = HBaseOps.getStartKeys(strTable).map(futureGet(table, _, observations))
     Thread.sleep(15000)
-    logger.info("{}",observations.summarize(strTable))
+    if (jsonOutput) println(toJson(observations.summarize))
+    else logger.info(observations.summarize.toString)
     observations.clear
   }
   conn.close()

@@ -7,6 +7,8 @@ import java.io.IOException;
 
 /**
  * Puts a row to a table with durability turned-off!
+ * This jar has a Main-CLass attribute, so you can run it like this:
+ * HADOOP_CLASSPATH=$(hbase classpath) hadoop jar hbase-nowal-tool-1.0.jar hytest huey f1:c1 scooby-doo
  */
 public class Main {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);

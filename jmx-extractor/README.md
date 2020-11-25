@@ -46,3 +46,23 @@ Valid Forms(as documented in `org.apache.hadoop.hbase.http.jmx.JMXJsonServlet`)
        }
    }
    ```
+   
+   ## Bulk Loading
+   The job Poll4Bulk polls the RSs for data and writes each result to a file in ELK bulk-load format, suitable for use with Curl or other posting tools.
+   * bulk format is:  
+   ```
+   POST _bulk
+   { "index" : { "_index" : "test", "_id" : "1" } }
+   { "field1" : "value1" }
+   { "delete" : { "_index" : "test", "_id" : "2" } }
+   { "create" : { "_index" : "test", "_id" : "3" } }
+   { "field1" : "value3" }
+   { "update" : {"_id" : "1", "_index" : "test"} }
+   { "doc" : {"field2" : "value2"} }
+   ```
+   * _note_: normal gateways do not have access the rs ports like 60030, so make sure you run this on a admin ge!
+   * to run it:
+   ```
+    $ java -cp jmx-extractor-0.1.jar:$(hbase classpath) jmx.extractor.job.Poll4Bulk
+   ```
+   

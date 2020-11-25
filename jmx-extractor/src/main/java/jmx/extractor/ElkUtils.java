@@ -1,5 +1,6 @@
 package jmx.extractor;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Stopwatch;
 import jmx.extractor.model.MetaField;
@@ -20,7 +21,7 @@ public class ElkUtils {
     private static ObjectMapper om = new ObjectMapper();
 
     public static void post(URI elkUri, Map<String, Object> map) throws IOException {
-        Stopwatch sw = Stopwatch.createStarted();
+        Stopwatch sw = new Stopwatch().start();
         String json = om.writeValueAsString(map);
         // use httpclient to sent it to elk
         Response response = Request.Post(elkUri)
@@ -34,5 +35,17 @@ public class ElkUtils {
         sw.stop();
         LOG.debug("POST->{}, elapsed({})", elkUri, sw.toString());
 
+    }
+
+    public static String toBulkFormat(Map<String, Object> map, String indexName){
+        StringBuilder b = new StringBuilder();
+        b.append(String.format("{\"index\":{\"_index\":\"%s\"}}%n", indexName));
+        try {
+            b.append(om.writeValueAsString(map));
+            b.append("\n");
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        return b.toString();
     }
 }

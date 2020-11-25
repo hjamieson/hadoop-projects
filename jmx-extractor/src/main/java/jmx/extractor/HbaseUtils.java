@@ -21,7 +21,15 @@ public class HbaseUtils {
     private static final Logger LOG = LoggerFactory.getLogger(HbaseUtils.class);
 
     static final List<String> testList = Arrays.asList("hddev1db008dxc1.dev.oclc.org", "hddev1db009dxc1.dev.oclc.org", "hddev1db010dxc1.dev.oclc.org");
+    public static String RSURLTEMPLATE = "http://###:60030/jmx?qry=Hadoop:service=HBase,name=RegionServer,sub=Server";
 
+    public static String getSubServerUrl(String hostname){
+        return RSURLTEMPLATE.replace("###", hostname);
+    }
+
+    public static List<String> getTestRegionServerList(){
+        return testList;
+    }
     /**
      * returns the list of regionservers for the current environment MINUS any dead servers.
      * @return

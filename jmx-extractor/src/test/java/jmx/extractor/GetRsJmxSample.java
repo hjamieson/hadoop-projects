@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class GetRsJmxSample {
-    URL url = new URL("http://hddev1db014dxc1.dev.oclc.org:60030/jmx??qry=Hadoop:service=HBase,name=RegionServer,sub=Server");
+    URL url = new URL(HbaseUtils.getSubServerUrl("hddev1db014dxc1.dev.oclc.org"));
 
     public GetRsJmxSample() throws MalformedURLException {
     }

@@ -74,10 +74,11 @@ public class JsonUtils {
      */
     public static Map<String, Object> jsonToMap(URL rsUrl) throws IOException {
         LOG.debug("pulling jmx bean from {}", rsUrl.toExternalForm());
-        Stopwatch sw = Stopwatch.createStarted();
-        JsonFactory jf = JsonFactory.builder()
-                .configure(JsonReadFeature.ALLOW_NON_NUMERIC_NUMBERS, true)
-                .build();
+        Stopwatch sw = new Stopwatch().start();
+//        JsonFactory jf = JsonFactory.builder()
+//                .configure(JsonReadFeature.ALLOW_NON_NUMERIC_NUMBERS, true)
+//                .build();
+        JsonFactory jf = new JsonFactory();
         JsonParser jp = jf.createParser(NetUtils.getJmx(rsUrl));
         seekToFirstObjectInArray(jp);   // positions us on the first field
         Map<String, Object> map = jsonToMap(jp);
@@ -120,6 +121,13 @@ public class JsonUtils {
         // remove the percentage fields until we decide we want em!
         Stream<Map.Entry<String, Object>> percentage = map.entrySet().stream().filter(e -> !e.getKey().endsWith("_percentile"));
         return percentage.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    /**
+     * returns the enriched version of the map from the rs.  This is a convenience method.
+     */
+    public static Map<String, Object> jsonToEnrichedMap(URL rsUrl) throws IOException {
+        return enrich(jsonToMap(rsUrl));
     }
 
     /**

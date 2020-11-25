@@ -1,0 +1,14 @@
+{
+  "name": "Wallace",
+  "position": "manager",
+  "reports": [
+    {
+      "name": "Hugh",
+      "position": "principal"
+    },
+    {
+      "name": "Haiyan",
+      "position": "senior"
+    }
+  ]
+}

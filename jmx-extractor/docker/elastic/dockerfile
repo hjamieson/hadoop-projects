@@ -1,0 +1,9 @@
+FROM alpine
+
+RUN apk add --update curl bash
+
+WORKDIR /usr/app
+
+COPY ./ ./
+
+CMD ["/usr/app/wait-for-elk.sh"]

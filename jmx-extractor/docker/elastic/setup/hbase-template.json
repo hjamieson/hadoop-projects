@@ -1,0 +1,16 @@
+{
+    "index_patterns":"hbase*",
+    "template": {
+        "settings": {
+            "number_of_shards": 1
+        },
+        "mappings": {
+            "properties": {
+                "@timestamp": {
+                    "type": "date",
+                    "format":"epoch_millis"
+                }
+            }
+        }
+    }
+}

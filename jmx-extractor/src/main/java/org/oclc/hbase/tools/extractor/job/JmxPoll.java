@@ -1,5 +1,8 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor.job;
 
+import org.oclc.hbase.tools.extractor.ElkUtils;
+import org.oclc.hbase.tools.extractor.HbaseUtils;
+import org.oclc.hbase.tools.extractor.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,14 +14,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * periodically queries a regionserver and dumps the jmx stats to stdout
+ * periodically queries all jmx beans and dumps the jmx stats to an
+ * elasticsearch cluster as an hbase-jmxserver-YYYY-MM-DD index.
  */
 public class JmxPoll {
     private static final Logger LOG = LoggerFactory.getLogger(JmxPoll.class);
     private static String rsUrlTemplate;
 
     /**
-     * takes a regionserver as input and polls jmx.
+     * takes a regionserver as input and polls jmx.  we look for the following
+     * variables in the environment:
+     * ES_ADDRESS : the host:ip of the elasticsearch server (default: localhost:9200)
      *
      * @param args
      * @throws IOException
@@ -27,7 +33,7 @@ public class JmxPoll {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         String index = "hbase-jmxserver-###";
         String ElkUrlTemplate = "http://###/#index#/_doc";
-        String elkHost = "localhost:9200";
+        String elkHost = System.getProperty("ES_ADDRESS","localhost:9200");
         rsUrlTemplate = "http://###:60030/jmx?qry=Hadoop:service=HBase,name=RegionServer,sub=Server";
 
 

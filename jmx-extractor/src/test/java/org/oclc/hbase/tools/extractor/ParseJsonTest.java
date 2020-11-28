@@ -1,4 +1,4 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;

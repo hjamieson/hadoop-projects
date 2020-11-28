@@ -1,4 +1,4 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,10 +11,9 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Stopwatch;
-import jmx.extractor.model.MetaField;
+import org.oclc.hbase.tools.extractor.model.MetaField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -75,6 +74,7 @@ public class JsonUtils {
     public static Map<String, Object> jsonToMap(URL rsUrl) throws IOException {
         LOG.debug("pulling jmx bean from {}", rsUrl.toExternalForm());
         Stopwatch sw = new Stopwatch().start();
+        // removed to be compatible with jackson in hbase stack
 //        JsonFactory jf = JsonFactory.builder()
 //                .configure(JsonReadFeature.ALLOW_NON_NUMERIC_NUMBERS, true)
 //                .build();
@@ -117,6 +117,7 @@ public class JsonUtils {
      */
     public static Map<String, Object> enrich(Map<String, Object> map) {
         map.put("@timestamp", System.currentTimeMillis());
+        map.put("shortHostname", map.get("Hostname").toString().split("\\.")[0]);
 
         // remove the percentage fields until we decide we want em!
         Stream<Map.Entry<String, Object>> percentage = map.entrySet().stream().filter(e -> !e.getKey().endsWith("_percentile"));

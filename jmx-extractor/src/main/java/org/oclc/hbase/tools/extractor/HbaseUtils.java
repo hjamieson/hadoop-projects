@@ -1,4 +1,4 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import org.apache.hadoop.hbase.ClusterStatus;
 import org.apache.hadoop.hbase.ServerName;

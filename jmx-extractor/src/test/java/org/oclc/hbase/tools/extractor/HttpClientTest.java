@@ -1,7 +1,6 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
 import org.junit.jupiter.api.Test;

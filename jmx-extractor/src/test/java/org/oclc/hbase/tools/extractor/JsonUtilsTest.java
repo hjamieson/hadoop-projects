@@ -1,4 +1,4 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
@@ -44,7 +44,7 @@ public class JsonUtilsTest {
     }
 
     @Test
-    void testBeanFromUrl(){
+    void testBeanFromUrl() {
         try {
             URL url = new File("src/test/resources/jmx-sample-sub-server.json").toURI().toURL();
             System.out.println(url.toExternalForm());
@@ -61,7 +61,7 @@ public class JsonUtilsTest {
     void testWriteMapOfPrimitives() {
         try {
             Map<String, Object> map = new HashMap<>();
-            map.put("name","huey");
+            map.put("name", "huey");
             map.put("intValue", 25);
             map.put("longValue", Long.valueOf(1024l));
             map.put("booleanValue", true);
@@ -77,17 +77,32 @@ public class JsonUtilsTest {
     }
 
     @Test
-    void testPercentageAreRemoved(){
+    void testPercentageAreRemoved() {
         // get the raw map from the JSON:
         try {
             URL url = new File("src/test/resources/jmx-sample-sub-server.json").toURI().toURL();
             Map<String, Object> map = JsonUtils.jsonToMap(url);
             // remove everything that does not end with _percentage
             Map<String, Object> cleanMap = map.entrySet().stream().filter(e -> e.getKey().endsWith("_percentage")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            assertTrue(cleanMap.isEmpty(),"percentage removed");
+            assertTrue(cleanMap.isEmpty(), "percentage removed");
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
+    }
+
+    @Test
+    void testEnrichedFields() {
+        try {
+            URL url = new File("src/test/resources/jmx-sample-sub-server.json").toURI().toURL();
+            Map<String, Object> map = JsonUtils.jsonToEnrichedMap(url);
+            // remove everything that does not end with _percentage
+            assertTrue(map.containsKey("shortHostname"));
+            assertEquals("hddev1db014dxc1", map.get("shortHostname"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+
     }
 }

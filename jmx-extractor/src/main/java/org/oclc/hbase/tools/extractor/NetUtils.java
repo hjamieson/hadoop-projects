@@ -1,4 +1,4 @@
-package jmx.extractor;
+package org.oclc.hbase.tools.extractor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

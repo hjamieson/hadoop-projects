@@ -16,7 +16,10 @@ repositories {
     }
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
 version = '0.1'
 
 configurations.all {
@@ -63,19 +66,17 @@ test {
 
 jar {
     manifest {
-        attributes('Main-Class': 'jmx.extractor.JmxPoll')
+        attributes('Main-Class': 'org.oclc.hbase.tools.extractor.JmxPoll')
     }
     from(configurations.baggage.collect { it.isDirectory() ? it : zipTree(it) })
 }
 
 task demo(type: JavaExec) {
-    main = "jmx.extractor.JmxPoll"
+    main = "org.oclc.hbase.tools.extractor.job.JmxPoll"
     classpath = sourceSets.test.runtimeClasspath
-    args 'hddev1db008dxc1.dev.oclc.org'
 }
 
 task bulkdemo(type: JavaExec) {
-    main = "jmx.extractor.job.Poll4Bulk"
+    main = "org.oclc.hbase.tools.extractor.job.Poll4Bulk"
     classpath = sourceSets.test.runtimeClasspath
-    //args 'hddev1db008dxc1.dev.oclc.org'
 }

@@ -63,6 +63,6 @@ Valid Forms(as documented in `org.apache.hadoop.hbase.http.jmx.JMXJsonServlet`)
    * _note_: normal gateways do not have access the rs ports like 60030, so make sure you run this on a admin ge!
    * to run it:
    ```
-    $ java -cp jmx-extractor-0.1.jar:$(hbase classpath) jmx.extractor.job.Poll4Bulk
+    $ java -cp jmx-extractor-0.1.jar:$(hbase classpath) org.oclc.hbase.tools.extractor.job.Poll4Bulk
    ```
    

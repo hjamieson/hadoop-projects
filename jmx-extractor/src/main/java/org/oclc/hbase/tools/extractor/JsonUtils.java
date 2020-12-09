@@ -27,6 +27,7 @@ public class JsonUtils {
      *
      * @param jp
      */
+    @Deprecated
     static Map<String, Object> jsonToMap(JsonParser jp) throws IOException {
         Map<String, Object> map = new HashMap<>();
         while (jp.currentToken() != JsonToken.END_OBJECT) {
@@ -71,6 +72,7 @@ public class JsonUtils {
      * @return
      * @throws IOException
      */
+    @Deprecated
     public static Map<String, Object> jsonToMap(URL rsUrl) throws IOException {
         LOG.debug("pulling jmx bean from {}", rsUrl.toExternalForm());
         Stopwatch sw = new Stopwatch().start();
@@ -94,6 +96,7 @@ public class JsonUtils {
      *
      * @param jp
      */
+    @Deprecated
     private static void seekToFirstObjectInArray(JsonParser jp) throws IOException {
         if (jp.nextToken() != JsonToken.START_OBJECT) {
             throw new IllegalStateException("START_OBJECT expected: was " + jp.currentToken());

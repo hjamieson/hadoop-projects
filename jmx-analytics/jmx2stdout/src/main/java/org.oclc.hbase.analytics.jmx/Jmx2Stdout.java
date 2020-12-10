@@ -1,18 +1,13 @@
-package org.oclc.hbase.tools.extractor.job;
+package org.oclc.hbase.analytics.jmx;
 
-import org.oclc.hbase.tools.extractor.ElkUtils;
 import org.oclc.hbase.tools.extractor.HbaseUtils;
 import org.oclc.hbase.tools.extractor.JmxUtil;
-import org.oclc.hbase.tools.extractor.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 /**
  * periodically queries all jmx beans and dumps the jmx stats to stdout

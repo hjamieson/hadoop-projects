@@ -29,6 +29,7 @@ public class NetUtils {
      */
     public static String getJmx(URL url) throws IOException {
         URLConnection con = url.openConnection();
+        Log.debug("reading input stream from {}", url.toString());
         StringBuilder buffer = new StringBuilder();
         BufferedReader bis = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String line;

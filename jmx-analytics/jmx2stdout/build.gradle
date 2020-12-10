@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+}
+
+configurations {
+    withDeps
+}
+
+dependencies {
+    implementation project(':jmxtools')
+    implementation('org.slf4j:slf4j-api:1.7.5')
+
+    testImplementation('org.apache.hbase:hbase-client:1.2.0-cdh5.16.2') {
+        exclude group: 'org.apache.curator', module: '*'
+    }
+    testImplementation (
+            'org.slf4j:slf4j-log4j12:1.7.5',
+            'org.slf4j:jcl-over-slf4j:1.7.5'
+    )
+
+    withDeps(project(':jmxtools'))
+}
+
+test {
+    // Use junit platform for unit tests
+    useJUnitPlatform()
+}
+
+jar {
+    dependsOn ':jmxtools:jar'   // why do I have to do this, mr. gradle?
+    manifest {
+        attributes('Main-Class': 'org.oclc.hbase.analytics.jmx.Jmx2Stdout')
+    }
+    from(configurations.withDeps.collect { it.isDirectory() ? it : zipTree(it) })
+}
+
+task demo(type: JavaExec) {
+    main = "org.oclc.hbase.analytics.jmx.Jmx2Stdout"
+    classpath = sourceSets.test.runtimeClasspath
+}

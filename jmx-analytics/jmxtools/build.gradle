@@ -14,21 +14,17 @@ configurations.all {
         failOnDynamicVersions()
     }
 }
-configurations {
-    baggage // defines additional classes to include in my jar!
-}
 
 dependencies {
     implementation(
-            'org.slf4j:slf4j-log4j12:1.2.17',
-            'org.slf4j:jcl-over-slf4j:1.7.5',
+            'org.slf4j:slf4j-api:1.7.5',
             'com.fasterxml.jackson.core:jackson-databind:2.11.3',
             'com.google.guava:guava:12.0.1'
     )
     implementation('org.apache.httpcomponents:fluent-hc:4.5.13') {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
-    implementation('org.apache.hbase:hbase-client:1.2.0-cdh5.16.2') {
+    compileOnly('org.apache.hbase:hbase-client:1.2.0-cdh5.16.2') {
         exclude group: 'org.apache.curator', module: '*'
     }
 
@@ -40,8 +36,11 @@ dependencies {
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
 
-    // special - include these in my jar!
-    baggage('com.fasterxml.jackson.core:jackson-databind:2.11.3',
+    testImplementation('org.apache.hbase:hbase-client:1.2.0-cdh5.16.2') {
+        exclude group: 'org.apache.curator', module: '*'
+    }
+    testImplementation (
+            'org.slf4j:slf4j-log4j12:1.7.5',
             'org.slf4j:jcl-over-slf4j:1.7.5'
     )
 }
@@ -51,19 +50,3 @@ test {
     useJUnitPlatform()
 }
 
-jar {
-    manifest {
-        attributes('Main-Class': 'org.oclc.hbase.tools.extractor.JmxPoll')
-    }
-    from(configurations.baggage.collect { it.isDirectory() ? it : zipTree(it) })
-}
-
-task demo(type: JavaExec) {
-    main = "org.oclc.hbase.tools.extractor.job.JmxPoll"
-    classpath = sourceSets.test.runtimeClasspath
-}
-
-task bulkdemo(type: JavaExec) {
-    main = "org.oclc.hbase.tools.extractor.job.Poll4Bulk"
-    classpath = sourceSets.test.runtimeClasspath
-}

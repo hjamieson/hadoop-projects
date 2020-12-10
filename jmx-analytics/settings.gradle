@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'jmx-analytics'
-include 'jmxtools'
+include ':jmxtools',':jmx2stdout'

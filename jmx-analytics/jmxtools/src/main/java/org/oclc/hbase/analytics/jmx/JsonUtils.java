@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor;
+package org.oclc.hbase.analytics.jmx;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Stopwatch;
-import org.oclc.hbase.tools.extractor.model.MetaField;
+import org.oclc.hbase.analytics.jmx.model.MetaField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

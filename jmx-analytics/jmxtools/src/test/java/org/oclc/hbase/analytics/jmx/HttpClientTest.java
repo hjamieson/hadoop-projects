@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor;
+package org.oclc.hbase.analytics.jmx;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;

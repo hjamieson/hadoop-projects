@@ -17,14 +17,24 @@ dependencies {
     implementation("org.slf4j:slf4j-api:1.7.5")
 
     testImplementation(
-            "org.slf4j:slf4j-simple:1.7.5"
+            'org.slf4j:slf4j-log4j12:1.7.5',
+            'org.slf4j:jcl-over-slf4j:1.7.5'
     )
+    testImplementation('org.apache.hbase:hbase-client:1.2.0-cdh5.16.2') {
+        exclude group: 'org.apache.curator', module: '*'
+    }
 }
+
 test {
     useJUnitPlatform()
 }
 
 task demo(type: JavaExec) {
     main = "org.oclc.hbase.analytics.jmx.Jmx2File"
+    classpath = sourceSets.test.runtimeClasspath
+}
+
+task dummy(type: JavaExec) {
+    main = "org.oclc.hbase.analytics.jmx.Dummy"
     classpath = sourceSets.test.runtimeClasspath
 }

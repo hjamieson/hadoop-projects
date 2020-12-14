@@ -1,7 +1,5 @@
 package org.oclc.hbase.analytics.jmx;
 
-import org.oclc.hbase.tools.extractor.HbaseUtils;
-import org.oclc.hbase.tools.extractor.JmxUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

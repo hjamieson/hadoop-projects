@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor.sink;
+package org.oclc.hbase.analytics.jmx.collector;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +12,17 @@ public class StdoutSink implements JmxSink, AutoCloseable {
 
     @Override
     public void write(String jsonString) throws IOException {
-        System.out.println(jsonString);
+        synchronized (this) {
+            System.out.println(jsonString);
+            System.out.flush();
+        }
     }
 
     @Override
     public void write(Map<String, Object> map) throws IOException {
-        throw new UnsupportedOperationException("not impl");
+        synchronized (this) {
+            throw new UnsupportedOperationException("not impl");
+        }
     }
 
     @Override

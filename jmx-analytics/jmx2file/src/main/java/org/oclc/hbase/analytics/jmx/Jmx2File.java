@@ -1,11 +1,10 @@
 package org.oclc.hbase.analytics.jmx;
 
-import org.oclc.hbase.tools.extractor.JmxCollector;
-import org.oclc.hbase.tools.extractor.sink.StdoutSink;
+import org.oclc.hbase.analytics.jmx.collector.JmxCollector;
+import org.oclc.hbase.analytics.jmx.collector.StdoutSink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,6 +16,7 @@ public class Jmx2File {
     public static void main(String[] args) {
         JmxCollector collector = new JmxCollector()
                 .writeTo(new StdoutSink())
+                .setCycleSeconds(10)
                 .start();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

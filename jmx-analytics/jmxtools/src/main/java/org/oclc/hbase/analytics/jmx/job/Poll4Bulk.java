@@ -1,8 +1,8 @@
-package org.oclc.hbase.tools.extractor.job;
+package org.oclc.hbase.analytics.jmx.job;
 
-import org.oclc.hbase.tools.extractor.ElkUtils;
-import org.oclc.hbase.tools.extractor.HbaseUtils;
-import org.oclc.hbase.tools.extractor.JsonUtils;
+import org.oclc.hbase.analytics.jmx.ElkUtils;
+import org.oclc.hbase.analytics.jmx.HbaseUtils;
+import org.oclc.hbase.analytics.jmx.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

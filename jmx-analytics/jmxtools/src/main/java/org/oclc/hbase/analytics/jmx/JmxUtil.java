@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor;
+package org.oclc.hbase.analytics.jmx;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +12,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * class that has some understanding of the context of getting an jmx mbean from

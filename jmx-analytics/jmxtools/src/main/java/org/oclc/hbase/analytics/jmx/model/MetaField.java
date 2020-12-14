@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor.model;
+package org.oclc.hbase.analytics.jmx.model;
 
 public class MetaField {
     public enum TypeIndicator {STRING, INT, LONG, DOUBLE, BOOL}

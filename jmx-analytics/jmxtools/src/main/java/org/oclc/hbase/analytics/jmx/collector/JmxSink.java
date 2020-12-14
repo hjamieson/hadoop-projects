@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor.sink;
+package org.oclc.hbase.analytics.jmx.collector;
 
 import java.io.IOException;
 import java.util.Map;

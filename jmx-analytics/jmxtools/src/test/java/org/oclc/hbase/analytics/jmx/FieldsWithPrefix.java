@@ -1,4 +1,4 @@
-package org.oclc.hbase.tools.extractor;
+package org.oclc.hbase.analytics.jmx;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
@@ -10,10 +10,11 @@ import java.net.URL;
 import java.util.Stack;
 
 /**
- * extract all the 'name' fields from the json object
+ * extract all the 'name' fields from the json object if they have a given prefix
  */
-public class ExtractsNamesFromJson {
+public class FieldsWithPrefix {
     public static void main(String[] args) throws IOException {
+        String prefix = args.length == 0 ? "name" : args[0];
         /*
         notes
         * we expect the object to contain a single element called 'beans'; an array.
@@ -38,13 +39,15 @@ public class ExtractsNamesFromJson {
             }
             if (jp.currentToken()==JsonToken.END_OBJECT){
                 depth--;
-                currentField.pop();
+//                currentField.pop();
             }
             if (jp.currentToken() == JsonToken.FIELD_NAME){
-                fieldsDiscovered++;
-                currentField.push(jp.getCurrentName());
+                if (jp.getText().startsWith(prefix)) {
+                    fieldsDiscovered++;
+//                    currentField.push(jp.getCurrentName());
 //                System.out.printf("field: %s==%s (%d)%n",currentField.peek(), jp.nextTextValue(), depth);
-                System.out.printf("%s%n", currentField.peek());
+                    System.out.printf("%s%n", jp.getText());
+                }
             }
             if (jp.currentToken() == JsonToken.START_ARRAY){
                 depth++;

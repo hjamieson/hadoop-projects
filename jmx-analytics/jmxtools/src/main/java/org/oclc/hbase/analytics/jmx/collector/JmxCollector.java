@@ -1,6 +1,5 @@
-package org.oclc.hbase.tools.extractor;
+package org.oclc.hbase.analytics.jmx.collector;
 
-import org.oclc.hbase.tools.extractor.sink.JmxSink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +11,7 @@ public class JmxCollector implements Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(JmxCollector.class);
 
     public static final int THREAD_POOL_SIZE = 20;
+    private int cycleSecs = 5;
     private ExecutorService es;
     private JmxSink sink;
 
@@ -27,6 +27,7 @@ public class JmxCollector implements Runnable {
         sink.init(new Properties());
 
         es = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+        es.submit(new Worker(es, cycleSecs, sink));
         return this;
     }
 
@@ -52,5 +53,14 @@ public class JmxCollector implements Runnable {
     @Override
     public void run() {
 
+    }
+
+    public int getCycleSecs() {
+        return cycleSecs;
+    }
+
+    public JmxCollector setCycleSeconds(int seconds){
+        this.cycleSecs = seconds;
+        return this;
     }
 }

@@ -9,3 +9,5 @@
 
 rootProject.name = 'jmx-analytics'
 include ':jmxtools',':jmx2stdout'
+include 'jmx2file'
+

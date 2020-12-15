@@ -1,5 +1,6 @@
-package org.oclc.hbase.analytics.jmx.collector;
+package org.oclc.hbase.analytics.jmx.jmx2stdout;
 
+import org.oclc.hbase.analytics.jmx.collector.JmxSink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

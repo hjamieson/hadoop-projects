@@ -3,6 +3,7 @@ package org.oclc.hbase.analytics.jmx.collector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,11 +25,15 @@ public class JmxCollector implements Runnable {
         if (sink == null){
             throw new IllegalStateException("no sink configured; aborting..");
         }
-        sink.init(new Properties());
+        try {
+            sink.init(new Properties());
 
-        es = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-        es.submit(new Worker(es, cycleSecs, sink));
-        return this;
+            es = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+            es.submit(new Worker(es, cycleSecs, sink));
+            return this;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

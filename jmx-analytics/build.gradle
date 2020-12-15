@@ -1,4 +1,3 @@
-
 subprojects {
     repositories {
         maven {
@@ -12,7 +11,14 @@ subprojects {
         }
     }
 
-
     version = '0.1'
+
+    ext {
+        slf4jVersion = "1.7.5"
+        hbaseVersion = "1.2.0-cdh5.16.2"
+        httpVersion = "4.5.13"
+        jacksonVersion = "2.11.3"
+        guavaVersion = "12.0.1"
+    }
 
 }

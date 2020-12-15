@@ -34,5 +34,5 @@ public interface JmxSink {
      * can be written to.
      * @param props optional bag of properties that can be passed to this method.
      */
-    void init(Properties props);
+    void init(Properties props) throws IOException;
 }

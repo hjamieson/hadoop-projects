@@ -40,7 +40,7 @@ public class Worker implements Callable<Void> {
         LOG.info("cycletime: {}", cycleTime);
 
         try {
-            while (!Thread.currentThread().isInterrupted()){
+            while (!Thread.currentThread().isInterrupted()) {
                 LOG.debug("worker is working");
                 HbaseUtils.getRegionServersList().stream().forEach(rs -> {
                     es.submit(new Callable<Void>() {
@@ -54,6 +54,8 @@ public class Worker implements Callable<Void> {
                 });
                 TimeUnit.SECONDS.sleep(cycleTime);
             }
+        }catch (InterruptedException ie){
+            LOG.info("worker done");
         } catch (Throwable e) {
             LOG.error(e.getMessage(), e);
         }

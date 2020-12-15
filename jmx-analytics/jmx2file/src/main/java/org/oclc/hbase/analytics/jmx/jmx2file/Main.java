@@ -1,21 +1,21 @@
-package org.oclc.hbase.analytics.jmx;
+package org.oclc.hbase.analytics.jmx.jmx2file;
 
 import org.oclc.hbase.analytics.jmx.collector.JmxCollector;
-import org.oclc.hbase.analytics.jmx.collector.StdoutSink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
  * collections JMX data from rs and writes it to a local file.
  */
-public class Jmx2File {
-    private static final Logger LOG = LoggerFactory.getLogger(Jmx2File.class);
+public class Main {
+    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         JmxCollector collector = new JmxCollector()
-                .writeTo(new StdoutSink())
+                .writeTo(new FileSink(new File("build/tmp/dummy.txt")))
                 .setCycleSeconds(10)
                 .start();
 

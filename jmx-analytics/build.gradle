@@ -19,6 +19,7 @@ subprojects {
         httpVersion = "4.5.13"
         jacksonVersion = "2.11.3"
         guavaVersion = "12.0.1"
+        commonscliVersion = "1.2"
     }
 
 }

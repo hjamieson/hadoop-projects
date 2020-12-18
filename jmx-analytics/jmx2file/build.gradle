@@ -15,6 +15,7 @@ configurations {
 dependencies {
     implementation(project(':jmxtools'))
     implementation("org.slf4j:slf4j-api:${slf4jVersion}")
+    implementation("commons-cli:commons-cli:${commonscliVersion}")
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -49,8 +50,9 @@ jar {
 }
 
 task demo(type: JavaExec) {
-    main = "org.oclc.hbase.analytics.jmx.Jmx2File"
+    main = "org.oclc.hbase.analytics.jmx.jmx2file.Main"
     classpath = sourceSets.test.runtimeClasspath
+    args = ["-c", "10", "build/tmp/maintest.out"]
 }
 
 task dummy(type: JavaExec) {

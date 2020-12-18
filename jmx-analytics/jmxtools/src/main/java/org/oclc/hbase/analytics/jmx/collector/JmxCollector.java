@@ -64,7 +64,7 @@ public class JmxCollector implements Runnable {
         return cycleSecs;
     }
 
-    public JmxCollector setCycleSeconds(int seconds){
+    public JmxCollector withCycleSeconds(int seconds){
         this.cycleSecs = seconds;
         return this;
     }

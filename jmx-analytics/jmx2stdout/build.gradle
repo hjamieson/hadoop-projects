@@ -9,6 +9,7 @@ configurations {
 dependencies {
     implementation project(':jmxtools')
     implementation("org.slf4j:slf4j-api:${slf4jVersion}")
+    implementation("commons-cli:commons-cli:${commonscliVersion}")
 
     testImplementation("org.apache.hbase:hbase-client:${hbaseVersion}") {
         exclude group: 'org.apache.curator', module: '*'
@@ -39,6 +40,7 @@ jar {
 }
 
 task demo(type: JavaExec) {
-    main = "org.oclc.hbase.analytics.jmx.Jmx2Stdout"
+    main = "org.oclc.hbase.analytics.jmx.jmx2stdout.Main"
     classpath = sourceSets.test.runtimeClasspath
+    args = ["-c", "10"]
 }

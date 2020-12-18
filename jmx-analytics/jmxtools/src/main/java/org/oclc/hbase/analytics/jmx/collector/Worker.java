@@ -37,7 +37,7 @@ public class Worker implements Callable<Void> {
             LOG.error("cycletime has not been set");
             throw new IllegalArgumentException("cycletime has not been set");
         }
-        LOG.info("cycletime: {}", cycleTime);
+        LOG.debug("cycletime: {}", cycleTime);
 
         try {
             while (!Thread.currentThread().isInterrupted()) {
@@ -46,7 +46,7 @@ public class Worker implements Callable<Void> {
                     es.submit(new Callable<Void>() {
                         @Override
                         public Void call() throws Exception {
-                            LOG.info("polling {}", rs);
+                            LOG.debug("polling {}", rs);
                             sink.write(JmxUtil.getJmxAsJson(rs, 60030));
                             return null;
                         }
@@ -55,7 +55,7 @@ public class Worker implements Callable<Void> {
                 TimeUnit.SECONDS.sleep(cycleTime);
             }
         }catch (InterruptedException ie){
-            LOG.info("worker done");
+            LOG.debug("worker done");
         } catch (Throwable e) {
             LOG.error(e.getMessage(), e);
         }

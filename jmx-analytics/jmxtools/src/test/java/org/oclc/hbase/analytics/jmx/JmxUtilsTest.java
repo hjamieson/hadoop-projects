@@ -55,7 +55,7 @@ public class JmxUtilsTest {
             URL url = new File("src/test/resources/jmx-sample-sub-server.json").toURI().toURL();
             String testJson = JmxUtil.getJmxAsJson(url);
             System.out.println(testJson);
-            assertTrue(testJson.contains("timestamp"));
+            assertTrue(testJson.contains("eventTimeMs"));
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.getMessage());

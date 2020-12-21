@@ -21,6 +21,7 @@ public class JmxUtil {
     private static final Logger LOG = LoggerFactory.getLogger(JmxUtil.class);
     public static final String rsUrlTemplate = "http://%s:%s/jmx?qry=Hadoop:service=HBase,name=RegionServer,sub=Server";
     private static final ObjectMapper om = new ObjectMapper();
+    public static final String EVENT_TIME_LABEL = "eventTimeMs";
     private static TypeReference<HashMap<String, Object>> typeRef = new TypeReference<HashMap<String, Object>>() {
     };
 
@@ -58,7 +59,7 @@ public class JmxUtil {
     }
 
     private static void addNewProperties(Map<String, Object> map) {
-        map.put("timestamp", System.currentTimeMillis());
+        map.put(EVENT_TIME_LABEL, System.currentTimeMillis());
     }
 
 }

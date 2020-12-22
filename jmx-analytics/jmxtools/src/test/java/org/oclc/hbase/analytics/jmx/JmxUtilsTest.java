@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,9 +54,10 @@ public class JmxUtilsTest {
     void testEnrichedFields() {
         try {
             URL url = new File("src/test/resources/jmx-sample-sub-server.json").toURI().toURL();
-            String testJson = JmxUtil.getJmxAsJson(url);
-            System.out.println(testJson);
-            assertTrue(testJson.contains("eventTimeMs"));
+            Map<String, Object> map = JmxUtil.getJmxAsMap(url);
+            assertTrue(map.containsKey("eventTimeMs"));
+            assertTrue(map.containsKey("hostname"));
+            assertEquals(map.get("hostname") ,"hddev1db014dxc1.dev.oclc.org");
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.getMessage());
@@ -71,11 +73,10 @@ public class JmxUtilsTest {
             HashMap<String, Object> sob = om.readValue(file, typeRef);
             assert(sob.containsKey("beans"));
             System.out.println(sob);
-//            System.out.println(sob.get("beans").getClass().getName());
             List<Object> list = (List<Object>) sob.get("beans");    // expect an ArrayList
             System.out.println(list.get(0).getClass().getName());   // expect a LinkedHashMap
             LinkedHashMap<String, Object> lmap = (LinkedHashMap<String, Object>) list.get(0);
-//            lmap.forEach((k, v) -> System.out.printf("key: %s, v: %s%n", k, v.getClass().getName()));
+            assert(lmap.containsKey("tag.Hostname"));
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.getMessage());

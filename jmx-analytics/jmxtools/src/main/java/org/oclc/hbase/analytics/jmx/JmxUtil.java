@@ -27,8 +27,9 @@ public class JmxUtil {
 
     /**
      * reads the jmx bean from the host:port and returns the processed JSON.
+     *
      * @param hostname the host
-     * @param port the rs port
+     * @param port     the rs port
      * @return json of the processed bean
      * @throws IOException
      */
@@ -38,24 +39,41 @@ public class JmxUtil {
     }
 
     /**
+     * connects to the regionserver and returns the JMX bean as a map of values.
+     * @param jsonUrl of the stream
+     * @return a map of properties from the bean, with filtering an enrichmant applied.
+     * @throws IOException
+     */
+    public static Map<String, Object> getJmxAsMap(URL jsonUrl) throws IOException {
+        HashMap<String, Object> outerMap = om.readValue(jsonUrl, typeRef);
+        List<Object> beans = (List<Object>) outerMap.get("beans");
+        LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) beans.get(0);
+        /*
+        promote the hostname field to a first-class field (no tag.):
+         */
+        properties.put("hostname", properties.get("tag.Hostname"));
+        Map<String, Object> enrichedMap = properties.entrySet().stream()
+                .filter(kv -> !kv.getKey().endsWith("_percentile"))
+                .filter(kv -> !kv.getKey().startsWith("tag."))
+                .filter(kv -> !kv.getKey().startsWith("mob"))
+                .filter(kv -> !kv.getKey().endsWith("_mean"))
+                .filter(kv -> !kv.getKey().endsWith("_max"))
+                .filter(kv -> !kv.getKey().endsWith("_min"))
+                .filter(kv -> !kv.getKey().endsWith("_median"))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        addNewProperties(enrichedMap);
+        return enrichedMap;
+    }
+
+    /**
      * reads the jmx bean from the URL and returns the processed JSON.
+     *
      * @param jsonUrl
      * @return the processed jmx bean in JSON format
      * @throws IOException
      */
     public static String getJmxAsJson(URL jsonUrl) throws IOException {
-        HashMap<String, Object> outerMap = om.readValue(jsonUrl, typeRef);
-        List<Object> beans = (List<Object>) outerMap.get("beans");
-        LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) beans.get(0);
-
-        Map<String, Object> enrichedMap = properties.entrySet().stream()
-                .filter(kv -> !kv.getKey().endsWith("_percentile"))
-                .filter(kv -> !kv.getKey().startsWith("tag."))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-        addNewProperties(enrichedMap);
-
-        return om.writeValueAsString(enrichedMap);
+        return om.writeValueAsString(getJmxAsMap(jsonUrl));
     }
 
     private static void addNewProperties(Map<String, Object> map) {

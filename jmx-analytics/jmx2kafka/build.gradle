@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+configurations {
+    withDeps
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation(
+            "org.slf4j:slf4j-log4j12:${slf4jVersion}",
+            "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+    )
+    testImplementation("org.apache.hbase:hbase-client:${hbaseVersion}") {
+        exclude group: 'org.apache.curator', module: '*'
+    }
+
+    implementation(project(':jmxtools'))
+    implementation("commons-cli:commons-cli:${commonscliVersion}")
+    implementation "org.apache.kafka:kafka-clients:${kafkaVersion}"
+    implementation("org.slf4j:slf4j-api:${slf4jVersion}")
+
+    withDeps(
+            project(':jmxtools'),
+            "org.apache.kafka:kafka-clients:${kafkaVersion}"
+    )
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+jar {
+    dependsOn(':jmxtools:jar')
+    manifest {
+        attributes('Main-Class': 'org.oclc.hbase.analytics.jmx.kafka.Main')
+    }
+
+    from(configurations.withDeps.collect { it.isDirectory() ? it : zipTree(it) })
+}
+
+task demo(type: JavaExec) {
+    main = "org.oclc.hbase.analytics.jmx.kafka.Main"
+    classpath = sourceSets.test.runtimeClasspath
+    args = ["-c", "30", "-t", "dbahadoop.hugh.test"]
+}
+
+task todev1(type: Exec){
+//    commandLine "echo", "${jar.archiveFile.get()}"
+//    commandLine "echo", "${jar.archivePath}"
+//    commandLine "scp", "-v",  "${jar.archivePath}", "hdadmgw01dxm1.dev.oclc.org:~/Downloads/"
+    commandLine "scp", "-v",  "${jar.archiveFile.get()}", "hdadmgw01dxm1.dev.oclc.org:~/Downloads/"
+}

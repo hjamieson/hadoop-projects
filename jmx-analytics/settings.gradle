@@ -9,4 +9,5 @@
 
 rootProject.name = 'jmx-analytics'
 include ':jmxtools',':jmx2stdout',':jmx2file'
+include 'jmx2kafka'
 

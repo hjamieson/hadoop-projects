@@ -66,3 +66,12 @@ Valid Forms(as documented in `org.apache.hadoop.hbase.http.jmx.JMXJsonServlet`)
     $ java -cp jmx-extractor-0.1.jar:$(hbase classpath) org.oclc.hbase.tools.extractor.job.Poll4Bulk
    ```
    
+## Kafka Notes
+
+### Topic Configuration
+retention.ms - 
+```bash
+kafka-topics --zookeeper hddev1mb004dxc1:2181/kafka --delete --topic "dbahadoop.hugh.test"
+
+kafka-topics --zookeeper hddev1mb004dxc1:2181/kafka --create --topic "dbahadoop.hugh.test" --partitions 1 --replication-factor 1 --config "retention.ms=86400000"      
+```
